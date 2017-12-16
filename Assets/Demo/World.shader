@@ -43,11 +43,11 @@ CGINCLUDE
 // @block DistanceFunction
 inline float DistanceFunction(float3 pos)
 {
-    float r = abs(sin(2 * PI * _Time.y / 2.0));
-    float d1 = RoundBox(Repeat(pos, float3(6, 6, 6)), 1 - r, r);
-    float d2 = Sphere(pos, 3.0);
-    float d3 = Plane(pos - float3(0, -3, 0), float3(0, 1, 0));
-    return SmoothMin(SmoothMin(d1, d2, 1.0), d3, 1.0);
+    float3 p = pos;
+    p.xz = Repeat(p.xz, float2(6, 6));
+    float d = HexagonalPrismY(p, float2(0.5, 3.0));
+    d = min(Plane(pos - float3(0, -3, 0), float3(0, 1, 0)), d);
+    return d;
 }
 // @endblock
 
