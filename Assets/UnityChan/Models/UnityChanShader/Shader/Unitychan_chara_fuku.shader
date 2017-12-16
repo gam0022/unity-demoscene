@@ -6,6 +6,7 @@ Shader "UnityChan/Clothing"
 		_ShadowColor ("Shadow Color", Color) = (0.8, 0.8, 1, 1)
 		_SpecularPower ("Specular Power", Float) = 20
 		_EdgeThickness ("Outline Thickness", Float) = 1
+		_DepthBias  ("Outline Depth Bias", Float) = 0.00012
 		
 		_MainTex ("Diffuse", 2D) = "white" {}
 		_FalloffSampler ("Falloff Control", 2D) = "white" {}

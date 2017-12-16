@@ -31,10 +31,11 @@ namespace UnityChan
 		{
 			UpdateParameters ();
 		}
-	
+
+#if UNITY_EDITOR
 		void Update ()
 		{
-#if UNITY_EDITOR
+
 		//Kobayashi
 		if(dynamicRatio >= 1.0f)
 			dynamicRatio = 1.0f;
@@ -42,9 +43,9 @@ namespace UnityChan
 			dynamicRatio = 0.0f;
 		//Ebata
 		UpdateParameters();
-#endif
+
 		}
-	
+#endif	
 		private void LateUpdate ()
 		{
 			//Kobayashi
@@ -65,6 +66,7 @@ namespace UnityChan
 	
 		private void UpdateParameter (string fieldName, float baseValue, AnimationCurve curve)
 		{
+			#if UNITY_EDITOR
 			var start = curve.keys [0].time;
 			var end = curve.keys [curve.length - 1].time;
 			//var step	= (end - start) / (springBones.Length - 1);
@@ -78,6 +80,7 @@ namespace UnityChan
 					prop.SetValue (springBones [i], baseValue * scale);
 				}
 			}
+			#endif
 		}
 	}
 }

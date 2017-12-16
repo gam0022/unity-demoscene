@@ -467,6 +467,53 @@
             </e>
           </e>
         </e>
+        <e p="UnityChan" t="Include">
+          <e p="Editor" t="Include">
+            <e p="CreateLocatorHere.cs" t="Include" />
+          </e>
+          <e p="Models" t="Include">
+            <e p="UnityChanShader" t="Include">
+              <e p="Shader" t="Include">
+                <e p="Unitychan_chara_akarami_blend.shader" t="Include" />
+                <e p="Unitychan_chara_eye.shader" t="Include" />
+                <e p="Unitychan_chara_eye_blend.shader" t="Include" />
+                <e p="Unitychan_chara_eyelash_blend.shader" t="Include" />
+                <e p="Unitychan_chara_fuku.shader" t="Include" />
+                <e p="Unitychan_chara_fuku_ds.shader" t="Include" />
+                <e p="Unitychan_chara_hada.shader" t="Include" />
+                <e p="Unitychan_chara_hada_blend.shader" t="Include" />
+                <e p="Unitychan_chara_hair.shader" t="Include" />
+                <e p="Unitychan_chara_hair_ds.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="AutoBlink.cs" t="Include" />
+            <e p="CameraController.cs" t="Include" />
+            <e p="FaceUpdate.cs" t="Include" />
+            <e p="IdleChanger.cs" t="Include" />
+            <e p="IKCtrlRightHand.cs" t="Include" />
+            <e p="RandomWind.cs" t="Include" />
+            <e p="SpringBone.cs" t="Include" />
+            <e p="SpringCollider.cs" t="Include" />
+            <e p="SpringManager.cs" t="Include" />
+            <e p="ThirdPersonCamera.cs" t="Include" />
+            <e p="UnityChanControlScriptWithRgidBody.cs" t="Include" />
+          </e>
+          <e p="SplashScreen" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="SplashScreen.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Stage" t="Include">
+            <e p="Shader" t="Include">
+              <e p="AlphaMask.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Voice" t="Include">
+            <e p="unity-chan_voice_list.txt" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />

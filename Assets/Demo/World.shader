@@ -48,9 +48,9 @@ CGINCLUDE
 inline float DistanceFunction(float3 pos)
 {
     float3 p = pos;
-    p.xz = Repeat(p.xz, float2(6, 6));
-    float d = HexagonalPrismY(p, float2(0.5, 3.0));
-    d = min(Plane(pos - float3(0, -3, 0), float3(0, 1, 0)), d);
+    p.xz = Repeat(p.xz, float2(3, 3));
+    float d = HexagonalPrismY(p, float2(0.3, 3.0));
+    d = min(Plane(pos, float3(0, 1, 0)), d);
     return d;
 }
 // @endblock
