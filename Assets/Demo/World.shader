@@ -61,7 +61,7 @@ float4 _Grid_ST;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = tex2D(_Grid, ray.endPos.yy * _Grid_ST.xy + _Grid_ST.zw);
+    o.emission = 5.0 * tex2D(_Grid, ray.endPos.yy * _Grid_ST.xy + _Grid_ST.zw);
 }
 // @endblock
 

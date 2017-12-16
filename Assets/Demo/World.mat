@@ -25,7 +25,7 @@ Material:
     m_Floats:
     - _Loop: 100
     - _MinDistance: 0.01
-    - _ShadowExtraBias: 0.02
+    - _ShadowExtraBias: 0.051
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
     m_Colors:

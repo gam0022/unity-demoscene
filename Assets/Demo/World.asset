@@ -23,7 +23,7 @@ MonoBehaviour:
     value: Assets/Raymarching/Shaders/Include
   conditions:
   - key: ShadowCaster
-    value: 0
+    value: 1
   - key: FollowObjectScale
     value: 0
   - key: DoNotOutputDepth
@@ -54,12 +54,12 @@ MonoBehaviour:
     folded: 0
   - key: PostEffect
     value: "sampler2D _Grid;\nfloat4 _Grid_ST;\n\ninline void PostEffect(RaymarchInfo
-      ray, inout PostEffectOutput o)\n{\n    o.emission = tex2D(_Grid, ray.endPos.yy
+      ray, inout PostEffectOutput o)\n{\n    o.emission = 5.0 * tex2D(_Grid, ray.endPos.yy
       * _Grid_ST.xy + _Grid_ST.zw);\n}"
-    folded: 1
+    folded: 0
   basicFolded: 0
-  conditionsFolded: 0
-  variablesFolded: 1
+  conditionsFolded: 1
+  variablesFolded: 0
   materialsFolded: 0
   distanceFunction: 
   postEffect: 
