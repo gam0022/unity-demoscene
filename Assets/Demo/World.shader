@@ -11,10 +11,14 @@ Properties
     [Header(Raymarching Settings)]
     _Loop("Loop", Range(1, 100)) = 30
     _MinDistance("Minimum Distance", Range(0.001, 0.1)) = 0.01
-
+    _ShadowLoop("Shadow Loop", Range(1, 100)) = 10
+    _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
+    _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.02
 
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+[Header(Additional Parameters)]
+_Grid("Grid", 2D) = "" {}
 // @endblock
 }
 
@@ -52,8 +56,12 @@ inline float DistanceFunction(float3 pos)
 // @endblock
 
 // @block PostEffect
+sampler2D _Grid;
+float4 _Grid_ST;
+
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
+    o.emission = tex2D(_Grid, ray.endPos.yy * _Grid_ST.xy + _Grid_ST.zw);
 }
 // @endblock
 
@@ -83,7 +91,20 @@ Pass
     ENDCG
 }
 
+Pass
+{
+    Tags { "LightMode" = "ShadowCaster" }
 
+    CGPROGRAM
+    #include "Assets/Raymarching/Shaders/Include/VertFragShadowObject.cginc"
+    #pragma target 3.0
+    #pragma vertex Vert
+    #pragma fragment Frag
+    #pragma multi_compile_shadowcaster
+    #pragma multi_compile OBJECT_SHAPE_CUBE OBJECT_SHAPE_SPHERE ___
+    #pragma fragmentoption ARB_precision_hint_fastest
+    ENDCG
+}
 
 }
 

@@ -17,7 +17,11 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Grid:
+        m_Texture: {fileID: 2800000, guid: 529239097d02f9f42b0ddd436c6fcbb0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Loop: 100
     - _MinDistance: 0.01
@@ -26,5 +30,5 @@ Material:
     - _ShadowMinDistance: 0.01
     m_Colors:
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 1, g: 1, b: 1, a: 0}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
