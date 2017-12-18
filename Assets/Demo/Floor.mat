@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SphereBoxMorph
-  m_Shader: {fileID: 4800000, guid: 36acd277d50731f4294963d30204dd77, type: 3}
-  m_ShaderKeywords: OBJECT_SHAPE_CUBE
-  m_LightmapFlags: 5
+  m_Name: Floor
+  m_Shader: {fileID: 4800000, guid: c9819ea2206a99047baef574aaf0d1d9, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -17,18 +17,18 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Grid:
+        m_Texture: {fileID: 2800000, guid: 529239097d02f9f42b0ddd436c6fcbb0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Glossiness: 0.942
     - _Loop: 100
-    - _Metallic: 0.702
-    - _MinDistance: 0.001
-    - _ShadowExtraBias: 0.02
+    - _MinDistance: 0.01
+    - _ShadowExtraBias: 0.051
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Specular: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 1, g: 1, b: 1, a: 1}
+    - _Specular: {r: 1, g: 1, b: 1, a: 0.503}

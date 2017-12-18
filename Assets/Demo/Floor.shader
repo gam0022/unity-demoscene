@@ -1,4 +1,4 @@
-Shader "Raymarching/World"
+Shader "Raymarching/Floor"
 {
 
 Properties
@@ -69,7 +69,7 @@ inline float DistanceFunction(float3 pos)
     p.xz = Repeat(p.xz, float2(3, 3));
     p.xz = foldRotate(p.xz, 12.0 * sin(_Time.x));
     float d = Box(p, float3(0.3, 3.0, 0.3));
-    //d = min(Plane(pos, float3(0, 1, 0)), d);
+    d = min(Plane(pos, float3(0, 1, 0)), d);
     return d;
 }
 // @endblock
@@ -127,7 +127,7 @@ Pass
 
 }
 
-Fallback "Diffuse"
+Fallback Off
 
 CustomEditor "Raymarching.MaterialEditor"
 

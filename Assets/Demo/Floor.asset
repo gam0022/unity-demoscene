@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 160e2c6c162f4a5489a4784f095d4158, type: 3}
-  m_Name: World
+  m_Name: Floor
   m_EditorClassIdentifier: 
-  shaderName: World
-  shaderReference: {fileID: 4800000, guid: 87a584a97f34fd4438ddd726e04938ed, type: 3}
+  shaderName: Floor
+  shaderReference: {fileID: 4800000, guid: c9819ea2206a99047baef574aaf0d1d9, type: 3}
   shaderTemplate: 2. Direct GBuffer
   variables:
   - key: Name
-    value: World
+    value: Floor
   - key: Culling
     value: Back
   - key: RaymarchingShaderDirectory
