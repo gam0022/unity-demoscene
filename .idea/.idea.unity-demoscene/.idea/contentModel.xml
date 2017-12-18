@@ -71,7 +71,6 @@
           </e>
         </e>
         <e p="Demo" t="Include">
-          <e p="Floor.shader" t="Include" />
           <e p="World.shader" t="Include" />
         </e>
         <e p="Plugins" t="Include">

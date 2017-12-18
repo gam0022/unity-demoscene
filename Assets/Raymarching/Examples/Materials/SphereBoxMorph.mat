@@ -19,11 +19,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Glossiness: 0.942
+    - _Glossiness: 0.628
     - _Loop: 100
-    - _Metallic: 0.702
+    - _Metallic: 0
     - _MinDistance: 0.001
-    - _ShadowExtraBias: 0.02
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
     m_Colors:
