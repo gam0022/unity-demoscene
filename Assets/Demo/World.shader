@@ -45,11 +45,30 @@ CGINCLUDE
 #include "Assets/Raymarching/Shaders/Include/Common.cginc"
 
 // @block DistanceFunction
+#define PI2 (2.0 * PI)
+
+float2x2 rotate(in float a)
+{
+    float s = sin(a), c = cos(a);
+    return float2x2(c, s, -s, c);
+}
+
+// https://www.shadertoy.com/view/Mlf3Wj
+float2 foldRotate(in float2 p, in float s)
+{
+    float a = PI / s - atan2(p.x, p.y);
+    float n = PI2 / s;
+    a = floor(a / n) * n;
+    p = mul(rotate(a), p);
+    return p;
+}
+
 inline float DistanceFunction(float3 pos)
 {
     float3 p = pos;
     p.xz = Repeat(p.xz, float2(3, 3));
-    float d = HexagonalPrismY(p, float2(0.3, 3.0));
+    p.xz = foldRotate(p.xz, 12.0 * sin(_Time.x));
+    float d = Box(p, float3(0.3, 3.0, 0.3));
     d = min(Plane(pos, float3(0, 1, 0)), d);
     return d;
 }
@@ -61,7 +80,7 @@ float4 _Grid_ST;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = half4(3.0, 3.0, 5.0, 1.0) * abs(sin(PI * 5.0 * _Time.x)) * step(frac(ray.endPos.y - 2.0 * _Time.x), 0.02);
+    o.emission = half4(3.0, 3.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x)) * step(frac(ray.endPos.y - 4.0 * _Time.x), 0.02);
 }
 // @endblock
 
