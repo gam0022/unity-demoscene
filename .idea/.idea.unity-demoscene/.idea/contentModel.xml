@@ -79,6 +79,7 @@
           </e>
         </e>
         <e p="Demo" t="Include">
+          <e p="DemoCameraWork.cs" t="Include" />
           <e p="World.shader" t="Include" />
         </e>
         <e p="Plugins" t="Include">
