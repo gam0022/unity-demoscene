@@ -298,7 +298,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 267027275}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.000082581304, y: 1.5296824, z: 14.303523}
+  m_LocalPosition: {x: -0.044080906, y: 1.6064535, z: 2.0438168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 681279549}
@@ -564,7 +564,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 35d950978ffcf40c0b9506f599f52acc, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
