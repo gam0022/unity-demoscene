@@ -478,6 +478,198 @@
             </e>
           </e>
         </e>
+        <e p="Unity Technologies" t="Include">
+          <e p="Recorder" t="Include">
+            <e p="Extensions" t="Include">
+              <e p="FCIntegration" t="Include">
+                <e p="BaseFCRecorderSettings.cs" t="Include" />
+                <e p="Editor" t="Include">
+                  <e p="RecorderEditorBase.cs" t="Include" />
+                </e>
+                <e p="EXR" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="EXRRecorderSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="EXRRecorder.cs" t="Include" />
+                  <e p="EXRRecorderSettings.cs" t="Include" />
+                </e>
+                <e p="GIF" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="GIFRecorderSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="GIFRecorder.cs" t="Include" />
+                  <e p="GIFRecorderSettings.cs" t="Include" />
+                </e>
+                <e p="MP4" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="Mp4RecorderSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="MP4Recorder.cs" t="Include" />
+                  <e p="MP4RecorderSettings.cs" t="Include" />
+                </e>
+                <e p="PNG" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="PngRecorderSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="PNGRecorder.cs" t="Include" />
+                  <e p="PNGRecorderSettings.cs" t="Include" />
+                </e>
+                <e p="WEBM" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="WEBMRecorderSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="WEBMRecorder.cs" t="Include" />
+                  <e p="WEBMRecorderSettings.cs" t="Include" />
+                </e>
+              </e>
+              <e p="UTJ" t="Include">
+                <e p="FrameCapturer" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="AudioEncoderConfigDrawer.cs" t="Include" />
+                    <e p="AudioRecorderEditor.cs" t="Include" />
+                    <e p="GBufferRecorderEditor.cs" t="Include" />
+                    <e p="Misc" t="Include">
+                      <e p="BoolDrawer.cs" t="Include" />
+                      <e p="DataPathDrawer.cs" t="Include" />
+                    </e>
+                    <e p="MovieEncoderConfigDrawer.cs" t="Include" />
+                    <e p="MovieRecorderEditor.cs" t="Include" />
+                    <e p="RecorderBaseEditor.cs" t="Include" />
+                  </e>
+                  <e p="Scripts" t="Include">
+                    <e p="AudioRecorder.cs" t="Include" />
+                    <e p="Encoder" t="Include">
+                      <e p="AudioEncoder.cs" t="Include" />
+                      <e p="EncoderBase.cs" t="Include" />
+                      <e p="ExrEncoder.cs" t="Include" />
+                      <e p="fcAPI.cs" t="Include" />
+                      <e p="FlacEncoder.cs" t="Include" />
+                      <e p="GifEncoder.cs" t="Include" />
+                      <e p="MovieEncoder.cs" t="Include" />
+                      <e p="MP4Encoder.cs" t="Include" />
+                      <e p="OggEncoder.cs" t="Include" />
+                      <e p="PngEncoder.cs" t="Include" />
+                      <e p="WaveEncoder.cs" t="Include" />
+                      <e p="WebMEncoder.cs" t="Include" />
+                    </e>
+                    <e p="GBufferRecorder.cs" t="Include" />
+                    <e p="Misc" t="Include">
+                      <e p="Bool.cs" t="Include" />
+                      <e p="DataPath.cs" t="Include" />
+                    </e>
+                    <e p="MovieRecorder.cs" t="Include" />
+                    <e p="RecorderBase.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="License.txt" t="Include" />
+              </e>
+            </e>
+            <e p="Framework" t="Include">
+              <e p="Core" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="AboutBox.cs" t="Include" />
+                  <e p="EnumHelper.cs" t="Include" />
+                  <e p="FileNameDrawer.cs" t="Include" />
+                  <e p="InputEditor.cs" t="Include" />
+                  <e p="OutputPathDrawer.cs" t="Include" />
+                  <e p="RecorderEditor.cs" t="Include" />
+                  <e p="RecorderSelector.cs" t="Include" />
+                  <e p="RecorderWindow.cs" t="Include" />
+                  <e p="RecorderWindowSettings.cs" t="Include" />
+                  <e p="RTInputSelector.cs" t="Include" />
+                  <e p="SerializableObjHelper.cs" t="Include" />
+                  <e p="Timeline" t="Include">
+                    <e p="RecorderClipEditor.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Engine" t="Include">
+                  <e p="BaseRenderTextureInput.cs" t="Include" />
+                  <e p="FileNameGenerator.cs" t="Include" />
+                  <e p="FrameRateHelper.cs" t="Include" />
+                  <e p="FrameRecorderAttribute.cs" t="Include" />
+                  <e p="FrameRecorderGOControler.cs" t="Include" />
+                  <e p="GenericRecorder.cs" t="Include" />
+                  <e p="ImageRecorderSettings.cs" t="Include" />
+                  <e p="InputSettings.cs" t="Include" />
+                  <e p="OutputPath.cs" t="Include" />
+                  <e p="Recorder.cs" t="Include" />
+                  <e p="RecorderComponent.cs" t="Include" />
+                  <e p="RecorderInput.cs" t="Include" />
+                  <e p="RecorderSettings.cs" t="Include" />
+                  <e p="RecordersInventory.cs" t="Include" />
+                  <e p="RecorderVersion.cs" t="Include" />
+                  <e p="RecordingSession.cs" t="Include" />
+                  <e p="Timeline" t="Include">
+                    <e p="RecorderClip.cs" t="Include" />
+                    <e p="RecorderPlayableBehaviour.cs" t="Include" />
+                    <e p="RecorderTrack.cs" t="Include" />
+                    <e p="WaitForEndOfFrameComponent.cs" t="Include" />
+                  </e>
+                  <e p="UnityHelpers.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Inputs" t="Include">
+                <e p="Adam" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="AdamBeautySourceEditor.cs" t="Include" />
+                  </e>
+                  <e p="Engine" t="Include">
+                    <e p="AdamBeautyInput.cs" t="Include" />
+                    <e p="AdamBeautyInputSettings.cs" t="Include" />
+                  </e>
+                  <e p="Shaders" t="Include">
+                    <e p="BS4Accumulate.shader" t="Include" />
+                    <e p="BS4Normalize.shader" t="Include" />
+                    <e p="BS4SuperShader.shader" t="Include" />
+                  </e>
+                </e>
+                <e p="CBRenderTexture" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="CBRenderTextureInputSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="Engine" t="Include">
+                    <e p="CBRenderTextureInput.cs" t="Include" />
+                    <e p="CBRenderTextureInputSettings.cs" t="Include" />
+                    <e p="GameViewSize.cs" t="Include" />
+                  </e>
+                  <e p="Shaders" t="Include">
+                    <e p="CopyFrameBuffer.shader" t="Include" />
+                  </e>
+                </e>
+                <e p="RenderTexture" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="RenderTextureInputSettingsEditor.cs" t="Include" />
+                  </e>
+                  <e p="Engine" t="Include">
+                    <e p="RenderTextureInput.cs" t="Include" />
+                    <e p="RenderTextureInputSettings.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="Packager" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="FRPackagerPaths.cs" t="Include" />
+                </e>
+                <e p="Private" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="FRPackager.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="Recorders" t="Include">
+                <e p="ImageRecorder" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="ImageRecorderEditor.cs" t="Include" />
+                  </e>
+                  <e p="Engine" t="Include">
+                    <e p="ImageRecorder.cs" t="Include" />
+                    <e p="ImageRecorderSettings.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="UnityChan" t="Include">
           <e p="Editor" t="Include">
             <e p="CreateLocatorHere.cs" t="Include" />
