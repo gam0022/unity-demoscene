@@ -32,5 +32,5 @@ Material:
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
     - _FloorDiffuse: {r: 1, g: 1, b: 1, a: 1}
-    - _FloorSpecular: {r: 0.07586192, g: 0, b: 1, a: 0.303}
-    - _Specular: {r: 1, g: 1, b: 1, a: 0.503}
+    - _FloorSpecular: {r: 0.75, g: 0.96896553, b: 1, a: 1}
+    - _Specular: {r: 0.4852941, g: 0.23194203, b: 0.23194203, a: 0.684}
