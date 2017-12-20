@@ -80,13 +80,22 @@ float BoxBox(float3 pos)
     return d;
 }
 
+float dFloor(float3 pos)
+{
+    float3 p = pos;
+    p.xz = Repeat(p.xz, 0.5);
+    p.y += 1 + 0.1 * sin(36.0 * _Time.x + 2.0 * Rand(floor(2.0 * pos.xz)));
+    return sdBox(p, float3(0.2, 0.2, 0.2));
+}
+
 inline float DistanceFunction(float3 pos)
 {
     float3 p = pos;
     p.xz = Repeat(p.xz, float2(3, 3));
     p.xz = foldRotate(p.xz, 12.0 * sin(_Time.x));
     float d = BoxBox(p);
-    d = min(Plane(pos, float3(0, 1, 0)), d);
+    
+    d = min(dFloor(pos), d);
     return d;
 }
 // @endblock
