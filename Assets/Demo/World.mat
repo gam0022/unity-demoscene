@@ -26,9 +26,11 @@ Material:
     - _Loop: 100
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.051
-    - _ShadowLoop: 10
+    - _ShadowLoop: 14.5
     - _ShadowMinDistance: 0.01
     m_Colors:
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 1, g: 1, b: 1, a: 1}
+    - _FloorDiffuse: {r: 1, g: 1, b: 1, a: 1}
+    - _FloorSpecular: {r: 0.07586192, g: 0, b: 1, a: 0.303}
     - _Specular: {r: 1, g: 1, b: 1, a: 0.503}

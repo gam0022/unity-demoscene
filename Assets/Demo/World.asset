@@ -40,30 +40,42 @@ MonoBehaviour:
     value: 0
   blocks:
   - key: Properties
-    value: '// _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    value: '_FloorDiffuse("Floor Diffuse", Color) = (1.0, 1.0, 1.0, 1.0)
 
-      [Header(Additional Parameters)]
+      //[Header(Additional Parameters)]
 
-      _Grid("Grid", 2D) = "" {}'
+      //_Grid("Grid", 2D) = "" {}'
     folded: 0
   - key: DistanceFunction
-    value: "#define PI2 (2.0 * PI)\n\nfloat2x2 rotate(in float a)\n{\n    float s
-      = sin(a), c = cos(a);\n    return float2x2(c, s, -s, c);\n}\n\n// https://www.shadertoy.com/view/Mlf3Wj\nfloat2
-      foldRotate(in float2 p, in float s)\n{\n    float a = PI / s - atan2(p.x, p.y);\n
-      \   float n = PI2 / s;\n    a = floor(a / n) * n;\n    p = mul(rotate(a), p);\n
-      \   return p;\n}\n\ninline float DistanceFunction(float3 pos)\n{\n    float3
-      p = pos;\n    p.xz = Repeat(p.xz, float2(3, 3));\n    p.xz = foldRotate(p.xz,
-      12.0 * sin(_Time.x));\n    float d = Box(p, float3(0.3, 3.0, 0.3));\n    d =
-      min(Plane(pos, float3(0, 1, 0)), d);\n    return d;\n}"
+    value: "#define PI2 (2.0 * PI)\n#define EPS (0.01)\n\nfloat2x2 rotate(in float
+      a)\n{\n    float s = sin(a), c = cos(a);\n    return float2x2(c, s, -s, c);\n}\n\n//
+      https://www.shadertoy.com/view/Mlf3Wj\nfloat2 foldRotate(in float2 p, in float
+      s)\n{\n    float a = PI / s - atan2(p.x, p.y);\n    float n = PI2 / s;\n    a
+      = floor(a / n) * n;\n    p = mul(rotate(a), p);\n    return p;\n}\n\nfloat HoleBox(float3
+      pos, float3 outer, float3 inner)\n{\n    return max(sdBox(pos, outer), -sdBox(pos,
+      inner));\n}\n\nfloat BoxBox(float3 pos)\n{\n    float3 p = pos;\n    p.y = Repeat(p.y,
+      0.5);\n    float d = HoleBox(p, float3(0.3 + 0.1 * sin(36.0 * _Time.x + 2.0
+      * Rand(float2(floor(pos.y * 2), 0))), 0.2, 0.3), float3(0.5, 0.15, 0.25));\n
+      \   \n    p = pos;\n    p.y = Repeat(p.y, 0.2);\n    d = min(d, Box(p, float3(0.3
+      * abs(sin(36.0 * _Time.x)), 0.2, 0.15)));\n    return d;\n}\n\nfloat dFloor(float3
+      pos)\n{\n    float3 p = pos;\n    p.xz = Repeat(p.xz, 0.5);\n    p.y += 1 +
+      0.1 * sin(36.0 * _Time.x + 2.0 * Rand(floor(2.0 * pos.xz)));\n    return sdBox(p,
+      float3(0.2, 0.2, 0.2));\n}\n\ninline float DistanceFunction(float3 pos)\n{\n
+      \   float3 p = pos;\n    p.xz = Repeat(p.xz, float2(3, 3));\n    p.xz = foldRotate(p.xz,
+      12.0 * sin(_Time.x));\n    float d = BoxBox(p);\n    \n    d = min(dFloor(pos),
+      d);\n    return d;\n}"
     folded: 0
   - key: PostEffect
-    value: "sampler2D _Grid;\nfloat4 _Grid_ST;\n\ninline void PostEffect(RaymarchInfo
-      ray, inout PostEffectOutput o)\n{\n    o.emission = half4(3.0, 3.0, 5.0, 1.0)
-      * abs(sin(PI * 12.0 * _Time.x)) * step(frac(ray.endPos.y - 4.0 * _Time.x), 0.02);\n}"
+    value: "//sampler2D _Grid;\n//float4 _Grid_ST;\nfloat4 _FloorDiffuse;\n\ninline
+      void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n    o.emission
+      = half4(3.0, 3.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x)) * step(frac(ray.endPos.y
+      - 4.0 * _Time.x), 0.02);\n    \n    if (abs(dFloor(ray.endPos)) < ray.minDistance)
+      {\n        o.diffuse = _FloorDiffuse;\n        o.specular = float4(0, 0, 1.0,
+      0);\n    }\n}"
     folded: 0
   basicFolded: 0
   conditionsFolded: 0
   variablesFolded: 0
-  materialsFolded: 0
+  materialsFolded: 1
   distanceFunction: 
   postEffect: 

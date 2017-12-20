@@ -16,9 +16,10 @@ Properties
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.02
 
 // @block Properties
-// _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
-[Header(Additional Parameters)]
-_Grid("Grid", 2D) = "" {}
+_FloorDiffuse("Floor Diffuse", Color) = (1.0, 1.0, 1.0, 1.0)
+_FloorSpecular("Floor Specular", Color) = (1.0, 1.0, 1.0, 1.0)
+//[Header(Additional Parameters)]
+//_Grid("Grid", 2D) = "" {}
 // @endblock
 }
 
@@ -46,6 +47,7 @@ CGINCLUDE
 
 // @block DistanceFunction
 #define PI2 (2.0 * PI)
+#define EPS (0.01)
 
 float2x2 rotate(in float a)
 {
@@ -101,12 +103,19 @@ inline float DistanceFunction(float3 pos)
 // @endblock
 
 // @block PostEffect
-sampler2D _Grid;
-float4 _Grid_ST;
+//sampler2D _Grid;
+//float4 _Grid_ST;
+float4 _FloorDiffuse;
+float4 _FloorSpecular;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
     o.emission = half4(3.0, 3.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x)) * step(frac(ray.endPos.y - 4.0 * _Time.x), 0.02);
+    
+    if (abs(dFloor(ray.endPos)) < ray.minDistance) {
+        o.diffuse = _FloorDiffuse;
+        o.specular =_FloorSpecular;
+    }
 }
 // @endblock
 
