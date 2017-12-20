@@ -1,11 +1,16 @@
 using System;
 using System.IO;
 using UnityEngine;
-using UnityEngine.FrameRecorder;
+using UnityEngine.Recorder;
 
 namespace UTJ.FrameCapturer.Recorders
 {
-    [FrameRecorder(typeof(MP4RecorderSettings),"Video", "UTJ/MP4" )]
+#if UNITY_2017_3_OR_NEWER
+    [Obsolete("'UTJ/MP4' is obsolete, concider using 'Unity/Movie' instead", false)]
+    [Recorder(typeof(MP4RecorderSettings),"Video", "UTJ/Legacy/MP4" )]
+#else
+    [Recorder(typeof(MP4RecorderSettings),"Video", "UTJ/MP4" )]
+#endif
     public class MP4Recorder : GenericRecorder<MP4RecorderSettings>
     {
         fcAPI.fcMP4Context m_ctx;
@@ -15,6 +20,12 @@ namespace UTJ.FrameCapturer.Recorders
             if (!base.BeginRecording(session)) { return false; }
 
             m_Settings.m_DestinationPath.CreateDirectory();
+
+            var input = (BaseRenderTextureInput)m_Inputs[0];
+            if (input.outputWidth > 4096 || input.outputHeight > 2160 )
+            {
+                Debug.LogError("Mp4 format does not support requested resolution.");
+            }
 
             return true;
         }
@@ -52,7 +63,7 @@ namespace UTJ.FrameCapturer.Recorders
 
             fcAPI.fcLock(frame, TextureFormat.RGB24, (data, fmt) =>
             {
-                fcAPI.fcMP4AddVideoFramePixels(m_ctx, data, fmt, session.RecorderTime);
+                fcAPI.fcMP4AddVideoFramePixels(m_ctx, data, fmt, session.recorderTime);
             });
         }
 

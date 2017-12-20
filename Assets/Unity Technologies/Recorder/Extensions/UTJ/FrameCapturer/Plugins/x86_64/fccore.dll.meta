@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 8dfc932324fbf314586b61e5e846c01c
 timeCreated: 1494024139
-licenseType: Store
+licenseType: Pro
 PluginImporter:
   serializedVersion: 2
   iconMap: {}
@@ -15,15 +15,16 @@ PluginImporter:
       second:
         enabled: 0
         settings:
+          Exclude Android: 1
           Exclude Editor: 0
-          Exclude Linux: 0
-          Exclude Linux64: 0
-          Exclude LinuxUniversal: 0
-          Exclude OSXIntel: 0
-          Exclude OSXIntel64: 0
-          Exclude OSXUniversal: 0
+          Exclude Linux: 1
+          Exclude Linux64: 1
+          Exclude LinuxUniversal: 1
+          Exclude OSXIntel: 1
+          Exclude OSXIntel64: 1
+          Exclude OSXUniversal: 1
           Exclude Win: 1
-          Exclude Win64: 0
+          Exclude Win64: 1
     data:
       first:
         '': Editor
@@ -34,9 +35,16 @@ PluginImporter:
           OS: Windows
     data:
       first:
+        Android: Android
+      second:
+        enabled: 0
+        settings:
+          CPU: ARMv7
+    data:
+      first:
         Any: 
       second:
-        enabled: 1
+        enabled: 0
         settings: {}
     data:
       first:
@@ -46,6 +54,7 @@ PluginImporter:
         settings:
           CPU: x86_64
           DefaultValueInitialized: true
+          OS: Windows
     data:
       first:
         Facebook: Win
@@ -64,44 +73,44 @@ PluginImporter:
       first:
         Standalone: Linux
       second:
-        enabled: 1
+        enabled: 0
         settings:
           CPU: None
     data:
       first:
         Standalone: Linux64
       second:
-        enabled: 1
+        enabled: 0
         settings:
           CPU: x86_64
     data:
       first:
         Standalone: LinuxUniversal
       second:
-        enabled: 1
+        enabled: 0
         settings:
-          CPU: AnyCPU
+          CPU: None
     data:
       first:
         Standalone: OSXIntel
       second:
-        enabled: 1
+        enabled: 0
         settings:
           CPU: None
     data:
       first:
         Standalone: OSXIntel64
       second:
-        enabled: 1
+        enabled: 0
         settings:
           CPU: AnyCPU
     data:
       first:
         Standalone: OSXUniversal
       second:
-        enabled: 1
+        enabled: 0
         settings:
-          CPU: AnyCPU
+          CPU: None
     data:
       first:
         Standalone: Win
@@ -113,7 +122,7 @@ PluginImporter:
       first:
         Standalone: Win64
       second:
-        enabled: 1
+        enabled: 0
         settings:
           CPU: AnyCPU
   userData: 

@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 using UnityEngine;
-using UnityEngine.FrameRecorder;
+using UnityEngine.Recorder;
 
 namespace UTJ.FrameCapturer.Recorders
 {
-    [FrameRecorder(typeof(GIFRecorderSettings),"Video", "UTJ/GIF" )]
+    [Recorder(typeof(GIFRecorderSettings),"Video", "UTJ/GIF" )]
     public class GIFRecorder : GenericRecorder<GIFRecorderSettings>
     {
         fcAPI.fcGifContext m_ctx;
@@ -48,7 +48,7 @@ namespace UTJ.FrameCapturer.Recorders
 
             fcAPI.fcLock(frame, TextureFormat.RGB24, (data, fmt) =>
             {
-                fcAPI.fcGifAddFramePixels(m_ctx, data, fmt, session.RecorderTime);
+                fcAPI.fcGifAddFramePixels(m_ctx, data, fmt, session.recorderTime);
             });
         }
 

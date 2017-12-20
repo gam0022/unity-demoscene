@@ -1,11 +1,16 @@
 using System;
 using System.IO;
 using UnityEngine;
-using UnityEngine.FrameRecorder;
+using UnityEngine.Recorder;
 
 namespace UTJ.FrameCapturer.Recorders
 {
-    [FrameRecorder(typeof(WEBMRecorderSettings),"Video", "UTJ/WebM" )]
+#if UNITY_2017_3_OR_NEWER
+    [Obsolete("'UTJ/WEBM' is obsolete, concider using 'Unity/Movie' instead", false)]
+    [Recorder(typeof(WEBMRecorderSettings),"Video", "UTJ/Legacy/WebM" )]
+#else
+    [Recorder(typeof(WEBMRecorderSettings),"Video", "UTJ/WebM" )]
+#endif
     public class WEBMRecorder : GenericRecorder<WEBMRecorderSettings>
     {
         fcAPI.fcWebMContext m_ctx;
@@ -57,7 +62,7 @@ namespace UTJ.FrameCapturer.Recorders
 
             fcAPI.fcLock(frame, TextureFormat.RGB24, (data, fmt) =>
             {
-                fcAPI.fcWebMAddVideoFramePixels(m_ctx, data, fmt, session.RecorderTime);
+                fcAPI.fcWebMAddVideoFramePixels(m_ctx, data, fmt, session.recorderTime);
             });
         }
 

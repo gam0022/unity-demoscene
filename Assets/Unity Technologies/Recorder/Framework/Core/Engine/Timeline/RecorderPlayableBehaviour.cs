@@ -1,6 +1,7 @@
+using System;
 using UnityEngine.Playables;
 
-namespace UnityEngine.FrameRecorder.Timeline
+namespace UnityEngine.Recorder.Timeline
 {
     /// <summary>
     /// What is it: Implements a playable that records something triggered by a Timeline Recorder Clip.
@@ -18,6 +19,8 @@ namespace UnityEngine.FrameRecorder.Timeline
         WaitForEndOfFrameComponent endOfFrameComp;
         bool m_FirstOneSkipped;
 
+        public Action OnEnd;
+
         public override void OnGraphStart(Playable playable)
         {
             if (session != null)
@@ -30,8 +33,15 @@ namespace UnityEngine.FrameRecorder.Timeline
 
         public override void OnGraphStop(Playable playable)
         {
-            if (session != null)
+            if (session != null && session.recording)
+            {
                 session.EndRecording();
+                session.Dispose();
+                session = null;
+
+                if (OnEnd != null)
+                    OnEnd();
+            }
         }
 
         public override void PrepareFrame(Playable playable, FrameData info)
@@ -74,6 +84,9 @@ namespace UnityEngine.FrameRecorder.Timeline
                 session.EndRecording();
                 session.Dispose();
                 session = null;
+
+                if (OnEnd != null)
+                    OnEnd();
             }
 
             m_PlayState = PlayState.Paused;

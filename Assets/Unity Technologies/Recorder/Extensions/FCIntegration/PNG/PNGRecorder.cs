@@ -1,11 +1,17 @@
 using System;
 using System.IO;
 using UnityEngine;
-using UnityEngine.FrameRecorder;
+using UnityEngine.Recorder;
 
 namespace UTJ.FrameCapturer.Recorders
 {
-    [FrameRecorder(typeof(PNGRecorderSettings),"Video", "UTJ/PNG" )]
+#if UNITY_2017_3_OR_NEWER
+    [Obsolete("'UTJ/PNG' is obsolete, concider using 'Unity/Image Sequence' instead", false)]
+    [Recorder(typeof(PNGRecorderSettings),"Video", "UTJ/Legacy/PNG" )]
+#else
+    [Recorder(typeof(PNGRecorderSettings),"Video", "UTJ/PNG" )]
+#endif
+    
     public class PNGRecorder : GenericRecorder<PNGRecorderSettings>
     {
         fcAPI.fcPngContext m_ctx;
@@ -33,7 +39,7 @@ namespace UTJ.FrameCapturer.Recorders
 
             var input = (BaseRenderTextureInput)m_Inputs[0];
             var frame = input.outputRT;
-            var fileName = m_Settings.m_BaseFileName.BuildFileName( session, recordedFramesCount, frame.width, frame.height, "mp4");
+            var fileName = m_Settings.m_BaseFileName.BuildFileName( session, recordedFramesCount, frame.width, frame.height, "png");
             var path = Path.Combine(m_Settings.m_DestinationPath.GetFullPath(), fileName);
 
             fcAPI.fcLock(frame, (data, fmt) =>

@@ -1,5 +1,5 @@
 using UnityEditor;
-using UnityEditor.FrameRecorder;
+using UnityEditor.Recorder;
 using UnityEngine;
 
 namespace UTJ.FrameCapturer.Recorders
@@ -21,7 +21,6 @@ namespace UTJ.FrameCapturer.Recorders
                 return;
 
             var pf = new PropertyFinder<WEBMRecorderSettings>(serializedObject);
-            m_Inputs = pf.Find(w => w.m_InputsSettings);
             var encoding = pf.Find(w => w.m_WebmEncoderSettings);
             var settings = target as WEBMRecorderSettings;
             m_VideoBitRateMode = encoding.FindPropertyRelative(() => settings.m_WebmEncoderSettings.videoBitrateMode);
@@ -44,6 +43,9 @@ namespace UTJ.FrameCapturer.Recorders
         protected override EFieldDisplayState GetFieldDisplayState( SerializedProperty property)
         {
             if( property.name == "m_CaptureEveryNthFrame" )
+                return EFieldDisplayState.Hidden;
+
+            if (property.name == "m_AllowTransparency"  )
                 return EFieldDisplayState.Hidden;
 
             return base.GetFieldDisplayState(property);

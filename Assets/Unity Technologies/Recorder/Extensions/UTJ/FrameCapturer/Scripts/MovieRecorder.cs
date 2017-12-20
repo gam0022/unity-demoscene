@@ -150,7 +150,7 @@ namespace UTJ.FrameCapturer
                 {
                     m_cb.SetRenderTarget(m_scratchBuffer);
                     m_cb.SetGlobalTexture("_TmpRenderTarget", m_targetRT);
-                    m_cb.DrawMesh(m_quad, Matrix4x4.identity, m_matCopy, 0, 1);
+                    m_cb.DrawMesh(m_quad, Matrix4x4.identity, m_matCopy, 0, 0);
                 }
                 cam.AddCommandBuffer(CameraEvent.AfterEverything, m_cb);
             }
