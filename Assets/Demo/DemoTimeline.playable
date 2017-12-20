@@ -773,19 +773,7 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1351,7 +1339,7 @@ MonoBehaviour:
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
     fontSize: 60
-    text: Powerd by Unity + uRaymarching + Post-processing Stack + Default Playables
+    text: Made with Unity + uRaymarching + Post-processing Stack + Default Playables
 --- !u!114 &114844709014012038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1380,8 +1368,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template:
     color: {r: 1, g: 1, b: 1, a: 1}
-    fontSize: 100
-    text: END
+    fontSize: 50
+    text: Unity Demosece by @gam0022
 --- !u!114 &114973005041383020
 MonoBehaviour:
   m_ObjectHideFlags: 1
