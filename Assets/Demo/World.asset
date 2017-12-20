@@ -60,20 +60,22 @@ MonoBehaviour:
       \   p.y = Repeat(p.y, 0.5);\n    return HoleBox(p, float3(0.3 + 0.1 * sin(36.0
       * _Time.x + 2.0 * Rand(float2(floor(pos.y * 2), 0))), 0.2, 0.3), float3(0.5,
       0.15, 0.25));\n}\n\nfloat dInnerPillar(float3 pos)\n{\n    float3 p = pos;\n
-      \   p.xz = Repeat(p.xz, float2(3, 3));\n    p.xz = foldRotate(p.xz, 12.0 * cos(_Time.x));\n
-      \   p.y = Repeat(p.y, 0.2);\n    return Box(p, float3(0.3 * abs(sin(36.0 * _Time.x)),
-      0.2, 0.15));\n}\n\nfloat dFloor(float3 pos)\n{\n    float3 p = pos;\n    p.xz
-      = Repeat(p.xz, 0.5);\n    p.y += 1 + 0.1 * sin(36.0 * _Time.x + 2.0 * Rand(floor(2.0
-      * pos.xz)));\n    return sdBox(p, float3(0.2, 0.2, 0.2));\n}\n\ninline float
-      DistanceFunction(float3 pos)\n{\n    float d = dFloor(pos);\n    d = min(dOuterPillar(pos),
+      \   p.xz = Repeat(p.xz, float2(3, 3));\n    p.xz = foldRotate(p.xz, 12.0 * cos(12.0
+      * _Time.x));\n    p.y = Repeat(p.y, 0.2);\n    return Box(p, float3(0.3 * abs(sin(36.0
+      * _Time.x)), 0.2, 0.15));\n}\n\nfloat dFloor(float3 pos)\n{\n    float3 p =
+      pos;\n    p.xz = Repeat(p.xz, 0.5);\n    p.y += 1 + 0.1 * sin(36.0 * _Time.x
+      + 2.0 * Rand(floor(2.0 * pos.xz)));\n    return sdBox(p, float3(0.2, 0.2, 0.2));\n}\n\ninline
+      float DistanceFunction(float3 pos)\n{\n    float d = dFloor(pos);\n    d = min(dOuterPillar(pos),
       d);\n    d = min(dInnerPillar(pos), d);\n    return d;\n}"
     folded: 0
   - key: PostEffect
     value: "//sampler2D _Grid;\n//float4 _Grid_ST;\nfloat4 _FloorDiffuse;\nfloat4
       _FloorSpecular;\n\ninline void PostEffect(RaymarchInfo ray, inout PostEffectOutput
-      o)\n{\n    o.emission = half4(3.0, 3.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x))
-      * step(frac(ray.endPos.y - 4.0 * _Time.x), 0.02);\n    \n    if (abs(dFloor(ray.endPos))
-      < ray.minDistance) {\n        o.diffuse = _FloorDiffuse;\n        o.specular
+      o)\n{\n    o.emission = half4(2.0, 2.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x))
+      * step(frac(ray.endPos.y - 4.0 * _Time.x), 0.02);\n \n    if (abs(dInnerPillar(ray.endPos))
+      < ray.minDistance)\n    {\n        o.emission = half4(3.0, 1.0, 1.0, 1.0) *
+      abs(sin(PI * 24.0 * _Time.x));\n    }\n \n    if (abs(dFloor(ray.endPos)) <
+      ray.minDistance)\n    {\n        o.diffuse = _FloorDiffuse;\n        o.specular
       =_FloorSpecular;\n    }\n}"
     folded: 0
   basicFolded: 0
