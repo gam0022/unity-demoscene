@@ -201,58 +201,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 1
   m_Events: []
---- !u!114 &114046803864638070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ee9a8f826ced34082d654155141a26, type: 3}
-  m_Name: Recorder Settings
-  m_EditorClassIdentifier: 
-  m_AssetID: 35d950978ffcf40c0b9506f599f52acc
-  m_CaptureEveryNthFrame: 1
-  m_FrameRateMode: 1
-  m_FrameRate: 60
-  m_FrameRateExact: 512
-  m_StartFrame: 0
-  m_EndFrame: 10
-  m_StartTime: 0
-  m_EndTime: 1
-  m_DurationMode: 0
-  m_SynchFrameRate: 1
-  m_BaseFileName:
-    m_Pattern: movie.<ext>
-  m_DestinationPath:
-    m_root: 0
-    m_leaf: C:/Users/gam0022/Videos/Captures
-  m_InputsSettings:
-    m_InputsSettingsAssets:
-    - {fileID: 114282369758951514}
-    ownerRecorderSettingsAssetId: 35d950978ffcf40c0b9506f599f52acc
-  m_RecorderTypeName: UTJ.FrameCapturer.Recorders.MP4Recorder, Assembly-CSharp, Version=0.0.0.0,
-    Culture=neutral, PublicKeyToken=null
-  m_MP4EncoderSettings:
-    video:
-      v: 1
-    videoWidth: 0
-    videoHeight: 0
-    videoTargetFramerate: 30
-    videoBitrateMode: 1
-    videoTargetBitrate: 1024000
-    videoFlags: 62
-    videoMaxTasks: 4
-    audio:
-      v: 1
-    audioSampleRate: 48000
-    audioNumChannels: 2
-    audioBitrateMode: 1
-    audioTargetBitrate: 128000
-    audioFlags: 6
-    audioMaxTasks: 4
-  m_AutoSelectBR: 1
 --- !u!114 &114052511475703632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e95aa6d658d694785bfde37c857fff, type: 3}
   m_Name: RecorderClip
   m_EditorClassIdentifier: 
-  m_Settings: {fileID: 114046803864638070}
+  m_Settings: {fileID: 114713725261667122}
 --- !u!114 &114125229209556558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,7 +336,7 @@ MonoBehaviour:
     m_ClipIn: 0
     m_Asset: {fileID: 114122776435543310}
     m_UnderlyingAsset: {fileID: 114122776435543310}
-    m_Duration: 11
+    m_Duration: 13
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114157632183617374}
     m_EaseInDuration: 0
@@ -459,6 +407,27 @@ MonoBehaviour:
   m_UseTrackMatchFields: 0
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
+--- !u!114 &114178909995786128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d935bf7a4fcf66488738bda5536c1cb, type: 3}
+  m_Name: 11d2e0c5-2311-493b-adb2-297b587364f5
+  m_EditorClassIdentifier: 
+  m_DisplayName: Pixels
+  m_Id: d111a7d1-05ef-4316-9940-9f05ae02491b
+  m_OutputSize: 1080
+  m_AspectRatio: 0
+  m_ForceEvenSize: 1
+  source: 1
+  m_CameraTag: 
+  m_FlipFinalOutput: 1
+  m_AllowTransparency: 0
+  m_CaptureUI: 1
 --- !u!114 &114209265440038942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,27 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 442072544, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
---- !u!114 &114282369758951514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d935bf7a4fcf66488738bda5536c1cb, type: 3}
-  m_Name: 86c6364e-b30e-477e-a1a4-aa9126012671
-  m_EditorClassIdentifier: 
-  m_DisplayName: Pixels
-  m_Id: 1e014f08-e822-4bfc-81f5-1c2ff7822c85
-  m_OutputSize: 720
-  m_AspectRatio: 0
-  m_ForceEvenSize: 1
-  source: 1
-  m_CameraTag: 
-  m_FlipFinalOutput: 1
-  m_AllowTransparency: 0
-  m_CaptureUI: 1
 --- !u!114 &114330093078192334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -590,7 +538,7 @@ MonoBehaviour:
     m_ClipIn: 0
     m_Asset: {fileID: 114491263460078470}
     m_UnderlyingAsset: {fileID: 114491263460078470}
-    m_Duration: 11
+    m_Duration: 13
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114332260137397888}
     m_EaseInDuration: 0
@@ -791,6 +739,64 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: ScreenFaderClip
     m_Version: 1
+  - m_Start: 12.05
+    m_ClipIn: 0
+    m_Asset: {fileID: 114872788823284512}
+    m_UnderlyingAsset: {fileID: 114052511475703632}
+    m_Duration: 2
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 114356330867510608}
+    m_EaseInDuration: 0.98
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ScreenFaderClip
+    m_Version: 1
 --- !u!114 &114417091622260958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -880,19 +886,7 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - serializedVersion: 2
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1056,6 +1050,58 @@ MonoBehaviour:
     audioBitrateMode: 1
     audioTargetBitrate: 128000
     audioFlags: 6
+    audioMaxTasks: 4
+  m_AutoSelectBR: 1
+--- !u!114 &114713725261667122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33382d41b60b72438f8e9586f86504a, type: 3}
+  m_Name: Recorder Settings
+  m_EditorClassIdentifier: 
+  m_AssetID: 35d950978ffcf40c0b9506f599f52acc
+  m_CaptureEveryNthFrame: 1
+  m_FrameRateMode: 1
+  m_FrameRate: 60
+  m_FrameRateExact: 1
+  m_StartFrame: 0
+  m_EndFrame: 10
+  m_StartTime: 0
+  m_EndTime: 1
+  m_DurationMode: 0
+  m_SynchFrameRate: 1
+  m_BaseFileName:
+    m_Pattern: movie.<ext>
+  m_DestinationPath:
+    m_root: 0
+    m_leaf: /Users/hosoda-sho/llas/capture
+  m_InputsSettings:
+    m_InputsSettingsAssets:
+    - {fileID: 114178909995786128}
+    ownerRecorderSettingsAssetId: 35d950978ffcf40c0b9506f599f52acc
+  m_RecorderTypeName: UTJ.FrameCapturer.Recorders.WEBMRecorder, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  m_WebmEncoderSettings:
+    video:
+      v: 1
+    videoEncoder: 0
+    videoWidth: 0
+    videoHeight: 0
+    videoTargetFramerate: 60
+    videoBitrateMode: 1
+    videoTargetBitrate: 1024000
+    videoMaxTasks: 4
+    audio:
+      v: 1
+    audioEncoder: 0
+    audioSampleRate: 48000
+    audioNumChannels: 2
+    audioBitrateMode: 1
+    audioTargetBitrate: 128000
     audioMaxTasks: 4
   m_AutoSelectBR: 1
 --- !u!114 &114732225061613110
@@ -1300,6 +1346,19 @@ MonoBehaviour:
     m_DisplayName: Active
     m_Version: 1
   m_PostPlaybackState: 0
+--- !u!114 &114872788823284512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0445258a5c40b364ab21547784905327, type: 3}
+  m_Name: ScreenFaderClip
+  m_EditorClassIdentifier: 
+  template:
+    color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &114995369980847260
 MonoBehaviour:
   m_ObjectHideFlags: 1

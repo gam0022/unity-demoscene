@@ -29,9 +29,9 @@ public class DemoCameraWork : MonoBehaviour, ITimeControl
         }
         else
         {
-            float rate = (t - 6f) / (10f - 6f);
-            transform.position = new Vector3(0f, Mathf.Lerp(2f, 20f, rate * rate), 20f);
-            transform.LookAt(new Vector3(0f, 0f, 25f + rate * 20f));
+            float rate = (t - 6f) / (13f - 6f);
+            transform.position = new Vector3(0f, Mathf.Lerp(2f, 20f, rate * rate * rate), 23f);
+            transform.LookAt(new Vector3(0f, 1f, 25f + rate * 23f));
         }
     }
 
