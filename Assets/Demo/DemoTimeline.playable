@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: Recorder Track
   m_EditorClassIdentifier: 
   m_Locked: 0
-  m_Muted: 1
+  m_Muted: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -883,13 +883,13 @@ MonoBehaviour:
     m_ClipIn: 0
     m_Asset: {fileID: 114174542858802774}
     m_UnderlyingAsset: {fileID: 7400000, guid: 0147e212f97e3d449a4b9e4f5d057180, type: 3}
-    m_Duration: 2
+    m_Duration: 2.6166666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114457111648415864}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.3500000000000001
+    m_BlendOutDuration: 0.9666666666666668
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -934,7 +934,7 @@ MonoBehaviour:
     m_ParentTrack: {fileID: 114457111648415864}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.3500000000000001
+    m_BlendInDuration: 0.9666666666666668
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
