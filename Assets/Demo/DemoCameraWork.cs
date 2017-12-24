@@ -36,8 +36,8 @@ public class DemoCameraWork : MonoBehaviour, ITimeControl
         else if (t < c4)
         {
             float rate = (t - c3) / (c4 - c3);
-            transform.position = new Vector3(0f, Mathf.Lerp(2f, 25f, rate * rate), 11f);
-            transform.LookAt(new Vector3(0f, 1f, 11f + rate * 23f));
+            transform.position = new Vector3(0f, Mathf.Lerp(2f, 25f, Mathf.Pow(rate, 3f)), 10f);
+            transform.LookAt(new Vector3(0f, 1f, 11f + rate * 11f));
         }
     }
 
