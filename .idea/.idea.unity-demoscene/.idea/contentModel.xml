@@ -79,9 +79,11 @@
             <e p="VideoScriptPlayableTrack.cs" t="Include" />
           </e>
         </e>
-        <e p="Demo" t="Include">
-          <e p="DemoCameraWork.cs" t="Include" />
-          <e p="World.shader" t="Include" />
+        <e p="Demoscene" t="Include">
+          <e p="TheGlow" t="Include">
+            <e p="TheGlowCameraWork.cs" t="Include" />
+            <e p="TheGlowWorld.shader" t="Include" />
+          </e>
         </e>
         <e p="Editor" t="Include">
           <e p="ScreenshotResolution.cs" t="Include" />

@@ -1,4 +1,4 @@
-Shader "Raymarching/World"
+Shader "Raymarching/TheGlowWorld"
 {
 
 Properties
@@ -18,9 +18,6 @@ Properties
 // @block Properties
 _FloorDiffuse("Floor Diffuse", Color) = (1.0, 1.0, 1.0, 1.0)
 _FloorSpecular("Floor Specular", Color) = (1.0, 1.0, 1.0, 1.0)
-//[Header(Additional Parameters)]
-//_Grid("Grid", 2D) = "" {}
-// @endblock
 }
 
 SubShader

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Timeline;
 
-public class DemoCameraWork : MonoBehaviour, ITimeControl
+public class TheGlowCameraWork : MonoBehaviour, ITimeControl
 {
     [SerializeField]
     Transform target;
