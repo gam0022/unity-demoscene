@@ -4,33 +4,39 @@ using UnityEngine.Timeline;
 
 public class DemoCameraWork : MonoBehaviour, ITimeControl
 {
-    [SerializeField] private Transform target;
+    [SerializeField]
+    Transform target;
+
+    const float c1 = 3f;
+    const float c2 = 5f;
+    const float c3 = 6f;
+    const float c4 = 13f;
 
     public void SetTime(double time)
     {
-        float t = (float) time;
+        var t = (float) time;
         
-        if (t < 3f)
+        if (t < c1)
         {
-            float rate = t / 3f;
+            float rate = t / c1;
             transform.position = target.position + new Vector3(0f, 0f, Mathf.Lerp(2f, 1f, rate * rate));
             transform.LookAt(target);
         }
-        else if (t < 5f)
+        else if (t < c2)
         {
-            float rate = (t - 3f) / (5f - 3f);
+            float rate = (t - c1) / (c2 - c1);
             transform.position = target.position + new Vector3(Mathf.Sin(rate * rate), 0f, Mathf.Cos(rate * rate));
             transform.LookAt(target);
         }
-        else if (t < 6f)
+        else if (t < c3)
         {
             transform.position = new Vector3(1f, 2f, 10f);
             transform.LookAt(target);
         }
-        else
+        else if (t < c4)
         {
-            float rate = (t - 6f) / (13f - 6f);
-            transform.position = new Vector3(0f, Mathf.Lerp(2f, 20f, rate * rate * rate), 11f);
+            float rate = (t - c3) / (c4 - c3);
+            transform.position = new Vector3(0f, Mathf.Lerp(2f, 25f, rate * rate), 11f);
             transform.LookAt(new Vector3(0f, 1f, 11f + rate * 23f));
         }
     }
