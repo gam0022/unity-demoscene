@@ -303,7 +303,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 267027275}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.044080906, y: 1.6064535, z: 2.0438168}
+  m_LocalPosition: {x: -0.04410826, y: 1.6063898, z: 2.0411074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 681279549}
@@ -325,7 +325,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 267027280}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 33
   stopNaNPropagation: 1
   antialiasingMode: 1
   temporalAntialiasing:
@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 1101430507}
   - component: {fileID: 1101430506}
   - component: {fileID: 1101430505}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1251,7 @@ GameObject:
   - component: {fileID: 1906617785}
   - component: {fileID: 1906617784}
   - component: {fileID: 1906617783}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MadeWithText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1379,10 +1379,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 42
+    characterCount: 47
     spriteCount: 0
-    spaceCount: 7
-    wordCount: 5
+    spaceCount: 8
+    wordCount: 6
     linkCount: 0
     lineCount: 4
     pageCount: 1

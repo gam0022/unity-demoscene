@@ -79,9 +79,9 @@ MonoBehaviour:
       \   {\n        o.diffuse = _FloorDiffuse;\n        o.specular =_FloorSpecular;\n
       \   }\n}"
     folded: 0
-  basicFolded: 1
-  conditionsFolded: 1
-  variablesFolded: 1
+  basicFolded: 0
+  conditionsFolded: 0
+  variablesFolded: 0
   materialsFolded: 0
   distanceFunction: 
   postEffect: 
