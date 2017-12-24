@@ -112,7 +112,9 @@ float4 _FloorSpecular;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = half4(2.0, 2.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x)) * step(frac(ray.endPos.y - 4.0 * _Time.x), 0.02);
+    float a = frac(4.0 * ray.endPos.y - 2.0 * _Time.x - 0.5);
+    float width = 0.02;
+    o.emission = half4(2.0, 2.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x)) * step(a, width) * ((a + 0.5 * width) / width);
  
     if (abs(dInnerPillar(ray.endPos)) < ray.minDistance)
     {
