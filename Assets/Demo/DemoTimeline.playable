@@ -52,13 +52,13 @@ AnimationClip:
         time: 1.9
         value: {x: 0, y: 0, z: -0.1592741}
         inSlope: {x: 0, y: 0, z: -0.032911964}
-        outSlope: {x: 0, y: 0, z: -0.032911964}
+        outSlope: {x: 0, y: 0, z: -0.11054326}
         tangentMode: 0
       - serializedVersion: 2
         time: 10
-        value: {x: 0, y: 0, z: 50}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 30}
+        inSlope: {x: 0, y: 0, z: 3.9243073}
+        outSlope: {x: 0, y: 0, z: 3.9243073}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -181,14 +181,14 @@ AnimationClip:
         time: 1.9
         value: -0.1592741
         inSlope: -0.032911964
-        outSlope: -0.032911964
-        tangentMode: 0
+        outSlope: -0.11054326
+        tangentMode: 1
       - serializedVersion: 2
         time: 10
-        value: 50
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        value: 30
+        inSlope: 3.9243073
+        outSlope: 3.9243073
+        tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: Recorder Track
   m_EditorClassIdentifier: 
   m_Locked: 0
-  m_Muted: 0
+  m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}

@@ -24,14 +24,14 @@ public class DemoCameraWork : MonoBehaviour, ITimeControl
         }
         else if (t < 6f)
         {
-            transform.position = new Vector3(4f, 2f, 20f);
+            transform.position = new Vector3(1f, 2f, 10f);
             transform.LookAt(target);
         }
         else
         {
             float rate = (t - 6f) / (13f - 6f);
-            transform.position = new Vector3(0f, Mathf.Lerp(2f, 20f, rate * rate * rate), 23f);
-            transform.LookAt(new Vector3(0f, 1f, 25f + rate * 23f));
+            transform.position = new Vector3(0f, Mathf.Lerp(2f, 20f, rate * rate * rate), 11f);
+            transform.LookAt(new Vector3(0f, 1f, 11f + rate * 23f));
         }
     }
 
