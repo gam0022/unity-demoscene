@@ -18,6 +18,9 @@ Properties
 // @block Properties
 _FloorDiffuse("Floor Diffuse", Color) = (1.0, 1.0, 1.0, 1.0)
 _FloorSpecular("Floor Specular", Color) = (1.0, 1.0, 1.0, 1.0)
+_SlideEmission("Slide Emission", Vector) = (2.0, 2.0, 5.0, 1.0)
+_InnerEmission("Inner Emission", Vector) = (3.0, 1.0, 1.0, 1.0)
+// @endblock
 }
 
 SubShader
@@ -45,23 +48,23 @@ CGINCLUDE
 // @block DistanceFunction
 #define PI2 (2.0 * PI)
 
-float2x2 rotate(in float a)
+float2x2 opRotate(in float a)
 {
     float s = sin(a), c = cos(a);
     return float2x2(c, s, -s, c);
 }
 
 // https://www.shadertoy.com/view/Mlf3Wj
-float2 foldRotate(in float2 p, in float s)
+float2 opFoldRotate(in float2 p, in float s)
 {
     float a = PI / s - atan2(p.x, p.y);
     float n = PI2 / s;
     a = floor(a / n) * n;
-    p = mul(rotate(a), p);
+    p = mul(opRotate(a), p);
     return p;
 }
 
-float HoleBox(float3 pos, float3 outer, float3 inner)
+float sdHoleBox(float3 pos, float3 outer, float3 inner)
 {
     return max(sdBox(pos, outer), -sdBox(pos, inner));
 }
@@ -70,16 +73,16 @@ float dOuterPillar(float3 pos)
 {
     float3 p = pos;
     p.xz = Repeat(p.xz, float2(3, 3));
-    p.xz = foldRotate(p.xz, 12.0 * sin(_Time.x));
+    p.xz = opFoldRotate(p.xz, 12.0 * sin(_Time.x));
     p.y = Repeat(p.y, 0.5);
-    return HoleBox(p, float3(0.3 + 0.1 * sin(36.0 * _Time.x + 2.0 * Rand(float2(floor(pos.y * 2), 0))), 0.2, 0.3), float3(0.5, 0.15, 0.25));
+    return sdHoleBox(p, float3(0.3 + 0.1 * sin(36.0 * _Time.x + 2.0 * Rand(float2(floor(pos.y * 2), 0))), 0.2, 0.3), float3(0.5, 0.15, 0.25));
 }
 
 float dInnerPillar(float3 pos)
 {
     float3 p = pos;
     p.xz = Repeat(p.xz, float2(3, 3));
-    p.xz = foldRotate(p.xz, 12.0 * cos(12.0 * _Time.x));
+    p.xz = opFoldRotate(p.xz, 12.0 * cos(12.0 * _Time.x));
     p.y = Repeat(p.y, 0.2);
     return Box(p, float3(0.3 * abs(sin(36.0 * _Time.x)), 0.2, 0.15));
 }
@@ -102,20 +105,20 @@ inline float DistanceFunction(float3 pos)
 // @endblock
 
 // @block PostEffect
-//sampler2D _Grid;
-//float4 _Grid_ST;
 float4 _FloorDiffuse;
 float4 _FloorSpecular;
+float4 _SlideEmission;
+float4 _InnerEmission;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
     float a = frac(4.0 * ray.endPos.y - 2.0 * _Time.x - 0.5);
     float width = 0.02;
-    o.emission = half4(2.0, 2.0, 5.0, 1.0) * abs(sin(PI * 12.0 * _Time.x)) * step(a, width) * ((a + 0.5 * width) / width);
+    o.emission = _SlideEmission * abs(sin(PI * 12.0 * _Time.x)) * step(a, width) * ((a + 0.5 * width) / width);
  
     if (abs(dInnerPillar(ray.endPos)) < ray.minDistance)
     {
-        o.emission = half4(3.0, 1.0, 1.0, 1.0) * abs(sin(PI * 24.0 * _Time.x));
+        o.emission = _InnerEmission * abs(sin(PI * 24.0 * _Time.x));
     }
  
     if (abs(dFloor(ray.endPos)) < ray.minDistance)
