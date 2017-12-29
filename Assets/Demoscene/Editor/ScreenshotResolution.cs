@@ -5,7 +5,7 @@ using UnityEditor;
 using System;
 using System.IO;
 
-namespace Tool
+namespace Demoscene.Tool
 {
     public class ScreenshotResolution : Editor
     {
