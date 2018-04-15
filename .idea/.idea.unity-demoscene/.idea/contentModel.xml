@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+    <e p="C:\Users\gam0022\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_unity-demoscene.-172030377.00" t="ExcludeRecursive" />
+    <e p="C:\Users\gam0022\Dropbox\Unity\unity-demoscene" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
@@ -257,9 +258,11 @@
                 <e p="AmbientOcclusionEditor.cs" t="Include" />
                 <e p="AutoExposureEditor.cs" t="Include" />
                 <e p="BloomEditor.cs" t="Include" />
+                <e p="ChromaticAberrationEditor.cs" t="Include" />
                 <e p="ColorGradingEditor.cs" t="Include" />
                 <e p="DefaultPostProcessEffectEditor.cs" t="Include" />
                 <e p="DepthOfFieldEditor.cs" t="Include" />
+                <e p="LensDistortionEditor.cs" t="Include" />
                 <e p="ScreenSpaceReflectionsEditor.cs" t="Include" />
                 <e p="VignetteEditor.cs" t="Include" />
               </e>
@@ -281,6 +284,7 @@
                 <e p="CurveEditor.cs" t="Include" />
                 <e p="EditorUtilities.cs" t="Include" />
                 <e p="GlobalSettings.cs" t="Include" />
+                <e p="PostProcessShaderIncludePath.cs" t="Include" />
                 <e p="SerializedParameterOverride.cs" t="Include" />
                 <e p="Styling.cs" t="Include" />
               </e>
@@ -305,6 +309,7 @@
                 <e p="FastApproximateAntialiasing.cs" t="Include" />
                 <e p="Fog.cs" t="Include" />
                 <e p="Grain.cs" t="Include" />
+                <e p="LensDistortion.cs" t="Include" />
                 <e p="MotionBlur.cs" t="Include" />
                 <e p="MultiScaleVO.cs" t="Include" />
                 <e p="ScalableAO.cs" t="Include" />
@@ -358,12 +363,13 @@
                 <e p="D3D9.hlsl" t="Include" />
                 <e p="Metal.hlsl" t="Include" />
                 <e p="OpenGL.hlsl" t="Include" />
+                <e p="PSP2.hlsl" t="Include" />
                 <e p="PSSL.hlsl" t="Include" />
                 <e p="Vulkan.hlsl" t="Include" />
                 <e p="XboxOne.hlsl" t="Include" />
               </e>
               <e p="Builtins" t="Include">
-                <e p="AutoExposure.shader" t="Include" />
+                <e p="AutoExposure.compute" t="Include" />
                 <e p="Bloom.shader" t="Include" />
                 <e p="Copy.shader" t="Include" />
                 <e p="CopyStd.shader" t="Include" />
@@ -372,6 +378,7 @@
                 <e p="DepthOfField.shader" t="Include" />
                 <e p="DiscardAlpha.shader" t="Include" />
                 <e p="DiskKernels.hlsl" t="Include" />
+                <e p="Distortion.hlsl" t="Include" />
                 <e p="Dithering.hlsl" t="Include" />
                 <e p="ExposureHistogram.compute" t="Include" />
                 <e p="ExposureHistogram.hlsl" t="Include" />
@@ -394,6 +401,7 @@
                 <e p="ScreenSpaceReflections.shader" t="Include" />
                 <e p="SubpixelMorphologicalAntialiasing.hlsl" t="Include" />
                 <e p="SubpixelMorphologicalAntialiasing.shader" t="Include" />
+                <e p="SubpixelMorphologicalAntialiasingBridge.hlsl" t="Include" />
                 <e p="TemporalAntialiasing.shader" t="Include" />
                 <e p="Texture2DLerp.shader" t="Include" />
                 <e p="Texture3DLerp.compute" t="Include" />
@@ -418,69 +426,6 @@
               <e p="Sampling.hlsl" t="Include" />
               <e p="StdLib.hlsl" t="Include" />
               <e p="xRLib.hlsl" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Raymarching" t="Include">
-          <e p="Editor" t="Include">
-            <e p="CodeEditor.cs" t="Include" />
-            <e p="ColorScheme.cs" t="Include" />
-            <e p="Common.cs" t="Include" />
-            <e p="FileWatcher.cs" t="Include" />
-            <e p="Generator.cs" t="Include" />
-            <e p="GeneratorEditor.cs" t="Include" />
-            <e p="MaterialEditor.cs" t="Include" />
-            <e p="Resources" t="Include">
-              <e p="Raymarching" t="Include">
-                <e p="Fonts" t="Include">
-                  <e p="LICENSE_OFL.txt" t="Include" />
-                </e>
-                <e p="ShaderTemplates" t="Include">
-                  <e p="1. Standard.txt" t="Include" />
-                  <e p="2. Direct GBuffer.txt" t="Include" />
-                  <e p="_Get_Path_From_Script_.txt" t="Include" />
-                </e>
-              </e>
-            </e>
-            <e p="ShaderCodeEditor.cs" t="Include" />
-            <e p="ShaderSyntax.cs" t="Include" />
-            <e p="ShaderTemplateParser.cs" t="Include" />
-            <e p="ShaderTemplateSelector.cs" t="Include" />
-            <e p="Utils.cs" t="Include" />
-          </e>
-          <e p="Examples" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="DebugCamera.cs" t="Include" />
-              <e p="MoveAndRotateObject.cs" t="Include" />
-            </e>
-            <e p="Shaders" t="Include">
-              <e p="HexFloor.shader" t="Include" />
-              <e p="ModWorld.shader" t="Include" />
-              <e p="SphereBoxMorph.shader" t="Include" />
-            </e>
-          </e>
-          <e p="Scripts" t="Include">
-            <e p="RaymarchingObject.cs" t="Include" />
-            <e p="RaymarchingRenderer.cs" t="Include" />
-          </e>
-          <e p="Shaders" t="Include">
-            <e p="Fallback" t="Include">
-              <e p="StandardSurfaceShader.shader" t="Include" />
-            </e>
-            <e p="Include" t="Include">
-              <e p="Camera.cginc" t="Include" />
-              <e p="Common.cginc" t="Include" />
-              <e p="Fractals.cginc" t="Include" />
-              <e p="GetPathFromScript.shader" t="Include" />
-              <e p="Math.cginc" t="Include" />
-              <e p="Primitives.cginc" t="Include" />
-              <e p="Raymarching.cginc" t="Include" />
-              <e p="Structs.cginc" t="Include" />
-              <e p="Utils.cginc" t="Include" />
-              <e p="VertFragDirectObject.cginc" t="Include" />
-              <e p="VertFragDirectScreen.cginc" t="Include" />
-              <e p="VertFragShadowObject.cginc" t="Include" />
-              <e p="VertFragStandardObject.cginc" t="Include" />
             </e>
           </e>
         </e>
@@ -978,6 +923,89 @@
             <e p="unity-chan_voice_list.txt" t="Include" />
           </e>
         </e>
+        <e p="uRaymarching" t="Include">
+          <e p="Editor" t="Include">
+            <e p="Resources" t="Include">
+              <e p="ShaderTemplates" t="Include">
+                <e p="uRaymarching" t="Include">
+                  <e p="Direct GBuffer.txt" t="Include" />
+                  <e p="Standard.txt" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Constants.cs" t="Include" />
+              <e p="Utils.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Examples" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="DebugCamera.cs" t="Include" />
+              <e p="MoveAndRotateObject.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="HexFloor.shader" t="Include" />
+              <e p="ModWorld.shader" t="Include" />
+              <e p="SphereBoxMorph.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="RaymarchingObject.cs" t="Include" />
+            <e p="RaymarchingRenderer.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Fallback" t="Include">
+              <e p="StandardSurfaceShader.shader" t="Include" />
+            </e>
+            <e p="Include" t="Include">
+              <e p="Camera.cginc" t="Include" />
+              <e p="Common.cginc" t="Include" />
+              <e p="Fractals.cginc" t="Include" />
+              <e p="GetPathFromScript.shader" t="Include" />
+              <e p="Math.cginc" t="Include" />
+              <e p="Primitives.cginc" t="Include" />
+              <e p="Raymarching.cginc" t="Include" />
+              <e p="Structs.cginc" t="Include" />
+              <e p="Utils.cginc" t="Include" />
+              <e p="VertFragDirectObject.cginc" t="Include" />
+              <e p="VertFragDirectScreen.cginc" t="Include" />
+              <e p="VertFragShadowObject.cginc" t="Include" />
+              <e p="VertFragStandardObject.cginc" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="uRaymarchingCustom" t="Include">
+          <e p="Common.cginc" t="Include" />
+          <e p="Math.cginc" t="Include" />
+          <e p="Primitives.cginc" t="Include" />
+        </e>
+        <e p="uShaderTemplate" t="Include">
+          <e p="Editor" t="Include">
+            <e p="Resources" t="Include">
+              <e p="uShaderTemplate" t="Include">
+                <e p="Fonts" t="Include">
+                  <e p="LICENSE_OFL.txt" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="CodeEditor.cs" t="Include" />
+              <e p="ColorScheme.cs" t="Include" />
+              <e p="Common.cs" t="Include" />
+              <e p="Constants.cs" t="Include" />
+              <e p="FileWatcher.cs" t="Include" />
+              <e p="Generator.cs" t="Include" />
+              <e p="GeneratorEditor.cs" t="Include" />
+              <e p="MaterialEditor.cs" t="Include" />
+              <e p="ShaderCodeEditor.cs" t="Include" />
+              <e p="ShaderHighlighter.cs" t="Include" />
+              <e p="ShaderSyntax.cs" t="Include" />
+              <e p="ShaderTemplateParser.cs" t="Include" />
+              <e p="ShaderTemplateSelector.cs" t="Include" />
+              <e p="Utils.cs" t="Include" />
+            </e>
+          </e>
+        </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
@@ -987,6 +1015,5 @@
       </e>
       <e p="unity-demoscene.sln" t="IncludeFlat" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2017.2/resharper-host/local/Transient/ReSharperHost/v10/SolutionCaches/_unity-demoscene.-756086034.00" t="ExcludeRecursive" />
   </component>
 </project>
