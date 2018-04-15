@@ -36,14 +36,12 @@ CGINCLUDE
 
 #define WORLD_SPACE
 
-
-
-
 #define DISTANCE_FUNCTION DistanceFunction
 #define POST_EFFECT PostEffect
 #define PostEffectOutput GBufferOut
 
-#include "Assets/Raymarching/Shaders/Include/Common.cginc"
+#include "Assets/uRaymarching/Shaders/Include/Common.cginc"
+#include "Assets/uRaymarchingCustom/Common.cginc"
 
 // @block DistanceFunction
 #define PI2 (2.0 * PI)
@@ -129,7 +127,7 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 }
 // @endblock
 
-#include "Assets/Raymarching/Shaders/Include/Raymarching.cginc"
+#include "Assets/uRaymarching/Shaders/Include/Raymarching.cginc"
 
 ENDCG
 
@@ -145,28 +143,14 @@ Pass
     }
 
     CGPROGRAM
-    #include "Assets/Raymarching/Shaders/Include/VertFragDirectScreen.cginc"
+    #include "Assets/uRaymarching/Shaders/Include/VertFragDirectScreen.cginc"
     #pragma target 3.0
     #pragma vertex Vert
     #pragma fragment Frag
-    #pragma multi_compile_prepassfinal
-    #pragma multi_compile OBJECT_SHAPE_CUBE OBJECT_SHAPE_SPHERE ___
     #pragma exclude_renderers nomrt
-    ENDCG
-}
-
-Pass
-{
-    Tags { "LightMode" = "ShadowCaster" }
-
-    CGPROGRAM
-    #include "Assets/Raymarching/Shaders/Include/VertFragShadowObject.cginc"
-    #pragma target 3.0
-    #pragma vertex Vert
-    #pragma fragment Frag
-    #pragma multi_compile_shadowcaster
+    #pragma multi_compile_prepassfinal
+    #pragma multi_compile ___ UNITY_HDR_ON
     #pragma multi_compile OBJECT_SHAPE_CUBE OBJECT_SHAPE_SPHERE ___
-    #pragma fragmentoption ARB_precision_hint_fastest
     ENDCG
 }
 
@@ -174,6 +158,6 @@ Pass
 
 Fallback Off
 
-CustomEditor "Raymarching.MaterialEditor"
+CustomEditor "uShaderTemplate.MaterialEditor"
 
 }
