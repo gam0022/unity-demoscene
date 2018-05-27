@@ -55,6 +55,7 @@ CGINCLUDE
 #define PostEffectOutput GBufferOut
 
 #include "<RaymarchingShaderDirectory>/Common.cginc"
+#include "Assets/uRaymarchingCustom/Common.cginc"
 
 @block DistanceFunction
 inline float DistanceFunction(float3 pos)
