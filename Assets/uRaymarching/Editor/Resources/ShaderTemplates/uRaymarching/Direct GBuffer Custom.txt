@@ -1,5 +1,7 @@
-Shader "Raymarching/Sandwich"
+Shader "Raymarching/<Name>"
 {
+
+@constants uRaymarching/Constants/uRaymarching Default Constants
 
 Properties
 {
@@ -11,13 +13,15 @@ Properties
     [Header(Raymarching Settings)]
     _Loop("Loop", Range(1, 100)) = 30
     _MinDistance("Minimum Distance", Range(0.001, 0.1)) = 0.01
+@if ShadowCaster : true
     _ShadowLoop("Shadow Loop", Range(1, 100)) = 10
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
+@endif
 
-// @block Properties
+@block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
-// @endblock
+@endblock
 }
 
 SubShader
@@ -29,41 +33,44 @@ Tags
     "DisableBatching" = "True"
 }
 
-Cull Off
+Cull <Culling=Off|Back|Front>
 
 CGINCLUDE
 
+@if WorldSpace : false
 #define WORLD_SPACE
+@endif
+@if FollowObjectScale : false
+#define OBJECT_SCALE
+@endif
+@if DoNotOutputDepth
+#define DO_NOT_OUTPUT_DEPTH
+@endif
+@if CameraInsideObject : false
+#define CAMERA_INSIDE_OBJECT
+@endif
 
 #define DISTANCE_FUNCTION DistanceFunction
 #define POST_EFFECT PostEffect
 #define PostEffectOutput GBufferOut
 
-#include "Assets/uRaymarching/Shaders/Include/Common.cginc"
+#include "<RaymarchingShaderDirectory>/Common.cginc"
 #include "Assets/uRaymarchingCustom/Common.cginc"
 
-// @block DistanceFunction
-float dFloor(float3 pos)
-{
-    float3 p = pos;
-    p.xz = Repeat(p.xz, 0.5);
-    return sdBox(p, float3(0.2, 0.2, 0.2));
-}
-
+@block DistanceFunction
 inline float DistanceFunction(float3 pos)
 {
-    float d = dFloor(pos);
-    return d;
+    return Sphere(pos, 0.5);
 }
-// @endblock
+@endblock
 
-// @block PostEffect
+@block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
 }
-// @endblock
+@endblock
 
-#include "Assets/uRaymarching/Shaders/Include/Raymarching.cginc"
+#include "<RaymarchingShaderDirectory>/Raymarching.cginc"
 
 ENDCG
 
@@ -79,7 +86,11 @@ Pass
     }
 
     CGPROGRAM
-    #include "Assets/uRaymarching/Shaders/Include/VertFragDirectScreen.cginc"
+@if WorldSpace
+    #include "<RaymarchingShaderDirectory>/VertFragDirectScreen.cginc"
+@else
+    #include "<RaymarchingShaderDirectory>/VertFragDirectObject.cginc"
+@endif
     #pragma target 3.0
     #pragma vertex Vert
     #pragma fragment Frag
@@ -90,12 +101,13 @@ Pass
     ENDCG
 }
 
+@if ShadowCaster
 Pass
 {
     Tags { "LightMode" = "ShadowCaster" }
 
     CGPROGRAM
-    #include "Assets/uRaymarching/Shaders/Include/VertFragShadowObject.cginc"
+    #include "<RaymarchingShaderDirectory>/VertFragShadowObject.cginc"
     #pragma target 3.0
     #pragma vertex Vert
     #pragma fragment Frag
@@ -104,10 +116,15 @@ Pass
     #pragma multi_compile OBJECT_SHAPE_CUBE OBJECT_SHAPE_SPHERE ___
     ENDCG
 }
+@endif
 
 }
 
+@if FallbackToDiffuse : true
 Fallback "Diffuse"
+@else
+Fallback Off
+@endif
 
 CustomEditor "uShaderTemplate.MaterialEditor"
 
