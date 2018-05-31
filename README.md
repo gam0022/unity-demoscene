@@ -12,4 +12,4 @@ Unityを使ったデモ制作に挑戦したプロジェクトです。
 [![THE GLOW](the-glow.jpg)](the-glow.jpg)
 
 - 動画: [Unity Demoscene Prototype: THE GLOW | YouTube](https://www.youtube.com/watch?v=BZGO5xXuPj8)
-- 解説記事: [Unityでメガデモ制作に挑戦（uRaymarchingとTimelineを試す） | gam0022.net](http://localhost:1313/blog/2017/12/25/unity-demoscene/)
+- 解説記事: [Unityでメガデモ制作に挑戦（uRaymarchingとTimelineを試す） | gam0022.net](https://gam0022.net/blog/2017/12/25/unity-demoscene/)
