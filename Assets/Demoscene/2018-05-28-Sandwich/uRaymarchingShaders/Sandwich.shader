@@ -67,8 +67,8 @@ float4 _SlideEmission;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    float a = frac(4.0 * ray.endPos.y - 2.0 * _Time.x - 0.5);
-    float width = 0.04;
+    float a = frac(4.0 * abs(ray.endPos.y) - 2.0 * _Time.x);
+    float width = 0.1;
     o.emission = _SlideEmission * abs(sin(PI * 12.0 * _Time.x)) * step(a, width) * ((a + 0.5 * width) / width);
 }
 // @endblock
