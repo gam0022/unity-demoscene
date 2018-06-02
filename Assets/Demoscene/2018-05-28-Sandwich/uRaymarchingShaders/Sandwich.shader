@@ -17,6 +17,7 @@ Properties
 
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+_SlideEmission("Slide Emission", Vector) = (2.0, 2.0, 5.0, 1.0)
 // @endblock
 }
 
@@ -46,20 +47,29 @@ CGINCLUDE
 float dFloor(float3 pos)
 {
     float3 p = pos;
-    p.xz = Repeat(p.xz, 0.5);
-    return sdBox(p, float3(0.2, 0.2, 0.2));
+    p.xz = Repeat(p.xz, 1);
+    float w = 0.4;
+    return sdBox(p, float3(w, w, w));
 }
 
 inline float DistanceFunction(float3 pos)
 {
-    float d = dFloor(pos);
+    float height = 4;
+    pos.y += 0.1 * sin(12.0 * _Time.x + 5.0 * Rand(floor(pos.xz)));
+    float d = dFloor(pos - float3(0, -height, 0));
+    d = min(d, dFloor(pos - float3(0, height, 0)));
     return d;
 }
 // @endblock
 
 // @block PostEffect
+float4 _SlideEmission;
+
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
+    float a = frac(4.0 * ray.endPos.y - 2.0 * _Time.x - 0.5);
+    float width = 0.04;
+    o.emission = _SlideEmission * abs(sin(PI * 12.0 * _Time.x)) * step(a, width) * ((a + 0.5 * width) / width);
 }
 // @endblock
 

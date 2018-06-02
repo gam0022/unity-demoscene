@@ -39,7 +39,10 @@ MonoBehaviour:
     value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
     folded: 0
   - key: DistanceFunction
-    value: "inline float DistanceFunction(float3 pos)\n{\n    return Sphere(pos, 0.5);\n}"
+    value: "float dFloor(float3 pos)\n{\n    float3 p = pos;\n    p.xz = Repeat(p.xz,
+      0.5);\n    return sdBox(p, float3(0.2, 0.2, 0.2));\n}\n\ninline float DistanceFunction(float3
+      pos)\n{\n    float d = dFloor(pos);\n    d = min(d, dFloor(pos - float3(0, 4,
+      0)));\n    return d;\n}"
     folded: 0
   - key: PostEffect
     value: 'inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
@@ -50,7 +53,7 @@ MonoBehaviour:
     folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
   basicFolded: 1
-  conditionsFolded: 1
+  conditionsFolded: 0
   variablesFolded: 1
   materialsFolded: 1
   constantsFolded: 0
