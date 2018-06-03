@@ -2,13 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using Demoscene;
 
-public class RaymarchingWorldSandwichMixerBehaviour : PlayableBehaviour
+public class RaymarchingWolrdSandwichMixerBehaviour : PlayableBehaviour
 {
     // NOTE: This function is called at runtime and edit time.  Keep that in mind when setting the values of properties.
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
-        MonoBehaviour trackBinding = playerData as MonoBehaviour;
+        RaymarchingWorldSandwichComponet trackBinding = playerData as RaymarchingWorldSandwichComponet;
 
         if (!trackBinding)
             return;
@@ -18,8 +19,8 @@ public class RaymarchingWorldSandwichMixerBehaviour : PlayableBehaviour
         for (int i = 0; i < inputCount; i++)
         {
             float inputWeight = playable.GetInputWeight(i);
-            ScriptPlayable<RaymarchingWorldSandwichBehaviour> inputPlayable = (ScriptPlayable<RaymarchingWorldSandwichBehaviour>)playable.GetInput(i);
-            RaymarchingWorldSandwichBehaviour input = inputPlayable.GetBehaviour ();
+            ScriptPlayable<RaymarchingWolrdSandwichBehaviour> inputPlayable = (ScriptPlayable<RaymarchingWolrdSandwichBehaviour>)playable.GetInput(i);
+            RaymarchingWolrdSandwichBehaviour input = inputPlayable.GetBehaviour ();
             
             // Use the above variables to process each frame of this playable.
             

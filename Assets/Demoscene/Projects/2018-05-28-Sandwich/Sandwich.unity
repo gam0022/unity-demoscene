@@ -391,13 +391,13 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 32
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 10, y: 10, z: 10}
+  m_BoxSize: {x: 100, y: 100, z: 100}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
   m_ShadowDistance: 100
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 1
@@ -630,6 +630,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 114157750213672622, guid: c4c3e38fc3ca1f84f8aa6216618d29d7, type: 2}
     value: {fileID: 2022267216}
+  - key: {fileID: 114844554438964780, guid: c4c3e38fc3ca1f84f8aa6216618d29d7, type: 2}
+    value: {fileID: 509048561}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &2022267219
