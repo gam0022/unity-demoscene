@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sandwich
+  m_Name: WorldSandwich
   m_Shader: {fileID: 4800000, guid: cb3594e638cfb1940815ad9e2ebc20c4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

@@ -80,18 +80,25 @@
           </e>
         </e>
         <e p="Demoscene" t="Include">
-          <e p="2018-05-28-Sandwich" t="Include">
-            <e p="Skybox.shader" t="Include" />
-            <e p="uRaymarchingShaders" t="Include">
-              <e p="Sandwich.shader" t="Include" />
-            </e>
-          </e>
           <e p="Editor" t="Include">
             <e p="ScreenshotResolution.cs" t="Include" />
           </e>
-          <e p="TheGlow" t="Include">
-            <e p="TheGlowCameraWork.cs" t="Include" />
-            <e p="TheGlowWorld.shader" t="Include" />
+          <e p="Projects" t="Include">
+            <e p="2018-05-28-Sandwich" t="Include">
+              <e p="Skybox.shader" t="Include" />
+              <e p="uRaymarchingShaders" t="Include">
+                <e p="Sandwich.shader" t="Include" />
+              </e>
+            </e>
+            <e p="TheGlow" t="Include">
+              <e p="TheGlowCameraWork.cs" t="Include" />
+              <e p="TheGlowWorld.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Components" t="Include">
+              <e p="RaymarchingWorldSandwichComponet.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="EffectExamples" t="Include">

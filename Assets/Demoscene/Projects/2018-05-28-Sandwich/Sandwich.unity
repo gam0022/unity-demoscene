@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 509048564}
   - component: {fileID: 509048562}
   - component: {fileID: 509048561}
+  - component: {fileID: 509048563}
   m_Layer: 0
   m_Name: RaymarchingRenderer
   m_TagString: Untagged
@@ -276,6 +277,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &509048563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509048559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b647505e89aa24da8865ec9a806443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 0c914aa300c88dc49b0b1d2fa2113234, type: 2}
 --- !u!33 &509048564
 MeshFilter:
   m_ObjectHideFlags: 0
