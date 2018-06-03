@@ -17,6 +17,7 @@ Properties
 
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+_LocalTime("Local Time", Float) = 0
 _SlideEmission("Slide Emission", Vector) = (2.0, 2.0, 5.0, 1.0)
 // @endblock
 }
@@ -44,6 +45,8 @@ CGINCLUDE
 #include "Assets/uRaymarchingCustom/Common.cginc"
 
 // @block DistanceFunction
+float _LocalTime;
+
 float dFloor(float3 pos)
 {
     float3 p = pos;
@@ -55,7 +58,7 @@ float dFloor(float3 pos)
 inline float DistanceFunction(float3 pos)
 {
     float height = 4;
-    pos.y += 0.1 * sin(12.0 * _Time.x + 5.0 * Rand(floor(pos.xz)));
+    pos.y += 0.1 * sin(12.0 / 20 * _LocalTime + 5.0 * Rand(floor(pos.xz)));
     float d = dFloor(pos - float3(0, -height, 0));
     d = min(d, dFloor(pos - float3(0, height, 0)));
     return d;
@@ -67,9 +70,9 @@ float4 _SlideEmission;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    float a = frac(4.0 * abs(ray.endPos.y) - 2.0 * _Time.x);
+    float a = frac(4.0 * abs(ray.endPos.y) - 2.0 / 20 * _LocalTime);
     float width = 0.1;
-    o.emission = _SlideEmission * abs(sin(PI * 12.0 * _Time.x)) * step(a, width) * ((a + 0.5 * width) / width);
+    o.emission = _SlideEmission * abs(sin(PI * 12.0 / 20 * _LocalTime)) * step(a, width) * ((a + 0.5 * width) / width);
 }
 // @endblock
 

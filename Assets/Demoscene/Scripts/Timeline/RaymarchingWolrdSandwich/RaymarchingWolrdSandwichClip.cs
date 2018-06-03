@@ -2,22 +2,24 @@ using System;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
-using Demoscene;
 
-[Serializable]
-public class RaymarchingWolrdSandwichClip : PlayableAsset, ITimelineClipAsset
+namespace Demoscene
 {
-    public RaymarchingWolrdSandwichBehaviour template = new RaymarchingWolrdSandwichBehaviour ();
-
-    public ClipCaps clipCaps
+    [Serializable]
+    public class RaymarchingWolrdSandwichClip : PlayableAsset, ITimelineClipAsset
     {
-        get { return ClipCaps.None; }
-    }
+        public RaymarchingWolrdSandwichBehaviour template = new RaymarchingWolrdSandwichBehaviour();
 
-    public override Playable CreatePlayable (PlayableGraph graph, GameObject owner)
-    {
-        var playable = ScriptPlayable<RaymarchingWolrdSandwichBehaviour>.Create (graph, template);
-        RaymarchingWolrdSandwichBehaviour clone = playable.GetBehaviour ();
-        return playable;
+        public ClipCaps clipCaps
+        {
+            get { return ClipCaps.None; }
+        }
+
+        public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
+        {
+            var playable = ScriptPlayable<RaymarchingWolrdSandwichBehaviour>.Create(graph, template);
+            RaymarchingWolrdSandwichBehaviour clone = playable.GetBehaviour();
+            return playable;
+        }
     }
 }
