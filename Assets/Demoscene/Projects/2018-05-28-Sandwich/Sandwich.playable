@@ -15,11 +15,24 @@ MonoBehaviour:
   m_Tracks:
   - {fileID: 114157750213672622}
   - {fileID: 114413557561375252}
+  - {fileID: 114846190557712278}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
   m_DurationMode: 0
   m_Version: 0
+--- !u!114 &114128381589684540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e95aa6d658d694785bfde37c857fff, type: 3}
+  m_Name: RecorderClip
+  m_EditorClassIdentifier: 
+  m_Settings: {fileID: 114381781650116462}
 --- !u!114 &114157750213672622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +80,58 @@ MonoBehaviour:
     param1: 0
     param2: 0
     vec1: {x: 0, y: 0, z: 0}
+--- !u!114 &114381781650116462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ee9a8f826ced34082d654155141a26, type: 3}
+  m_Name: Recorder Settings
+  m_EditorClassIdentifier: 
+  m_AssetID: c4c3e38fc3ca1f84f8aa6216618d29d7
+  m_CaptureEveryNthFrame: 1
+  m_FrameRateMode: 1
+  m_FrameRate: 60
+  m_FrameRateExact: 512
+  m_StartFrame: 0
+  m_EndFrame: 10
+  m_StartTime: 0
+  m_EndTime: 1
+  m_DurationMode: 0
+  m_SynchFrameRate: 1
+  m_BaseFileName:
+    m_Pattern: movie-<dt>-<ts>.<ext>
+  m_DestinationPath:
+    m_root: 0
+    m_leaf: C:/Users/gam0022/Videos/Unity
+  m_InputsSettings:
+    m_InputsSettingsAssets:
+    - {fileID: 114530931377749510}
+    ownerRecorderSettingsAssetId: c4c3e38fc3ca1f84f8aa6216618d29d7
+  m_RecorderTypeName: UTJ.FrameCapturer.Recorders.MP4Recorder, Assembly-CSharp, Version=0.0.0.0,
+    Culture=neutral, PublicKeyToken=null
+  m_MP4EncoderSettings:
+    video:
+      v: 1
+    videoWidth: 0
+    videoHeight: 0
+    videoTargetFramerate: 30
+    videoBitrateMode: 1
+    videoTargetBitrate: 1024000
+    videoFlags: 62
+    videoMaxTasks: 4
+    audio:
+      v: 1
+    audioSampleRate: 48000
+    audioNumChannels: 2
+    audioBitrateMode: 1
+    audioTargetBitrate: 128000
+    audioFlags: 6
+    audioMaxTasks: 4
+  m_AutoSelectBR: 1
 --- !u!114 &114413557561375252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,5 +218,114 @@ MonoBehaviour:
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: RaymarchingWolrdSandwichClip
+    m_Version: 1
+  m_Version: 1
+--- !u!114 &114530931377749510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d935bf7a4fcf66488738bda5536c1cb, type: 3}
+  m_Name: 850e24b5-86a6-480d-ad8a-72d4841d2636
+  m_EditorClassIdentifier: 
+  m_DisplayName: Pixels
+  m_Id: dc18d3a0-91f2-42a9-8fc8-f7f28b53d3a0
+  m_OutputSize: 0
+  m_AspectRatio: 0
+  m_ForceEvenSize: 1
+  source: 1
+  m_CameraTag: 
+  m_FlipFinalOutput: 1
+  m_AllowTransparency: 0
+  m_CaptureUI: 0
+--- !u!114 &114846190557712278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6cf5671577b7344ba25c25b4346ce4, type: 3}
+  m_Name: Recorder Track
+  m_EditorClassIdentifier: 
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_AnimClip: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Start: 0
+    m_ClipIn: 0
+    m_Asset: {fileID: 114128381589684540}
+    m_Duration: 8
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 114846190557712278}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: RecorderClip
     m_Version: 1
   m_Version: 1
