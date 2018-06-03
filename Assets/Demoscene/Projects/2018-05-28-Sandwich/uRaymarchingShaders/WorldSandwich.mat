@@ -20,6 +20,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Glossiness: 0.5
+    - _LocalTime: 7.0417194
     - _Loop: 100
     - _Metallic: 0.5
     - _MinDistance: 0.01
@@ -30,5 +31,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Diffuse: {r: 0, g: 0.21978666, b: 0.754717, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _SlideEmission: {r: 2, g: 2, b: 5, a: 1}
-    - _Specular: {r: 0.6933962, g: 0.72224, b: 1, a: 1}
+    - _SlideEmission: {r: 0.8540741, g: 0.8540741, b: 2.1185474, a: 1}
+    - _Specular: {r: 0, g: 0, b: 0, a: 1}

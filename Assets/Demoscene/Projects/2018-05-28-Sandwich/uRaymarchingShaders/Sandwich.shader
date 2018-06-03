@@ -18,7 +18,7 @@ Properties
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
 _LocalTime("Local Time", Float) = 0
-_SlideEmission("Slide Emission", Vector) = (2.0, 2.0, 5.0, 1.0)
+[HDR] _SlideEmission("Slide Emission", Color) = (2.0, 2.0, 5.0, 1.0)
 // @endblock
 }
 
@@ -58,7 +58,7 @@ float dFloor(float3 pos)
 inline float DistanceFunction(float3 pos)
 {
     float height = 4;
-    pos.y += 0.1 * sin(12.0 / 20 * _LocalTime + 5.0 * Rand(floor(pos.xz)));
+    pos.y += 0.1 * sin(PI * _LocalTime + 5.0 * Rand(floor(pos.xz)));
     float d = dFloor(pos - float3(0, -height, 0));
     d = min(d, dFloor(pos - float3(0, height, 0)));
     return d;
@@ -70,9 +70,14 @@ float4 _SlideEmission;
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    float a = frac(4.0 * abs(ray.endPos.y) - 2.0 / 20 * _LocalTime);
-    float width = 0.1;
-    o.emission = _SlideEmission * abs(sin(PI * 12.0 / 20 * _LocalTime)) * step(a, width) * ((a + 0.5 * width) / width);
+    float width = 0.2;
+    float byPosY = frac(4 * abs(ray.endPos.y) + 1.0 / 16 * _LocalTime);
+    byPosY = step(byPosY, width);
+
+    float byTime = abs(sin(PI * 1.0 / 4 * _LocalTime));
+    float intensity = byPosY * byTime;
+ 
+    o.emission = _SlideEmission * intensity;
 }
 // @endblock
 
