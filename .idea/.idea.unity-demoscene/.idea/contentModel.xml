@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+    <e p="C:\Users\gam0022\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_unity-demoscene.-172030377.00" t="ExcludeRecursive" />
+    <e p="C:\Users\gam0022\Dropbox\Unity\unity-demoscene" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
@@ -106,13 +107,6 @@
             </e>
             <e p="Shaders" t="Include">
               <e p="SurfaceShader_VC.shader" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Plugins" t="Include">
-          <e p="Editor" t="Include">
-            <e p="JetBrains" t="Include">
-              <e p="Unity3DRider.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -910,6 +904,5 @@
       </e>
       <e p="unity-demoscene.sln" t="IncludeFlat" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2017.2/resharper-host/local/Transient/ReSharperHost/v10/SolutionCaches/_unity-demoscene.-756086034.00" t="ExcludeRecursive" />
   </component>
 </project>
