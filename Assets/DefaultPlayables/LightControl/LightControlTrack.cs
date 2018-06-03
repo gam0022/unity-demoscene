@@ -13,23 +13,17 @@ public class LightControlTrack : TrackAsset
         return ScriptPlayable<LightControlMixerBehaviour>.Create (graph, inputCount);
     }
 
-    public override void GatherProperties (PlayableDirector director, IPropertyCollector driver)
+    public override void GatherProperties(PlayableDirector director, IPropertyCollector driver)
     {
 #if UNITY_EDITOR
-        Light trackBinding = director.GetGenericBinding(this) as Light;
-        if (trackBinding == null)
-            return;
-
-        var serializedObject = new UnityEditor.SerializedObject (trackBinding);
-        var iterator = serializedObject.GetIterator();
-        while (iterator.NextVisible(true))
-        {
-            if (iterator.hasVisibleChildren)
-                continue;
-
-            driver.AddFromName<Light>(trackBinding.gameObject, iterator.propertyPath);
-        }
+       Light trackBinding = director.GetGenericBinding(this) as Light;
+       if (trackBinding == null)
+           return;
+       driver.AddFromName<Light>(trackBinding.gameObject, "m_Color");
+       driver.AddFromName<Light>(trackBinding.gameObject, "m_Intensity");
+       driver.AddFromName<Light>(trackBinding.gameObject, "m_Range");
+       driver.AddFromName<Light>(trackBinding.gameObject, "m_BounceIntensity");
 #endif
-        base.GatherProperties (director, driver);
+        base.GatherProperties(director, driver);
     }
 }

@@ -64,11 +64,15 @@ public class TextSwitcherMixerBehaviour : PlayableBehaviour
         }
     }
 
-    public override void OnGraphStop (Playable playable)
+    public override void OnPlayableDestroy (Playable playable)
     {
+        m_FirstFrameHappened = false;
+
+        if (m_TrackBinding == null)
+            return;
+
         m_TrackBinding.color = m_DefaultColor;
         m_TrackBinding.fontSize = m_DefaultFontSize;
         m_TrackBinding.text = m_DefaultText;
-        m_FirstFrameHappened = false;
     }
 }

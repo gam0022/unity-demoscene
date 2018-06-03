@@ -10,8 +10,7 @@ public class TransformTweenDrawer : PropertyDrawer
         + "Deceleration - the transform moves slower the closer to the end location it is.\n"
         + "Harmonic - the transform moves faster in the middle of its tween.\n"
         + "Custom - uses the customStartingSpeed and customEndingSpeed to create a curve for the desired tween.");
-    GUIContent m_StartingSpeedContent = new GUIContent("Starting Speed", "This is used when the Tween Type is set to Custom.  It determines how fast the transform will be moving near the Start Location.");
-    GUIContent m_EndingSpeedContent = new GUIContent("Ending Speed", "This is used when the Tween Type is set to Custom.  It determines how fast the transform will be moving near the End Location.");
+    GUIContent m_CustomCurveContent = new GUIContent("Custom Curve", "This should be a normalised curve (between 0,0 and 1,1) that represents how the tweening object accelerates at different points along the clip.");
 
     public override float GetPropertyHeight (SerializedProperty property, GUIContent label)
     {
@@ -36,14 +35,10 @@ public class TransformTweenDrawer : PropertyDrawer
 
         if (tweenTypeProp.enumValueIndex == (int)TransformTweenBehaviour.TweenType.Custom)
         {
-            SerializedProperty startingSpeedProp = property.FindPropertyRelative ("customStartingSpeed");
-            SerializedProperty endingSpeedProp = property.FindPropertyRelative ("customEndingSpeed");
-
+            SerializedProperty customCurveProp = property.FindPropertyRelative ("customCurve");
+            
             singleFieldRect.y += EditorGUIUtility.singleLineHeight;
-            EditorGUI.Slider(singleFieldRect, startingSpeedProp, 0f, 1f, m_StartingSpeedContent);
-
-            singleFieldRect.y += EditorGUIUtility.singleLineHeight;
-            EditorGUI.Slider (singleFieldRect, endingSpeedProp, 0f, 1f, m_EndingSpeedContent);
+            EditorGUI.PropertyField (singleFieldRect, customCurveProp, m_CustomCurveContent);
         }
     }
 }
