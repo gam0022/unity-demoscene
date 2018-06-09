@@ -64,17 +64,18 @@ public class LightControlMixerBehaviour : PlayableBehaviour
         m_TrackBinding.intensity = blendedIntensity + m_DefaultIntensity * (1f - totalWeight);
         m_TrackBinding.bounceIntensity = blendedBounceIntensity + m_DefaultBounceIntensity * (1f - totalWeight);
         m_TrackBinding.range = blendedRange + m_DefaultRange * (1f - totalWeight);
-        if (currentInputs != 1 && 1f - totalWeight > greatestWeight)
-        {
-        }
     }
 
-    public override void OnGraphStop (Playable playable)
+    public override void OnPlayableDestroy (Playable playable)
     {
+        m_FirstFrameHappened = false;
+
+        if(m_TrackBinding == null)
+            return;
+
         m_TrackBinding.color = m_DefaultColor;
         m_TrackBinding.intensity = m_DefaultIntensity;
         m_TrackBinding.bounceIntensity = m_DefaultBounceIntensity;
         m_TrackBinding.range = m_DefaultRange;
-        m_FirstFrameHappened = false;
     }
 }

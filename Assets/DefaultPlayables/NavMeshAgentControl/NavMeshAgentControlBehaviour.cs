@@ -9,7 +9,7 @@ public class NavMeshAgentControlBehaviour : PlayableBehaviour
     public Transform destination;
     public bool destinationSet;
 
-    public override void OnGraphStart (Playable playable)
+    public override void OnPlayableCreate (Playable playable)
     {
         destinationSet = false;
     }

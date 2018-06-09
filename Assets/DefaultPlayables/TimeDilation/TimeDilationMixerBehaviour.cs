@@ -7,7 +7,7 @@ public class TimeDilationMixerBehaviour : PlayableBehaviour
 {
     float m_OldTimeScale = 1f;
 
-    public override void OnGraphStart (Playable playable)
+    public override void OnPlayableCreate (Playable playable)
     {
         m_OldTimeScale = Time.timeScale;
     }
@@ -34,7 +34,7 @@ public class TimeDilationMixerBehaviour : PlayableBehaviour
         Time.timeScale = mixedTimeScale + m_OldTimeScale * (1f - totalWeight);
     }
 
-    public override void OnGraphStop (Playable playable)
+    public override void OnPlayableDestroy (Playable playable)
     {
         Time.timeScale = m_OldTimeScale;
     }
