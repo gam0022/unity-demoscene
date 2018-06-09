@@ -386,7 +386,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 982855132}
-  m_LocalRotation: {x: -0.00045765832, y: 0.9964297, z: -0.08425207, w: -0.005412619}
+  m_LocalRotation: {x: -0.00045786382, y: 0.9964297, z: -0.08425211, w: -0.0054150475}
   m_LocalPosition: {x: -0, y: 2, z: 34.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -510,9 +510,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -536,8 +536,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1006597292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: -0.005412619}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.19181712, y: 0.6619216, z: -0.1809547, w: -0.0054150475}
+  m_LocalPosition: {x: -4.6296253, y: 4.3543367, z: -0.259829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -729,7 +729,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1070192748}
-  m_LocalRotation: {x: 0.19258371, y: 0.6588273, z: -0.18007876, w: 0.7045777}
+  m_LocalRotation: {x: 0.19257474, y: 0.6588298, z: -0.18007053, w: 0.70458}
   m_LocalPosition: {x: -4.6581545, y: 4.2527165, z: 31.04841}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -970,6 +970,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_CullingMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
