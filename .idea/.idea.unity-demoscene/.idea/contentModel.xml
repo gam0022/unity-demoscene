@@ -125,6 +125,11 @@
             </e>
           </e>
         </e>
+        <e p="Experiments" t="Include">
+          <e p="Sound" t="Include">
+            <e p="Sound.cs" t="Include" />
+          </e>
+        </e>
         <e p="PostProcessing" t="Include">
           <e p="PostProcessing" t="Include">
             <e p="Editor" t="Include">
