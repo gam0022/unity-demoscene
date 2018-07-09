@@ -35,146 +35,181 @@
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
 			
-			float3 mod_emu(float3 x, float y)
-            {
-                return x - y * floor(x / y);
+			// porting from GLSL
+			#define vec2 float2
+			#define vec3 float3
+			#define vec4 float4
+			#define mod(x, y) (x - y * floor(x / y))
+			#define fract frac
+			
+            // https://thebookofshaders.com/edit.php#12/3d-cnoise.frag
+            vec3 permute(vec3 x) {
+                return mod((34.0 * x + 1.0) * x, 289.0);
             }
             
-            float3 f_permute(in float3 _x)
-            {
-                return mod_emu((((34.0 * _x) + 1.0) * _x), 289.0);
-            }
+            // Cellular noise, returning F1 and F2 in a vec2.
+            // 3x3x3 search region for good F2 everywhere, but a lot
+            // slower than the 2x2x2 version.
+            // The code below is a bit scary even to its author,
+            // but it has at least half decent performance on a
+            // modern GPU. In any case, it beats any software
+            // implementation of Worley noise hands down.
             
-            float2 f_cellular(in float3 _P)
-            {
-                float3 _Pi = mod_emu(floor(_P), 289.0);
-                float3 _Pf = (frac(_P) - 0.5);
-                float3 _Pfx = (_Pf.x + float3(1.0, 0.0, -1.0));
-                float3 _Pfy = (_Pf.y + float3(1.0, 0.0, -1.0));
-                float3 _Pfz = (_Pf.z + float3(1.0, 0.0, -1.0));
-                float3 _p = f_permute((_Pi.x + float3(-1.0, 0.0, 1.0)));
-                float3 _p1 = f_permute(((_p + _Pi.y) - 1.0));
-                float3 _p2 = f_permute((_p + _Pi.y));
-                float3 _p3 = f_permute(((_p + _Pi.y) + 1.0));
-                float3 _p11 = f_permute(((_p1 + _Pi.z) - 1.0));
-                float3 _p12 = f_permute((_p1 + _Pi.z));
-                float3 _p13 = f_permute(((_p1 + _Pi.z) + 1.0));
-                float3 _p21 = f_permute(((_p2 + _Pi.z) - 1.0));
-                float3 _p22 = f_permute((_p2 + _Pi.z));
-                float3 _p23 = f_permute(((_p2 + _Pi.z) + 1.0));
-                float3 _p31 = f_permute(((_p3 + _Pi.z) - 1.0));
-                float3 _p32 = f_permute((_p3 + _Pi.z));
-                float3 _p33 = f_permute(((_p3 + _Pi.z) + 1.0));
-                float3 _ox11 = (frac((_p11 * 0.14285715)) - 0.42857143);
-                float3 _oy11 = ((mod_emu(floor((_p11 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz11 = ((floor((_p11 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox12 = (frac((_p12 * 0.14285715)) - 0.42857143);
-                float3 _oy12 = ((mod_emu(floor((_p12 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz12 = ((floor((_p12 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox13 = (frac((_p13 * 0.14285715)) - 0.42857143);
-                float3 _oy13 = ((mod_emu(floor((_p13 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz13 = ((floor((_p13 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox21 = (frac((_p21 * 0.14285715)) - 0.42857143);
-                float3 _oy21 = ((mod_emu(floor((_p21 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz21 = ((floor((_p21 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox22 = (frac((_p22 * 0.14285715)) - 0.42857143);
-                float3 _oy22 = ((mod_emu(floor((_p22 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz22 = ((floor((_p22 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox23 = (frac((_p23 * 0.14285715)) - 0.42857143);
-                float3 _oy23 = ((mod_emu(floor((_p23 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz23 = ((floor((_p23 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox31 = (frac((_p31 * 0.14285715)) - 0.42857143);
-                float3 _oy31 = ((mod_emu(floor((_p31 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz31 = ((floor((_p31 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox32 = (frac((_p32 * 0.14285715)) - 0.42857143);
-                float3 _oy32 = ((mod_emu(floor((_p32 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz32 = ((floor((_p32 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _ox33 = (frac((_p33 * 0.14285715)) - 0.42857143);
-                float3 _oy33 = ((mod_emu(floor((_p33 * 0.14285715)), 7.0) * 0.14285715) - 0.42857143);
-                float3 _oz33 = ((floor((_p33 * 0.020408163)) * 0.16666667) - 0.41666666);
-                float3 _dx11 = (_Pfx + (1.0 * _ox11));
-                float3 _dy11 = (_Pfy.x + (1.0 * _oy11));
-                float3 _dz11 = (_Pfz.x + (1.0 * _oz11));
-                float3 _dx12 = (_Pfx + (1.0 * _ox12));
-                float3 _dy12 = (_Pfy.x + (1.0 * _oy12));
-                float3 _dz12 = (_Pfz.y + (1.0 * _oz12));
-                float3 _dx13 = (_Pfx + (1.0 * _ox13));
-                float3 _dy13 = (_Pfy.x + (1.0 * _oy13));
-                float3 _dz13 = (_Pfz.z + (1.0 * _oz13));
-                float3 _dx21 = (_Pfx + (1.0 * _ox21));
-                float3 _dy21 = (_Pfy.y + (1.0 * _oy21));
-                float3 _dz21 = (_Pfz.x + (1.0 * _oz21));
-                float3 _dx22 = (_Pfx + (1.0 * _ox22));
-                float3 _dy22 = (_Pfy.y + (1.0 * _oy22));
-                float3 _dz22 = (_Pfz.y + (1.0 * _oz22));
-                float3 _dx23 = (_Pfx + (1.0 * _ox23));
-                float3 _dy23 = (_Pfy.y + (1.0 * _oy23));
-                float3 _dz23 = (_Pfz.z + (1.0 * _oz23));
-                float3 _dx31 = (_Pfx + (1.0 * _ox31));
-                float3 _dy31 = (_Pfy.z + (1.0 * _oy31));
-                float3 _dz31 = (_Pfz.x + (1.0 * _oz31));
-                float3 _dx32 = (_Pfx + (1.0 * _ox32));
-                float3 _dy32 = (_Pfy.z + (1.0 * _oy32));
-                float3 _dz32 = (_Pfz.y + (1.0 * _oz32));
-                float3 _dx33 = (_Pfx + (1.0 * _ox33));
-                float3 _dy33 = (_Pfy.z + (1.0 * _oy33));
-                float3 _dz33 = (_Pfz.z + (1.0 * _oz33));
-                float3 _d11 = (((_dx11 * _dx11) + (_dy11 * _dy11)) + (_dz11 * _dz11));
-                float3 _d12 = (((_dx12 * _dx12) + (_dy12 * _dy12)) + (_dz12 * _dz12));
-                float3 _d13 = (((_dx13 * _dx13) + (_dy13 * _dy13)) + (_dz13 * _dz13));
-                float3 _d21 = (((_dx21 * _dx21) + (_dy21 * _dy21)) + (_dz21 * _dz21));
-                float3 _d22 = (((_dx22 * _dx22) + (_dy22 * _dy22)) + (_dz22 * _dz22));
-                float3 _d23 = (((_dx23 * _dx23) + (_dy23 * _dy23)) + (_dz23 * _dz23));
-                float3 _d31 = (((_dx31 * _dx31) + (_dy31 * _dy31)) + (_dz31 * _dz31));
-                float3 _d32 = (((_dx32 * _dx32) + (_dy32 * _dy32)) + (_dz32 * _dz32));
-                float3 _d33 = (((_dx33 * _dx33) + (_dy33 * _dy33)) + (_dz33 * _dz33));
-                float3 _d1a = min(_d11, _d12);
-                (_d12 = max(_d11, _d12));
-                (_d11 = min(_d1a, _d13));
-                (_d13 = max(_d1a, _d13));
-                (_d12 = min(_d12, _d13));
-                float3 _d2a = min(_d21, _d22);
-                (_d22 = max(_d21, _d22));
-                (_d21 = min(_d2a, _d23));
-                (_d23 = max(_d2a, _d23));
-                (_d22 = min(_d22, _d23));
-                float3 _d3a = min(_d31, _d32);
-                (_d32 = max(_d31, _d32));
-                (_d31 = min(_d3a, _d33));
-                (_d33 = max(_d3a, _d33));
-                (_d32 = min(_d32, _d33));
-                float3 _da = min(_d11, _d21);
-                (_d21 = max(_d11, _d21));
-                (_d11 = min(_da, _d31));
-                (_d31 = max(_da, _d31));
-                float2 s452 = {0, 0};
-                if ((_d11.x < _d11.y))
-                {
-                (s452 = _d11.xy);
-                }
-                else
-                {
-                (s452 = _d11.yx);
-                }
-                (_d11.xy = s452);
-                float2 s453 = {0, 0};
-                if ((_d11.x < _d11.z))
-                {
-                (s453 = _d11.xz);
-                }
-                else
-                {
-                (s453 = _d11.zx);
-                }
-                (_d11.xz = s453);
-                (_d12 = min(_d12, _d21));
-                (_d12 = min(_d12, _d22));
-                (_d12 = min(_d12, _d31));
-                (_d12 = min(_d12, _d32));
-                (_d11.yz = min(_d11.yz, _d12.xy));
-                (_d11.y = min(_d11.y, _d12.z));
-                (_d11.y = min(_d11.y, _d11.z));
-                return sqrt(_d11.xy);
+            vec2 cellular(vec3 P) {
+                #define K 0.142857142857 // 1/7
+                #define Ko 0.428571428571 // 1/2-K/2
+                #define K2 0.020408163265306 // 1/(7*7)
+                #define Kz 0.166666666667 // 1/6
+                #define Kzo 0.416666666667 // 1/2-1/6*2
+                #define jitter 1.0 // smaller jitter gives more regular pattern
+            
+                vec3 Pi = mod(floor(P), 289.0);
+                vec3 Pf = fract(P) - 0.5;
+            
+                vec3 Pfx = Pf.x + vec3(1.0, 0.0, -1.0);
+                vec3 Pfy = Pf.y + vec3(1.0, 0.0, -1.0);
+                vec3 Pfz = Pf.z + vec3(1.0, 0.0, -1.0);
+            
+                vec3 p = permute(Pi.x + vec3(-1.0, 0.0, 1.0));
+                vec3 p1 = permute(p + Pi.y - 1.0);
+                vec3 p2 = permute(p + Pi.y);
+                vec3 p3 = permute(p + Pi.y + 1.0);
+            
+                vec3 p11 = permute(p1 + Pi.z - 1.0);
+                vec3 p12 = permute(p1 + Pi.z);
+                vec3 p13 = permute(p1 + Pi.z + 1.0);
+            
+                vec3 p21 = permute(p2 + Pi.z - 1.0);
+                vec3 p22 = permute(p2 + Pi.z);
+                vec3 p23 = permute(p2 + Pi.z + 1.0);
+            
+                vec3 p31 = permute(p3 + Pi.z - 1.0);
+                vec3 p32 = permute(p3 + Pi.z);
+                vec3 p33 = permute(p3 + Pi.z + 1.0);
+            
+                vec3 ox11 = fract(p11*K) - Ko;
+                vec3 oy11 = mod(floor(p11*K), 7.0)*K - Ko;
+                vec3 oz11 = floor(p11*K2)*Kz - Kzo; // p11 < 289 guaranteed
+            
+                vec3 ox12 = fract(p12*K) - Ko;
+                vec3 oy12 = mod(floor(p12*K), 7.0)*K - Ko;
+                vec3 oz12 = floor(p12*K2)*Kz - Kzo;
+            
+                vec3 ox13 = fract(p13*K) - Ko;
+                vec3 oy13 = mod(floor(p13*K), 7.0)*K - Ko;
+                vec3 oz13 = floor(p13*K2)*Kz - Kzo;
+            
+                vec3 ox21 = fract(p21*K) - Ko;
+                vec3 oy21 = mod(floor(p21*K), 7.0)*K - Ko;
+                vec3 oz21 = floor(p21*K2)*Kz - Kzo;
+            
+                vec3 ox22 = fract(p22*K) - Ko;
+                vec3 oy22 = mod(floor(p22*K), 7.0)*K - Ko;
+                vec3 oz22 = floor(p22*K2)*Kz - Kzo;
+            
+                vec3 ox23 = fract(p23*K) - Ko;
+                vec3 oy23 = mod(floor(p23*K), 7.0)*K - Ko;
+                vec3 oz23 = floor(p23*K2)*Kz - Kzo;
+            
+                vec3 ox31 = fract(p31*K) - Ko;
+                vec3 oy31 = mod(floor(p31*K), 7.0)*K - Ko;
+                vec3 oz31 = floor(p31*K2)*Kz - Kzo;
+            
+                vec3 ox32 = fract(p32*K) - Ko;
+                vec3 oy32 = mod(floor(p32*K), 7.0)*K - Ko;
+                vec3 oz32 = floor(p32*K2)*Kz - Kzo;
+            
+                vec3 ox33 = fract(p33*K) - Ko;
+                vec3 oy33 = mod(floor(p33*K), 7.0)*K - Ko;
+                vec3 oz33 = floor(p33*K2)*Kz - Kzo;
+            
+                vec3 dx11 = Pfx + jitter*ox11;
+                vec3 dy11 = Pfy.x + jitter*oy11;
+                vec3 dz11 = Pfz.x + jitter*oz11;
+            
+                vec3 dx12 = Pfx + jitter*ox12;
+                vec3 dy12 = Pfy.x + jitter*oy12;
+                vec3 dz12 = Pfz.y + jitter*oz12;
+            
+                vec3 dx13 = Pfx + jitter*ox13;
+                vec3 dy13 = Pfy.x + jitter*oy13;
+                vec3 dz13 = Pfz.z + jitter*oz13;
+            
+                vec3 dx21 = Pfx + jitter*ox21;
+                vec3 dy21 = Pfy.y + jitter*oy21;
+                vec3 dz21 = Pfz.x + jitter*oz21;
+            
+                vec3 dx22 = Pfx + jitter*ox22;
+                vec3 dy22 = Pfy.y + jitter*oy22;
+                vec3 dz22 = Pfz.y + jitter*oz22;
+            
+                vec3 dx23 = Pfx + jitter*ox23;
+                vec3 dy23 = Pfy.y + jitter*oy23;
+                vec3 dz23 = Pfz.z + jitter*oz23;
+            
+                vec3 dx31 = Pfx + jitter*ox31;
+                vec3 dy31 = Pfy.z + jitter*oy31;
+                vec3 dz31 = Pfz.x + jitter*oz31;
+            
+                vec3 dx32 = Pfx + jitter*ox32;
+                vec3 dy32 = Pfy.z + jitter*oy32;
+                vec3 dz32 = Pfz.y + jitter*oz32;
+            
+                vec3 dx33 = Pfx + jitter*ox33;
+                vec3 dy33 = Pfy.z + jitter*oy33;
+                vec3 dz33 = Pfz.z + jitter*oz33;
+            
+                vec3 d11 = dx11 * dx11 + dy11 * dy11 + dz11 * dz11;
+                vec3 d12 = dx12 * dx12 + dy12 * dy12 + dz12 * dz12;
+                vec3 d13 = dx13 * dx13 + dy13 * dy13 + dz13 * dz13;
+                vec3 d21 = dx21 * dx21 + dy21 * dy21 + dz21 * dz21;
+                vec3 d22 = dx22 * dx22 + dy22 * dy22 + dz22 * dz22;
+                vec3 d23 = dx23 * dx23 + dy23 * dy23 + dz23 * dz23;
+                vec3 d31 = dx31 * dx31 + dy31 * dy31 + dz31 * dz31;
+                vec3 d32 = dx32 * dx32 + dy32 * dy32 + dz32 * dz32;
+                vec3 d33 = dx33 * dx33 + dy33 * dy33 + dz33 * dz33;
+            
+                // Sort out the two smallest distances (F1, F2)
+            #if 0
+                // Cheat and sort out only F1
+                vec3 d1 = min(min(d11,d12), d13);
+                vec3 d2 = min(min(d21,d22), d23);
+                vec3 d3 = min(min(d31,d32), d33);
+                vec3 d = min(min(d1,d2), d3);
+                d.x = min(min(d.x,d.y),d.z);
+                return sqrt(d.xx); // F1 duplicated, no F2 computed
+            #else
+                // Do it right and sort out both F1 and F2
+                vec3 d1a = min(d11, d12);
+                d12 = max(d11, d12);
+                d11 = min(d1a, d13); // Smallest now not in d12 or d13
+                d13 = max(d1a, d13);
+                d12 = min(d12, d13); // 2nd smallest now not in d13
+                vec3 d2a = min(d21, d22);
+                d22 = max(d21, d22);
+                d21 = min(d2a, d23); // Smallest now not in d22 or d23
+                d23 = max(d2a, d23);
+                d22 = min(d22, d23); // 2nd smallest now not in d23
+                vec3 d3a = min(d31, d32);
+                d32 = max(d31, d32);
+                d31 = min(d3a, d33); // Smallest now not in d32 or d33
+                d33 = max(d3a, d33);
+                d32 = min(d32, d33); // 2nd smallest now not in d33
+                vec3 da = min(d11, d21);
+                d21 = max(d11, d21);
+                d11 = min(da, d31); // Smallest now in d11
+                d31 = max(da, d31); // 2nd smallest now not in d31
+                d11.xy = (d11.x < d11.y) ? d11.xy : d11.yx;
+                d11.xz = (d11.x < d11.z) ? d11.xz : d11.zx; // d11.x now smallest
+                d12 = min(d12, d21); // 2nd smallest now not in d21
+                d12 = min(d12, d22); // nor in d22
+                d12 = min(d12, d31); // nor in d31
+                d12 = min(d12, d32); // nor in d32
+                d11.yz = min(d11.yz,d12.xy); // nor in d12.yz
+                d11.y = min(d11.y,d12.z); // Only two more to go
+                d11.y = min(d11.y,d11.z); // Done! (Phew!)
+                return sqrt(d11.xy); // F1, F2
+            #endif
             }
 			
 			v2f vert (appdata v)
@@ -195,7 +230,7 @@
 				
 				float2 _st = i.uv;
                 (_st *= 10.0);
-                float2 _F = f_cellular(float3(_st, _Time.y));
+                float2 _F = cellular(float3(_st, _Time.y));
                 float _dots = smoothstep(0.050000001, 0.1, _F.x);
                 float _n = (_F.y - _F.x);
                 (_n *= _dots);
