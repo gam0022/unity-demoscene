@@ -18,6 +18,7 @@
 			#pragma multi_compile_fog
 
 			#include "UnityCG.cginc"
+			#include "Assets/Demoscene/Shaders/Includes/PortingFromGLSL.cginc"
 
 			struct appdata
 			{
@@ -34,13 +35,6 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
-
-			// porting from GLSL
-			#define vec2 float2
-			#define vec3 float3
-			#define vec4 float4
-			#define mod(x, y) (x - y * floor(x / y))
-			#define fract frac
 
             // https://thebookofshaders.com/edit.php#12/3d-cnoise.frag
             vec3 permute(vec3 x) {
