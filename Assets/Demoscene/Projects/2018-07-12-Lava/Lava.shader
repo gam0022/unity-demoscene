@@ -19,6 +19,7 @@ Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
 _Threshold("Threshold", Range(-5.0, 5.0)) = 0.5
 _Power("Power", Range(0.0, 1.0)) = 0.5
+[HDR] _Lava("Lava", Color) = (1.0, 0.0, 0.0, 1.0)
 // @endblock
 }
 
@@ -61,9 +62,10 @@ inline float DistanceFunction(float3 pos)
 // @endblock
 
 // @block PostEffect
+float4 _Lava;
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = step(ray.endPos.y, _Threshold) * float4(1.0, 0.0, 0.0, 1.0);
+    o.emission = step(ray.endPos.y, _Threshold) * _Lava;
 }
 // @endblock
 
