@@ -17,7 +17,7 @@ Properties
 
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
-_Threshold("Threshold", Range(-5.0, 5.0)) = 0.5
+_Threshold("Threshold", Range(1.0, 2.0)) = 0.5
 _Power("Power", Range(0.0, 1.0)) = 0.5
 [HDR] _Lava("Lava", Color) = (1.0, 0.0, 0.0, 1.0)
 // @endblock
@@ -55,8 +55,12 @@ inline float DistanceFunction(float3 pos)
 {
     float2 c = cellular(float3(pos.xz, _Time.y));
     float h = c.y - c.x;
-    // h = h > _Threshold ? 1.0 : 0.0;
     h = pow(h, _Power);
+
+    float2 c2 = cellular(float3(3.0 * pos.xz, 0.0));
+    h += 0.5 * pow((c2.y - c2.x), _Power);
+
+    h += 0.001 * snoise(50.0 * pos.xz);
     return pos.y - h;
 }
 // @endblock
