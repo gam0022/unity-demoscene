@@ -18,7 +18,6 @@
 			#pragma multi_compile_fog
 
 			#include "UnityCG.cginc"
-			#include "Assets/Demoscene/Shaders/Includes/PortingFromGLSL.cginc"
 			#include "Assets/Demoscene/Shaders/Includes/Noise.cginc"
 
 			struct appdata

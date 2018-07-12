@@ -1,6 +1,8 @@
 ﻿#ifndef __NOISE__
 #define __NOISE__
 
+#include "PortingFromGLSL.cginc"
+
 // https://thebookofshaders.com/edit.php#12/3d-cnoise.frag
 vec3 permute(vec3 x) {
     return mod((34.0 * x + 1.0) * x, 289.0);

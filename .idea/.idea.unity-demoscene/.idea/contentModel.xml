@@ -92,6 +92,9 @@
             <e p="2018-07-10-Cellular" t="Include">
               <e p="Cellular.shader" t="Include" />
             </e>
+            <e p="2018-07-12-Lava" t="Include">
+              <e p="Lava.shader" t="Include" />
+            </e>
             <e p="TheGlow" t="Include">
               <e p="TheGlowCameraWork.cs" t="Include" />
               <e p="TheGlowWorld.shader" t="Include" />
