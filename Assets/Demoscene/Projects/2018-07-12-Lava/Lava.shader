@@ -17,6 +17,8 @@ Properties
 
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+_Threshold("Threshold", Range(-5.0, 5.0)) = 0.5
+_Power("Power", Range(0.0, 1.0)) = 0.5
 // @endblock
 }
 
@@ -41,19 +43,27 @@ CGINCLUDE
 
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
 #include "Assets/uRaymarchingCustom/Common.cginc"
-#include "Assets/Demoscene/Shaders/Includes/Noise.cginc"
 
 // @block DistanceFunction
+#include "Assets/Demoscene/Shaders/Includes/Noise.cginc"
+
+float _Threshold;
+float _Power;
+
 inline float DistanceFunction(float3 pos)
 {
     float2 c = cellular(float3(pos.xz, _Time.y));
-    return pos.y - (c.y - c.x);
+    float h = c.y - c.x;
+    // h = h > _Threshold ? 1.0 : 0.0;
+    h = pow(h, _Power);
+    return pos.y - h;
 }
 // @endblock
 
 // @block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
+    o.emission = step(ray.endPos.y, _Threshold) * float4(1.0, 0.0, 0.0, 1.0);
 }
 // @endblock
 

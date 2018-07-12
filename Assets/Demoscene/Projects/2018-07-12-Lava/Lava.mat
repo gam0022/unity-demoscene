@@ -19,12 +19,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Loop: 30
+    - _Loop: 99.2
     - _MinDistance: 0.01
-    - _ShadowExtraBias: 0.01
+    - _Power: 0.072
+    - _ShadowExtraBias: 0.802
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
+    - _Threshold: 0.85
     m_Colors:
-    - _Diffuse: {r: 0, g: 0.041553974, b: 1, a: 0.4627451}
+    - _Diffuse: {r: 0.3207547, g: 0.13768245, b: 0.13768245, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _Specular: {r: 1, g: 0, b: 0, a: 1}
+    - _Specular: {r: 0, g: 0, b: 0, a: 1}
