@@ -16,10 +16,10 @@ Properties
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
 // @block Properties
-_Power("Power", Range(0.0, 1.0)) = 0.5
-[HDR] _Lava("Lava", Color) = (1.0, 0.0, 0.0, 1.0)
+_CellularPower("Cellular Power", Range(0.0, 1.0)) = 0.5
+[HDR] _LavaEmmisiveHigh("Lava Emmisive High", Color) = (1.0, 0.0, 0.0, 1.0)
 _Noise("Noise", 2D) = "gray" {}
-_Threshold("Threshold", Range(1.0, 2.0)) = 0.5
+_FlowThreshold("Flow Threshold", Range(1.0, 2.0)) = 0.5
 _FlowIntensity("Flow Intensity", Range(0.0, 1.0)) = 0.2
 _FlowSpeed("Flow Speed", Range(0.0, 5.0)) = 0.2
 // @endblock
@@ -51,18 +51,18 @@ CGINCLUDE
 #include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 #include "Assets/Demoscene/Shaders/Includes/Noise.cginc"
 
-float _Power;
+float _CellularPower;
 
 inline float DistanceFunction(float3 pos)
 {
     float2 c = cellular(float2(pos.xz));
-    float h = pow(c.y - c.x, _Power);
+    float h = pow(c.y - c.x, _CellularPower);
 
     float2 c2 = cellular(float2(3.0 * pos.xz));
-    h += 0.5 * pow((c2.y - c2.x), _Power);
+    h += 0.5 * pow((c2.y - c2.x), _CellularPower);
 
     float2 c3 = cellular(float2(20.0 * pos.xz));
-    h += 0.05 * pow((c3.y - c3.x), _Power);
+    h += 0.05 * pow((c3.y - c3.x), _CellularPower);
 
     h += 0.001 * snoise(50.0 * pos.xz);
     return pos.y - h;
@@ -70,9 +70,9 @@ inline float DistanceFunction(float3 pos)
 // @endblock
 
 // @block PostEffect
-float4 _Lava;
+float4 _LavaEmmisiveHigh;
 sampler2D _Noise;
-float _Threshold;
+float _FlowThreshold;
 float _FlowIntensity;
 float _FlowSpeed;
 
@@ -130,8 +130,8 @@ float lavaFlow(in vec2 p)
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = step(ray.endPos.y, _Threshold + _FlowIntensity * lavaFlow(ray.endPos.xz)) * _Lava;
-    // o.emission = lavaFlow(ray.endPos.xz) * _Lava;
+    o.emission = step(ray.endPos.y, _FlowThreshold + _FlowIntensity * lavaFlow(ray.endPos.xz)) * _LavaEmmisiveHigh;
+    // o.emission = lavaFlow(ray.endPos.xz) * _LavaEmmisiveHigh;
 }
 // @endblock
 
