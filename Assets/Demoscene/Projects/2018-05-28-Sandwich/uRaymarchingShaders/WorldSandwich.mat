@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: WorldSandwich
   m_Shader: {fileID: 4800000, guid: cb3594e638cfb1940815ad9e2ebc20c4, type: 3}
@@ -20,7 +20,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Glossiness: 0.5
-    - _LocalTime: 1.9688673
+    - _LocalTime: 0
     - _Loop: 100
     - _Metallic: 0.5
     - _MinDistance: 0.01
