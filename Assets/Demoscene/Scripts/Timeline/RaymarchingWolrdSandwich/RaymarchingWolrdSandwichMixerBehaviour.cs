@@ -11,7 +11,7 @@ namespace Demoscene
         // NOTE: This function is called at runtime and edit time.  Keep that in mind when setting the values of properties.
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
-            RaymarchingWorldSandwichComponet trackBinding = playerData as RaymarchingWorldSandwichComponet;
+            LocalTimeComponet trackBinding = playerData as LocalTimeComponet;
 
             if (!trackBinding)
                 return;
@@ -28,7 +28,7 @@ namespace Demoscene
                 {
                     continue;
                 }
-                
+
                 ScriptPlayable<RaymarchingWolrdSandwichBehaviour> inputPlayable =
                     (ScriptPlayable<RaymarchingWolrdSandwichBehaviour>) playable.GetInput(i);
                 RaymarchingWolrdSandwichBehaviour input = inputPlayable.GetBehaviour();
@@ -41,7 +41,7 @@ namespace Demoscene
                     maxWeight = weight;
                 }
             }
-            
+
             trackBinding.ApplyTime(time);
         }
     }

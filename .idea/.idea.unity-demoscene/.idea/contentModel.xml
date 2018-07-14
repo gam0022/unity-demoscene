@@ -103,7 +103,7 @@
           </e>
           <e p="Scripts" t="Include">
             <e p="Components" t="Include">
-              <e p="RaymarchingWorldSandwichComponet.cs" t="Include" />
+              <e p="LocalTimeComponet.cs" t="Include" />
             </e>
             <e p="Timeline" t="Include">
               <e p="RaymarchingWolrdSandwich" t="Include">
