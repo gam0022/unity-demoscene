@@ -23,10 +23,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _CellularPower: 0.038
+    - _CellularPower: 0.066
     - _FlowIntensity: 0.32
     - _FlowSpeed: 0.5
-    - _FlowThreshold: 1.267
+    - _FlowThreshold: 1.244
     - _Loop: 50
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.802
@@ -35,5 +35,6 @@ Material:
     m_Colors:
     - _Diffuse: {r: 0.9528302, g: 0.004494493, b: 0.004494493, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _LavaEmmisiveHigh: {r: 1, g: 0.24644177, b: 0, a: 1}
+    - _LavaEmmisiveHigh: {r: 1, g: 0.46109614, b: 0.0141509175, a: 1}
+    - _LavaEmmisiveLow: {r: 0.77254903, g: 0.2903899, b: 0, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}

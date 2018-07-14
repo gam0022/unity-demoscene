@@ -18,6 +18,7 @@ Properties
 // @block Properties
 _CellularPower("Cellular Power", Range(0.0, 1.0)) = 0.5
 [HDR] _LavaEmmisiveHigh("Lava Emmisive High", Color) = (1.0, 0.0, 0.0, 1.0)
+[HDR] _LavaEmmisiveLow("Lava Emmisive Low", Color) = (1.0, 0.0, 0.0, 1.0)
 _Noise("Noise", 2D) = "gray" {}
 _FlowThreshold("Flow Threshold", Range(1.0, 2.0)) = 0.5
 _FlowIntensity("Flow Intensity", Range(0.0, 1.0)) = 0.2
@@ -70,6 +71,7 @@ inline float DistanceFunction(float3 pos)
 // @endblock
 
 // @block PostEffect
+float4 _LavaEmmisiveLow;
 float4 _LavaEmmisiveHigh;
 sampler2D _Noise;
 float _FlowThreshold;
@@ -130,7 +132,9 @@ float lavaFlow(in vec2 p)
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = step(ray.endPos.y, _FlowThreshold + _FlowIntensity * lavaFlow(ray.endPos.xz)) * _LavaEmmisiveHigh;
+    float flow = lavaFlow(ray.endPos.xz);
+    float4 emission = lerp(_LavaEmmisiveLow, _LavaEmmisiveHigh, saturate(remap(flow, 0.6, 0.7)));
+    o.emission = step(ray.endPos.y, _FlowThreshold + _FlowIntensity * flow) * emission;
     // o.emission = lavaFlow(ray.endPos.xz) * _LavaEmmisiveHigh;
 }
 // @endblock
