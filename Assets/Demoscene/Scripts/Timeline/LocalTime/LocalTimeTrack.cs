@@ -5,13 +5,13 @@ using UnityEngine.Timeline;
 namespace Demoscene
 {
     [TrackColor(0.855f, 0.8623f, 0.87f)]
-    [TrackClipType(typeof(RaymarchingWolrdSandwichClip))]
+    [TrackClipType(typeof(LocalTimeClip))]
     [TrackBindingType(typeof(LocalTimeComponet))]
-    public class RaymarchingWolrdSandwichTrack : TrackAsset
+    public class LocalTimeTrack : TrackAsset
     {
         public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
         {
-            return ScriptPlayable<RaymarchingWolrdSandwichMixerBehaviour>.Create(graph, inputCount);
+            return ScriptPlayable<LocalTimeMixerBehaviour>.Create(graph, inputCount);
         }
     }
 }
