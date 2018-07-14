@@ -32,6 +32,8 @@ Tags
     "DisableBatching" = "True"
 }
 
+Cull Off
+
 CGINCLUDE
 
 #define WORLD_SPACE
@@ -113,12 +115,12 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
     float a = frac(4.0 * ray.endPos.y - 2.0 * _Time.x - 0.5);
     float width = 0.04;
     o.emission = _SlideEmission * abs(sin(PI * 12.0 * _Time.x)) * step(a, width) * ((a + 0.5 * width) / width);
- 
+
     if (abs(dInnerPillar(ray.endPos)) < ray.minDistance)
     {
         o.emission = _InnerEmission * abs(sin(PI * 24.0 * _Time.x));
     }
- 
+
     if (abs(dFloor(ray.endPos)) < ray.minDistance)
     {
         o.diffuse = _FloorDiffuse;
