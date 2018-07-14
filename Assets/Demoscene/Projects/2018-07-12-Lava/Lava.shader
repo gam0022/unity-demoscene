@@ -133,7 +133,7 @@ float lavaFlow(in vec2 p)
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
     float flow = lavaFlow(ray.endPos.xz);
-    float4 emission = lerp(_LavaEmmisiveLow, _LavaEmmisiveHigh, saturate(remap(flow, 0.6, 0.7)));
+    float4 emission = lerp(_LavaEmmisiveLow, _LavaEmmisiveHigh, saturate(remap(flow, 0.7, 0.8)));
     float flooded = step(ray.endPos.y, _FlowThreshold + _FlowIntensity * flow);
     o.emission = flooded * emission;
     o.normal.rgb = lerp(o.normal.rgb, half3(0.0, 1.0, 0.0), flooded);
