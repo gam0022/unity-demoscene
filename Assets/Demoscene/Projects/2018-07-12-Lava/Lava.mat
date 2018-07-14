@@ -35,6 +35,6 @@ Material:
     m_Colors:
     - _Diffuse: {r: 0.9528302, g: 0.004494493, b: 0.004494493, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _LavaEmmisiveHigh: {r: 1, g: 0.46109614, b: 0.0141509175, a: 1}
-    - _LavaEmmisiveLow: {r: 0.77254903, g: 0.2903899, b: 0, a: 1}
+    - _LavaEmmisiveHigh: {r: 1.3041189, g: 0.8398253, b: 0.1433848, a: 1}
+    - _LavaEmmisiveLow: {r: 1, g: 0.14509805, b: 0, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
