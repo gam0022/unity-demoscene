@@ -54,11 +54,13 @@ float _Power;
 inline float DistanceFunction(float3 pos)
 {
     float2 c = cellular(float2(pos.xz));
-    float h = c.y - c.x;
-    h = pow(h, _Power);
+    float h = pow(c.y - c.x, _Power);
 
     float2 c2 = cellular(float2(3.0 * pos.xz));
     h += 0.5 * pow((c2.y - c2.x), _Power);
+
+    float2 c3 = cellular(float2(20.0 * pos.xz));
+    h += 0.05 * pow((c3.y - c3.x), _Power);
 
     h += 0.001 * snoise(50.0 * pos.xz);
     return pos.y - h;
