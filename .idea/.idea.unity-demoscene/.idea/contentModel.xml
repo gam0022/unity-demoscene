@@ -116,6 +116,7 @@
           </e>
           <e p="Shaders" t="Include">
             <e p="Includes" t="Include">
+              <e p="Common.cginc" t="Include" />
               <e p="Noise.cginc" t="Include" />
               <e p="PortingFromGLSL.cginc" t="Include" />
             </e>

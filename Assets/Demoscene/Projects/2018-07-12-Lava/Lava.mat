@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Lava
   m_Shader: {fileID: 4800000, guid: 5c314efc8c9d8449ab45d6dd0183c06e, type: 3}
@@ -17,15 +17,21 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: e80c3c84ea861404d8a427db8b7abf04, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _FlowIntensity: 0.32
+    - _FlowSpeed: 0.5
     - _Loop: 99.2
     - _MinDistance: 0.01
     - _Power: 0.038
     - _ShadowExtraBias: 0.802
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
-    - _Threshold: 1.38
+    - _Threshold: 1.267
     m_Colors:
     - _Diffuse: {r: 0.9528302, g: 0.004494493, b: 0.004494493, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}

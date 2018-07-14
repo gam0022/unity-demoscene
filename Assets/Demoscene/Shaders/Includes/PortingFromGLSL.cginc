@@ -6,5 +6,6 @@
 #define vec4 float4
 #define mod(x, y) (x - y * floor(x / y))
 #define fract frac
+#define mix lerp
 
 #endif
