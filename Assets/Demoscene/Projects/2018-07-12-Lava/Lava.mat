@@ -27,6 +27,7 @@ Material:
     - _FlowIntensity: 0.32
     - _FlowSpeed: 0.5
     - _FlowThreshold: 1.244
+    - _LocalTime: 0
     - _Loop: 50
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.802
