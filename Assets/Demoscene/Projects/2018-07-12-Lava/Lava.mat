@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WorldSandwich
-  m_Shader: {fileID: 4800000, guid: cb3594e638cfb1940815ad9e2ebc20c4, type: 3}
+  m_Name: Lava
+  m_Shader: {fileID: 4800000, guid: 5c314efc8c9d8449ab45d6dd0183c06e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,17 +19,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Glossiness: 0.5
-    - _LocalTime: 1.9688673
-    - _Loop: 100
-    - _Metallic: 0.5
+    - _Loop: 99.2
     - _MinDistance: 0.01
-    - _ShadowExtraBias: 0.01
+    - _Power: 0.038
+    - _ShadowExtraBias: 0.802
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
+    - _Threshold: 1.38
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse: {r: 0, g: 0.21978666, b: 0.754717, a: 1}
+    - _Diffuse: {r: 0.9528302, g: 0.004494493, b: 0.004494493, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _SlideEmission: {r: 0.8540741, g: 0.8540741, b: 2.1185474, a: 1}
-    - _Specular: {r: 0, g: 0, b: 0, a: 1}
+    - _Lava: {r: 1, g: 0.24644177, b: 0, a: 1}
+    - _Specular: {r: 0, g: 0, b: 0, a: 0}

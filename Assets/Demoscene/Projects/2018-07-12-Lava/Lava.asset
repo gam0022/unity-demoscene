@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acd6fe57257048db802c1c4c2b75248, type: 3}
+  m_Name: Lava
+  m_EditorClassIdentifier: 
+  shaderName: Lava
+  shaderReference: {fileID: 4800000, guid: 5c314efc8c9d8449ab45d6dd0183c06e, type: 3}
+  shaderTemplate: uRaymarching/Direct GBuffer Custom
+  variables:
+  - key: Name
+    value: Lava
+  - key: Culling
+    value: Off
+  - key: RaymarchingShaderDirectory
+    value: Assets/uRaymarching/Shaders/Include
+  conditions:
+  - key: ShadowCaster
+    value: 1
+  - key: WorldSpace
+    value: 1
+  - key: FollowObjectScale
+    value: 0
+  - key: DoNotOutputDepth
+    value: 0
+  - key: CameraInsideObject
+    value: 0
+  - key: FallbackToDiffuse
+    value: 1
+  blocks:
+  - key: Properties
+    value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    folded: 0
+  - key: DistanceFunction
+    value: "inline float DistanceFunction(float3 pos)\n{\n    return Sphere(pos, 0.5);\n}"
+    folded: 0
+  - key: PostEffect
+    value: 'inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
+
+      {
+
+      }'
+    folded: 0
+  constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
+  basicFolded: 1
+  conditionsFolded: 0
+  variablesFolded: 0
+  materialsFolded: 0
+  constantsFolded: 1
