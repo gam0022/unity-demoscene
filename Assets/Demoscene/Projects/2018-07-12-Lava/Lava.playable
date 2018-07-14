@@ -21,27 +21,6 @@ MonoBehaviour:
     m_Framerate: 30
   m_DurationMode: 0
   m_Version: 0
---- !u!114 &114000878137893008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d935bf7a4fcf66488738bda5536c1cb, type: 3}
-  m_Name: 0270c8c5-7dd6-4202-868b-8c7d1431e504
-  m_EditorClassIdentifier: 
-  m_DisplayName: Pixels
-  m_Id: 1f7aa92c-e83f-44e3-922c-16f6cd9b83a7
-  m_OutputSize: 720
-  m_AspectRatio: 0
-  m_ForceEvenSize: 0
-  source: 1
-  m_CameraTag: 
-  m_FlipFinalOutput: 1
-  m_AllowTransparency: 0
-  m_CaptureUI: 0
 --- !u!114 &114095226489604638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,7 +141,7 @@ MonoBehaviour:
     m_DisplayName: LocalTimeClip
     m_Version: 1
   m_Version: 1
---- !u!114 &114315540914892906
+--- !u!114 &114287535874008998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,7 +149,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e435bf89a8bb0bf4abee94a2cc516927, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d935bf7a4fcf66488738bda5536c1cb, type: 3}
+  m_Name: 6592bc17-1ab8-4b07-a856-b323793ca020
+  m_EditorClassIdentifier: 
+  m_DisplayName: Pixels
+  m_Id: 1b2d7f5a-567c-42b7-89d6-0f665dcaa7cf
+  m_OutputSize: 0
+  m_AspectRatio: 0
+  m_ForceEvenSize: 1
+  source: 1
+  m_CameraTag: 
+  m_FlipFinalOutput: 1
+  m_AllowTransparency: 0
+  m_CaptureUI: 0
+--- !u!114 &114520314766897526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ee9a8f826ced34082d654155141a26, type: 3}
   m_Name: Recorder Settings
   m_EditorClassIdentifier: 
   m_AssetID: 1d45eba0017a04d18a33df89d883621b
@@ -185,22 +185,35 @@ MonoBehaviour:
   m_DurationMode: 0
   m_SynchFrameRate: 1
   m_BaseFileName:
-    m_Pattern: image.<ext>
+    m_Pattern: movie.<ext>
   m_DestinationPath:
     m_root: 1
     m_leaf: Recordings
   m_InputsSettings:
     m_InputsSettingsAssets:
-    - {fileID: 114000878137893008}
+    - {fileID: 114287535874008998}
     ownerRecorderSettingsAssetId: 1d45eba0017a04d18a33df89d883621b
-  m_RecorderTypeName: UTJ.FrameCapturer.Recorders.GIFRecorder, Assembly-CSharp, Version=0.0.0.0,
+  m_RecorderTypeName: UTJ.FrameCapturer.Recorders.MP4Recorder, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
-  m_GifEncoderSettings:
-    width: 0
-    height: 0
-    numColors: 256
-    keyframeInterval: 30
-    maxTasks: 8
+  m_MP4EncoderSettings:
+    video:
+      v: 1
+    videoWidth: 0
+    videoHeight: 0
+    videoTargetFramerate: 30
+    videoBitrateMode: 1
+    videoTargetBitrate: 1024000
+    videoFlags: 62
+    videoMaxTasks: 4
+    audio:
+      v: 1
+    audioSampleRate: 48000
+    audioNumChannels: 2
+    audioBitrateMode: 1
+    audioTargetBitrate: 128000
+    audioFlags: 6
+    audioMaxTasks: 4
+  m_AutoSelectBR: 1
 --- !u!114 &114560600937763692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e95aa6d658d694785bfde37c857fff, type: 3}
   m_Name: RecorderClip
   m_EditorClassIdentifier: 
-  m_Settings: {fileID: 0}
+  m_Settings: {fileID: 114520314766897526}
 --- !u!114 &114894526773570620
 MonoBehaviour:
   m_ObjectHideFlags: 1
