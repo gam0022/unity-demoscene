@@ -97,7 +97,7 @@ float lavaFlow(in vec2 p)
 	float z=2.;
 	float rz = 0.;
 	vec2 bp = p;
-	for (float i= 1.; i < 3.; i++)
+	for (float i= 1.; i < 4.; i++)
 	{
 		//primary flow speed
 		p += _LocalTime * .6 * _FlowSpeed;

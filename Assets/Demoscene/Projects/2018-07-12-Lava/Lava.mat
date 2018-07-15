@@ -24,9 +24,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _CellularPower: 0.066
-    - _FlowIntensity: 0.32
+    - _FlowIntensity: 0.35
     - _FlowSpeed: 0.5
-    - _FlowThreshold: 1.22
+    - _FlowThreshold: 1.16
     - _LocalTime: 0
     - _Loop: 50
     - _MinDistance: 0.01
