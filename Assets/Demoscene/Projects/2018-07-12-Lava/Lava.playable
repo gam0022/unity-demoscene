@@ -185,7 +185,7 @@ MonoBehaviour:
   m_DurationMode: 0
   m_SynchFrameRate: 1
   m_BaseFileName:
-    m_Pattern: movie.<ext>
+    m_Pattern: movie-<ts>.<ext>
   m_DestinationPath:
     m_root: 1
     m_leaf: Recordings

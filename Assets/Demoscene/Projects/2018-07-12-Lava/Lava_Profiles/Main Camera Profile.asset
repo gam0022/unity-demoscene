@@ -78,10 +78,10 @@ MonoBehaviour:
     value: 30
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.99
   softKnee:
     overrideState: 1
-    value: 0.087
+    value: 0
   clamp:
     overrideState: 0
     value: 65472
@@ -120,16 +120,16 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   intensity:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
-    overrideState: 0
+    overrideState: 1
     value: 1
   noiseFilterTolerance:
     overrideState: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   radius:
-    overrideState: 0
-    value: 0.25
+    overrideState: 1
+    value: 1
   quality:
-    overrideState: 0
-    value: 2
+    overrideState: 1
+    value: 3
