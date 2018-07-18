@@ -36,17 +36,55 @@ MonoBehaviour:
     value: 1
   blocks:
   - key: Properties
-    value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    value: '_CellularPower("Cellular Power", Range(0.0, 1.0)) = 0.5
+
+      [HDR] _LavaEmmisiveHigh("Lava Emmisive High", Color) = (1.0, 0.0, 0.0, 1.0)
+
+      [HDR] _LavaEmmisiveLow("Lava Emmisive Low", Color) = (1.0, 0.0, 0.0, 1.0)
+
+      _Noise("Noise", 2D) = "gray" {}
+
+      _FlowThreshold("Flow Threshold", Range(1.0, 2.0)) = 0.5
+
+      _FlowIntensity("Flow Intensity", Range(0.0, 1.0)) = 0.2
+
+      _FlowSpeed("Flow Speed", Range(0.0, 5.0)) = 0.2'
     folded: 0
   - key: DistanceFunction
-    value: "inline float DistanceFunction(float3 pos)\n{\n    return Sphere(pos, 0.5);\n}"
+    value: "#include \"Assets/Demoscene/Shaders/Includes/Common.cginc\"\n#include
+      \"Assets/Demoscene/Shaders/Includes/Noise.cginc\"\n\nfloat _CellularPower;\n\ninline
+      float DistanceFunction(float3 pos)\n{\n    float2 c = cellular(float2(pos.xz));\n
+      \   float h = pow(c.y - c.x, _CellularPower);\n\n    float2 c2 = cellular(float2(3.0
+      * pos.xz));\n    h += 0.5 * pow((c2.y - c2.x), _CellularPower);\n\n    float2
+      c3 = cellular(float2(20.0 * pos.xz));\n    //h += 0.05 * pow((c3.y - c3.x),
+      _CellularPower);\n\n    h += 0.002 * snoise(50.0 * pos.xz);\n    return pos.y
+      - h;\n}"
     folded: 0
   - key: PostEffect
-    value: 'inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
-
-      {
-
-      }'
+    value: "float _LocalTime;\nfloat4 _LavaEmmisiveLow;\nfloat4 _LavaEmmisiveHigh;\nsampler2D
+      _Noise;\nfloat _FlowThreshold;\nfloat _FlowIntensity;\nfloat _FlowSpeed;\n\n//
+      https://www.shadertoy.com/view/lslXRS\nfloat noise( in vec2 x ){\n    return
+      tex2D(_Noise, x*.01).x;\n}\n\nvec2 gradn(vec2 p)\n{\n\tfloat ep = .09;\n\tfloat
+      gradx = noise(vec2(p.x+ep,p.y))-noise(vec2(p.x-ep,p.y));\n\tfloat grady = noise(vec2(p.x,p.y+ep))-noise(vec2(p.x,p.y-ep));\n\treturn
+      vec2(gradx,grady);\n}\n\nfloat lavaFlow(in vec2 p)\n{\n\tfloat z=2.;\n\tfloat
+      rz = 0.;\n\tvec2 bp = p;\n\tfor (float i= 1.; i < 4.; i++)\n\t{\n\t\t//primary
+      flow speed\n\t\tp += _LocalTime * .6 * _FlowSpeed;\n\n\t\t//secondary flow speed
+      (speed of the perceived flow)\n\t\tbp += _LocalTime * 1.9 * _FlowSpeed;\n\n\t\t//displacement
+      field (try changing _LocalTime multiplier)\n\t\tvec2 gr = gradn(i*p*.34 + _LocalTime
+      * 1.);\n\n\t\t//rotation of the displacement field\n\t\t// gr *= rotateMat(_LocalTime
+      * 6.-(0.05 * p.x + 0.03 * p.y) * 40.);\n\t\tgr = mul(rotateMat(_LocalTime *
+      6.-(0.05 * p.x + 0.03 * p.y) * 40.), gr);\n\n\t\t//displace the system\n\t\tp
+      += gr*.5;\n\n\t\t//add noise octave\n\t\trz+= (sin(noise(p) * 7.) * 0.5 + 0.5)
+      / z;\n\n\t\t//blend factor (blending displaced system with base system)\n\t\t//you
+      could call this advection factor (.5 being low, .95 being high)\n\t\tp = mix(bp,
+      p, .77);\n\n\t\t//intensity scaling\n\t\tz *= 1.4;\n\t\t//octave scaling\n\t\tp
+      *= 2.;\n\t\tbp *= 1.9;\n\t}\n\treturn rz;\n}\n\ninline void PostEffect(RaymarchInfo
+      ray, inout PostEffectOutput o)\n{\n    float flow = lavaFlow(ray.endPos.xz);\n
+      \   float4 emission = lerp(_LavaEmmisiveLow, _LavaEmmisiveHigh, saturate(remap(flow,
+      0.7, 0.8)));\n    float flooded = step(ray.endPos.y, _FlowThreshold + _FlowIntensity
+      * flow);\n    o.emission = flooded * emission;\n    o.normal.rgb = normalize(lerp(o.normal.rgb,
+      half3(0.0, 1.0, 0.0), saturate(remap(ray.endPos.y, _FlowThreshold, 5.0))));\n\n
+      \   // debug flow\n    // o.emission = lavaFlow(ray.endPos.xz) * _LavaEmmisiveHigh;\n}"
     folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
   basicFolded: 1

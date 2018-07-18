@@ -63,9 +63,9 @@ inline float DistanceFunction(float3 pos)
     h += 0.5 * pow((c2.y - c2.x), _CellularPower);
 
     float2 c3 = cellular(float2(20.0 * pos.xz));
-    h += 0.05 * pow((c3.y - c3.x), _CellularPower);
+    //h += 0.05 * pow((c3.y - c3.x), _CellularPower);
 
-    h += 0.001 * snoise(50.0 * pos.xz);
+    h += 0.002 * snoise(50.0 * pos.xz);
     return pos.y - h;
 }
 // @endblock
@@ -137,7 +137,7 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
     float4 emission = lerp(_LavaEmmisiveLow, _LavaEmmisiveHigh, saturate(remap(flow, 0.7, 0.8)));
     float flooded = step(ray.endPos.y, _FlowThreshold + _FlowIntensity * flow);
     o.emission = flooded * emission;
-    o.normal.rgb = lerp(o.normal.rgb, half3(0.0, 1.0, 0.0), flooded);
+    o.normal.rgb = normalize(lerp(half3(0.0, 1.0, 0.0), o.normal.rgb, saturate(remap(ray.endPos.y - _FlowThreshold, -0.05, 0.1))));
 
     // debug flow
     // o.emission = lavaFlow(ray.endPos.xz) * _LavaEmmisiveHigh;
