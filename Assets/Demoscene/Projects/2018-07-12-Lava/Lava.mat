@@ -27,15 +27,15 @@ Material:
     - _FlowIntensity: 0.158
     - _FlowSpeed: 0.5
     - _FlowThreshold: 1.239
-    - _LocalTime: 7.6666665
+    - _LocalTime: 0
     - _Loop: 50
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.802
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
     m_Colors:
-    - _Diffuse: {r: 0, g: 0, b: 0, a: 0.57254905}
+    - _Diffuse: {r: 0.5566038, g: 0, b: 0, a: 0.4392157}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _LavaEmmisiveHigh: {r: 10.082972, g: 3.0702076, b: 0.9036623, a: 1}
-    - _LavaEmmisiveLow: {r: 12.075472, g: 0.35468742, b: 0, a: 1}
-    - _Specular: {r: 0.5566038, g: 0.26365444, b: 0, a: 0}
+    - _LavaEmmisiveHigh: {r: 4, g: 3.592157, b: 0.47058824, a: 1}
+    - _LavaEmmisiveLow: {r: 16, g: 0.5026177, b: 0, a: 1}
+    - _Specular: {r: 0.7169812, g: 0.3756585, b: 0.11160557, a: 0.72156864}
