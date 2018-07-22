@@ -34,7 +34,7 @@ namespace Demoscene
                 LocalTimeBehaviour input = inputPlayable.GetBehaviour();
 
                 // Use the above variables to process each frame of this playable.
-                // NOTE: hosoda-sho 単純なブレンドが難しい値は最もウェイトが高いクリップを採用
+                // NOTE: gam0022 単純なブレンドが難しい値は最もウェイトが高いクリップを採用
                 if (weight > maxWeight)
                 {
                     time = (float) inputPlayable.GetTime();
