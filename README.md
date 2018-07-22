@@ -9,11 +9,19 @@ Unityを使ったデモ制作に挑戦したプロジェクトです。
 「レイマーチングで動的に生成したモデル」と「ポリゴンメッシュのモデル」を混在させた作品です。
 ロボットは通常の3Dモデルですが、床や柱のモデルはレイマーチングでプロシージャルに生成しました。
 
-[![THE GLOW](the-glow.jpg)](the-glow.jpg)
+[![THE GLOW](screen_shots/the-glow.jpg)](screen_shots/the-glow.jpg)
 
 - 動画: [Unity Demoscene Prototype: THE GLOW | YouTube](https://www.youtube.com/watch?v=BZGO5xXuPj8)
 - 解説記事: [Unityでメガデモ制作に挑戦（uRaymarchingとTimelineを試す） | gam0022.net](https://gam0022.net/blog/2017/12/25/unity-demoscene/)
 
 ## Sandwich
 
-[![sandwich](sandwich.jpg)](sandwich.jpg)
+[![sandwich](screen_shots/sandwich.jpg)](screen_shots/sandwich.jpg)
+
+- [Twitter](https://twitter.com/gam0022/status/1003274796895895554)
+
+## Lava
+
+[![lava](screen_shots/lava.jpg)](screen_shots/lava.jpg)
+
+- [Twitter](https://twitter.com/gam0022/status/1017560330338107393)

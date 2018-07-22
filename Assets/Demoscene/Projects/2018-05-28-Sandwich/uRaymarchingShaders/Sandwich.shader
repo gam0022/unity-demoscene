@@ -16,8 +16,6 @@ Properties
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
 // @block Properties
-// _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
-_LocalTime("Local Time", Float) = 0
 [HDR] _SlideEmission("Slide Emission", Color) = (2.0, 2.0, 5.0, 1.0)
 // @endblock
 }
@@ -76,7 +74,7 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 
     float byTime = abs(sin(PI * 1.0 / 4 * _LocalTime));
     float intensity = byPosY * byTime;
- 
+
     o.emission = _SlideEmission * intensity;
 }
 // @endblock

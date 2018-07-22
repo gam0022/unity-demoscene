@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -18,7 +18,7 @@ MonoBehaviour:
 --- !u!114 &114079756082302938
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -37,11 +37,11 @@ MonoBehaviour:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
   center:
-    overrideState: 0
-    value: {x: 0.5, y: 0.5}
+    overrideState: 1
+    value: {x: 0.5, y: 0.4}
   intensity:
     overrideState: 1
-    value: 0.377
+    value: 0.261
   smoothness:
     overrideState: 1
     value: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
 --- !u!114 &114212941475958504
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -75,13 +75,16 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 10
+    value: 3
   threshold:
-    overrideState: 0
+    overrideState: 1
     value: 1
   softKnee:
+    overrideState: 1
+    value: 0.168
+  clamp:
     overrideState: 0
-    value: 0.5
+    value: 65472
   diffusion:
     overrideState: 0
     value: 7
@@ -104,7 +107,7 @@ MonoBehaviour:
 --- !u!114 &114397380436181274
 MonoBehaviour:
   m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -117,16 +120,16 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   intensity:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
-    overrideState: 0
+    overrideState: 1
     value: 1
   noiseFilterTolerance:
     overrideState: 0
@@ -144,8 +147,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   radius:
-    overrideState: 0
-    value: 0.25
+    overrideState: 1
+    value: 1
   quality:
-    overrideState: 0
-    value: 2
+    overrideState: 1
+    value: 3

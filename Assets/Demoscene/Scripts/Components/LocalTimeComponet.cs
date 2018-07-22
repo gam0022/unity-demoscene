@@ -2,7 +2,7 @@
 
 namespace Demoscene
 {
-    public class RaymarchingWorldSandwichComponet : MonoBehaviour
+    public class LocalTimeComponet : MonoBehaviour
     {
         readonly int timePropertyId = Shader.PropertyToID("_LocalTime");
 

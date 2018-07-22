@@ -6,12 +6,12 @@ using UnityEngine.Timeline;
 
 namespace Demoscene
 {
-    public class RaymarchingWolrdSandwichMixerBehaviour : PlayableBehaviour
+    public class LocalTimeMixerBehaviour : PlayableBehaviour
     {
         // NOTE: This function is called at runtime and edit time.  Keep that in mind when setting the values of properties.
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
-            RaymarchingWorldSandwichComponet trackBinding = playerData as RaymarchingWorldSandwichComponet;
+            LocalTimeComponet trackBinding = playerData as LocalTimeComponet;
 
             if (!trackBinding)
                 return;
@@ -28,10 +28,10 @@ namespace Demoscene
                 {
                     continue;
                 }
-                
-                ScriptPlayable<RaymarchingWolrdSandwichBehaviour> inputPlayable =
-                    (ScriptPlayable<RaymarchingWolrdSandwichBehaviour>) playable.GetInput(i);
-                RaymarchingWolrdSandwichBehaviour input = inputPlayable.GetBehaviour();
+
+                ScriptPlayable<LocalTimeBehaviour> inputPlayable =
+                    (ScriptPlayable<LocalTimeBehaviour>) playable.GetInput(i);
+                LocalTimeBehaviour input = inputPlayable.GetBehaviour();
 
                 // Use the above variables to process each frame of this playable.
                 // NOTE: hosoda-sho 単純なブレンドが難しい値は最もウェイトが高いクリップを採用
@@ -41,7 +41,7 @@ namespace Demoscene
                     maxWeight = weight;
                 }
             }
-            
+
             trackBinding.ApplyTime(time);
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.Timeline;
 namespace Demoscene
 {
     [Serializable]
-    public class RaymarchingWolrdSandwichBehaviour : PlayableBehaviour
+    public class LocalTimeBehaviour : PlayableBehaviour
     {
         public float param1;
         public float param2;

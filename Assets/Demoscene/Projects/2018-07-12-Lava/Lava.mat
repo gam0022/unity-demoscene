@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Lava
   m_Shader: {fileID: 4800000, guid: 5c314efc8c9d8449ab45d6dd0183c06e, type: 3}
@@ -17,17 +17,25 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: e80c3c84ea861404d8a427db8b7abf04, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Loop: 99.2
+    - _CellularPower: 0.066
+    - _FlowIntensity: 0.158
+    - _FlowSpeed: 0.5
+    - _FlowThreshold: 1.239
+    - _LocalTime: 0
+    - _Loop: 50
     - _MinDistance: 0.01
-    - _Power: 0.038
     - _ShadowExtraBias: 0.802
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
-    - _Threshold: 1.38
     m_Colors:
-    - _Diffuse: {r: 0.9528302, g: 0.004494493, b: 0.004494493, a: 1}
+    - _Diffuse: {r: 0.5566038, g: 0, b: 0, a: 0.4392157}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _Lava: {r: 1, g: 0.24644177, b: 0, a: 1}
-    - _Specular: {r: 0, g: 0, b: 0, a: 0}
+    - _LavaEmmisiveHigh: {r: 4, g: 3.592157, b: 0.47058824, a: 1}
+    - _LavaEmmisiveLow: {r: 16, g: 0.5026177, b: 0, a: 1}
+    - _Specular: {r: 0.7169812, g: 0.3756585, b: 0.11160557, a: 0.72156864}

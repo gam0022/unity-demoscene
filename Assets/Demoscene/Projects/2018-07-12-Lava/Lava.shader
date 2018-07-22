@@ -16,10 +16,13 @@ Properties
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
 // @block Properties
-// _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
-_Threshold("Threshold", Range(1.0, 2.0)) = 0.5
-_Power("Power", Range(0.0, 1.0)) = 0.5
-[HDR] _Lava("Lava", Color) = (1.0, 0.0, 0.0, 1.0)
+_CellularPower("Cellular Power", Range(0.0, 1.0)) = 0.5
+[HDR] _LavaEmmisiveHigh("Lava Emmisive High", Color) = (1.0, 0.0, 0.0, 1.0)
+[HDR] _LavaEmmisiveLow("Lava Emmisive Low", Color) = (1.0, 0.0, 0.0, 1.0)
+_Noise("Noise", 2D) = "gray" {}
+_FlowThreshold("Flow Threshold", Range(1.0, 2.0)) = 0.5
+_FlowIntensity("Flow Intensity", Range(0.0, 1.0)) = 0.2
+_FlowSpeed("Flow Speed", Range(0.0, 5.0)) = 0.2
 // @endblock
 }
 
@@ -46,30 +49,98 @@ CGINCLUDE
 #include "Assets/uRaymarchingCustom/Common.cginc"
 
 // @block DistanceFunction
+#include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 #include "Assets/Demoscene/Shaders/Includes/Noise.cginc"
 
-float _Threshold;
-float _Power;
+float _CellularPower;
 
 inline float DistanceFunction(float3 pos)
 {
     float2 c = cellular(float2(pos.xz));
-    float h = c.y - c.x;
-    h = pow(h, _Power);
+    float h = pow(c.y - c.x, _CellularPower);
 
     float2 c2 = cellular(float2(3.0 * pos.xz));
-    h += 0.5 * pow((c2.y - c2.x), _Power);
+    h += 0.5 * pow((c2.y - c2.x), _CellularPower);
 
-    h += 0.001 * snoise(50.0 * pos.xz);
+    float2 c3 = cellular(float2(20.0 * pos.xz));
+    //h += 0.05 * pow((c3.y - c3.x), _CellularPower);
+
+    h += 0.002 * snoise(50.0 * pos.xz);
     return pos.y - h;
 }
 // @endblock
 
 // @block PostEffect
-float4 _Lava;
+float _LocalTime;
+float4 _LavaEmmisiveLow;
+float4 _LavaEmmisiveHigh;
+sampler2D _Noise;
+float _FlowThreshold;
+float _FlowIntensity;
+float _FlowSpeed;
+
+// https://www.shadertoy.com/view/lslXRS
+float noise( in vec2 x ){
+    return tex2D(_Noise, x*.01).x;
+}
+
+vec2 gradn(vec2 p)
+{
+	float ep = .09;
+	float gradx = noise(vec2(p.x+ep,p.y))-noise(vec2(p.x-ep,p.y));
+	float grady = noise(vec2(p.x,p.y+ep))-noise(vec2(p.x,p.y-ep));
+	return vec2(gradx,grady);
+}
+
+float lavaFlow(in vec2 p)
+{
+	float z=2.;
+	float rz = 0.;
+	vec2 bp = p;
+	for (float i= 1.; i < 4.; i++)
+	{
+		//primary flow speed
+		p += _LocalTime * .6 * _FlowSpeed;
+
+		//secondary flow speed (speed of the perceived flow)
+		bp += _LocalTime * 1.9 * _FlowSpeed;
+
+		//displacement field (try changing _LocalTime multiplier)
+		vec2 gr = gradn(i*p*.34 + _LocalTime * 1.);
+
+		//rotation of the displacement field
+		// gr *= rotateMat(_LocalTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.);
+		gr = mul(rotateMat(_LocalTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.), gr);
+
+		//displace the system
+		p += gr*.5;
+
+		//add noise octave
+		rz+= (sin(noise(p) * 7.) * 0.5 + 0.5) / z;
+
+		//blend factor (blending displaced system with base system)
+		//you could call this advection factor (.5 being low, .95 being high)
+		p = mix(bp, p, .77);
+
+		//intensity scaling
+		z *= 1.4;
+		//octave scaling
+		p *= 2.;
+		bp *= 1.9;
+	}
+	return rz;
+}
+
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = step(ray.endPos.y, _Threshold) * _Lava;
+    float flow = lavaFlow(ray.endPos.xz);
+    float4 emission = lerp(_LavaEmmisiveLow, _LavaEmmisiveHigh, saturate(remap(flow, 0.7, 0.8)));
+    float flooded = step(ray.endPos.y, _FlowThreshold + _FlowIntensity * flow);
+    o.emission = flooded * emission;
+    o.normal.rgb = normalize(lerp(half3(0.0, 1.0, 0.0), o.normal.rgb, saturate(remap(ray.endPos.y - _FlowThreshold, -0.05, 0.1))));
+
+    // debug flow
+    // o.emission = lavaFlow(ray.endPos.xz) * _LavaEmmisiveHigh;
 }
 // @endblock
 

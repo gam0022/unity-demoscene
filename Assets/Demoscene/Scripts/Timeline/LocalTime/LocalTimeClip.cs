@@ -6,9 +6,9 @@ using UnityEngine.Timeline;
 namespace Demoscene
 {
     [Serializable]
-    public class RaymarchingWolrdSandwichClip : PlayableAsset, ITimelineClipAsset
+    public class LocalTimeClip : PlayableAsset, ITimelineClipAsset
     {
-        public RaymarchingWolrdSandwichBehaviour template = new RaymarchingWolrdSandwichBehaviour();
+        public LocalTimeBehaviour template = new LocalTimeBehaviour();
 
         public ClipCaps clipCaps
         {
@@ -17,8 +17,8 @@ namespace Demoscene
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
-            var playable = ScriptPlayable<RaymarchingWolrdSandwichBehaviour>.Create(graph, template);
-            RaymarchingWolrdSandwichBehaviour clone = playable.GetBehaviour();
+            var playable = ScriptPlayable<LocalTimeBehaviour>.Create(graph, template);
+            LocalTimeBehaviour clone = playable.GetBehaviour();
             return playable;
         }
     }
