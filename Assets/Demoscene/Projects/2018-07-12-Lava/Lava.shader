@@ -71,7 +71,7 @@ inline float DistanceFunction(float3 pos)
 // @endblock
 
 // @block PostEffect
-float _LocalTime;
+float _TimelineTime;
 float4 _LavaEmmisiveLow;
 float4 _LavaEmmisiveHigh;
 sampler2D _Noise;
@@ -100,17 +100,17 @@ float lavaFlow(in vec2 p)
 	for (float i= 1.; i < 4.; i++)
 	{
 		//primary flow speed
-		p += _LocalTime * .6 * _FlowSpeed;
+		p += _TimelineTime * .6 * _FlowSpeed;
 
 		//secondary flow speed (speed of the perceived flow)
-		bp += _LocalTime * 1.9 * _FlowSpeed;
+		bp += _TimelineTime * 1.9 * _FlowSpeed;
 
-		//displacement field (try changing _LocalTime multiplier)
-		vec2 gr = gradn(i*p*.34 + _LocalTime * 1.);
+		//displacement field (try changing _TimelineTime multiplier)
+		vec2 gr = gradn(i*p*.34 + _TimelineTime * 1.);
 
 		//rotation of the displacement field
-		// gr *= rotateMat(_LocalTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.);
-		gr = mul(rotateMat(_LocalTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.), gr);
+		// gr *= rotateMat(_TimelineTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.);
+		gr = mul(rotateMat(_TimelineTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.), gr);
 
 		//displace the system
 		p += gr*.5;
