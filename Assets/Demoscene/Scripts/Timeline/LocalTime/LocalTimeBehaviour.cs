@@ -8,9 +8,10 @@ namespace Demoscene
     [Serializable]
     public class LocalTimeBehaviour : PlayableBehaviour
     {
-        public float param1;
-        public float param2;
-        public Vector3 vec1;
+        // NOTE; gam0022 ここでClipのパラメータを定義できる
+        // public float param1;
+        // public float param2;
+        // public Vector3 vec1;
 
         public override void OnPlayableCreate(Playable playable)
         {
