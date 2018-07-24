@@ -113,6 +113,46 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &293216295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293216297}
+  - component: {fileID: 293216296}
+  m_Layer: 0
+  m_Name: TimelineTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &293216296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293216295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b869d8ec361c10e41b4bbf135c235d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &293216297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293216295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &326207133
 GameObject:
   m_ObjectHideFlags: 1
@@ -327,9 +367,9 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 114095226489604638, guid: 1d45eba0017a04d18a33df89d883621b, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1630964854}
-  - key: {fileID: 114108508051644258, guid: 1d45eba0017a04d18a33df89d883621b, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1943384523}
   - key: {fileID: 114560600937763692, guid: 1d45eba0017a04d18a33df89d883621b, type: 2}
     value: {fileID: 0}
@@ -340,7 +380,10 @@ PlayableDirector:
   - key: {fileID: 114251598533192302, guid: 1d45eba0017a04d18a33df89d883621b, type: 2}
     value: {fileID: 1896176120}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - a440923a9b2f2eb4582b870bd88e50e3: {fileID: 1630964853}
+    - ad17c660b169eba4f9ae6687752313f4: {fileID: 293216295}
+    - a4dc877255c424e4f8305baaeabec334: {fileID: 1630964853}
 --- !u!4 &1630964856
 Transform:
   m_ObjectHideFlags: 0

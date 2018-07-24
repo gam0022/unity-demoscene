@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+    <e p="C:\Users\gam0022\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_unity-demoscene.-172030377.00" t="ExcludeRecursive" />
+    <e p="C:\Users\gam0022\Dropbox\Unity\unity-demoscene" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CameraWork" t="Include">
-          <e p="CameraWorkBehaviour.cs" t="Include" />
-          <e p="CameraWorkClip.cs" t="Include" />
-          <e p="CameraWorkMixerBehaviour.cs" t="Include" />
-          <e p="CameraWorkTrack.cs" t="Include" />
-          <e p="Editor" t="Include">
-            <e p="CameraWorkDrawer.cs" t="Include" />
-          </e>
-        </e>
         <e p="DefaultPlayables" t="Include">
           <e p="Editor" t="Include">
             <e p="TimelinePlayableWizard.cs" t="Include" />
@@ -112,6 +104,7 @@
                 <e p="LocalTimeMixerBehaviour.cs" t="Include" />
                 <e p="LocalTimeTrack.cs" t="Include" />
               </e>
+              <e p="TimelineTimeControl.cs" t="Include" />
             </e>
           </e>
           <e p="Shaders" t="Include">
@@ -873,6 +866,5 @@
       <e p="Unity.Postprocessing.Editor.csproj" t="IncludeRecursive" />
       <e p="Unity.Postprocessing.Runtime.csproj" t="IncludeRecursive" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2018.1/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_unity-demoscene.-756086034.00" t="ExcludeRecursive" />
   </component>
 </project>
