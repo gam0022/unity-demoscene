@@ -186,7 +186,7 @@ SubShader {
 		// PIXEL SHADER
 		fixed4 PixShader(pixel_t input) : SV_Target
 		{
-			half d = tex2D(_MainTex, input.texcoord0.xy).a * input.param.x;
+			half d = tex2D(_MainTex, input.texcoord0.xy + float2(0.01 * sin(3.0 * _Time.y + 100.0 * input.texcoord0.y + 10.0 * input.texcoord0.x), 0.0)).a * input.param.x;
 			half4 c = input.faceColor * saturate(d - input.param.w);
 
 		#ifdef OUTLINE_ON
@@ -218,6 +218,10 @@ SubShader {
 		#if UNITY_UI_ALPHACLIP
 			clip(c.a - 0.001);
 		#endif
+
+		    // c *= abs(sin(_Time.y + input.texcoord1.y * 10.0));
+
+		    c.rg *= input.texcoord0.xy;
 
 			return c;
 		}
