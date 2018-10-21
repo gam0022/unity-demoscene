@@ -3,7 +3,7 @@
 // - No Glow Option
 // - Softness is applied on both side of the outline
 
-Shader "TextMeshPro/Mobile/Cyber" {
+Shader "TextMeshPro/Mobile/Morphing" {
 
 Properties {
 	_FaceColor			("Face Color", Color) = (1,1,1,1)
@@ -90,6 +90,8 @@ SubShader {
 		#include "UnityCG.cginc"
 		#include "UnityUI.cginc"
 		#include "Assets/TextMesh Pro\Resources/Shaders/TMPro_Properties.cginc"
+
+		#define PI 3.14159265358979
 
 		struct vertex_t {
 			float4	vertex			: POSITION;
@@ -186,7 +188,9 @@ SubShader {
 		// PIXEL SHADER
 		fixed4 PixShader(pixel_t input) : SV_Target
 		{
-			half d = tex2D(_MainTex, input.texcoord0.xy + float2(0.01 * sin(3.0 * _Time.y + 100.0 * input.texcoord0.y + 10.0 * input.texcoord0.x), 0.0)).a * input.param.x;
+			half d1 = tex2D(_MainTex, input.texcoord0.xy).a * input.param.x;
+			half d2 = tex2D(_MainTex, input.texcoord0.xy - float2(-0.03, 1.0 / 4.7)).a * input.param.x;
+			half d = lerp(d1, d2, 0.5 * (1.0 + sin(0.5 * PI * _Time.y)));
 			half4 c = input.faceColor * saturate(d - input.param.w);
 
 		#ifdef OUTLINE_ON
