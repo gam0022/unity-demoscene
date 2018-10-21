@@ -25,6 +25,6 @@ Material:
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
     m_Colors:
-    - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 1, g: 0, b: 0.5728283, a: 0}
-    - _Specular: {r: 0, g: 0, b: 0, a: 0}
+    - _Diffuse: {r: 1, g: 0, b: 0, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Specular: {r: 1, g: 0.5990566, b: 0.73355657, a: 1}
