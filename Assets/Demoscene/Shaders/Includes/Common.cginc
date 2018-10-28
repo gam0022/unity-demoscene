@@ -2,7 +2,6 @@
 #define __COMMON__
 
 #include "PortingFromGLSL.cginc"
-#include "DistanceFunction.cginc"
 
 float remap(float s, float a1, float a2, float b1, float b2)
 {
@@ -14,11 +13,8 @@ float remap(float s, float a1, float a2)
     return (s - a1 ) / (a2 - a1);
 }
 
-float2x2 rotateMat(float theta)
-{
-    float c = cos(theta);
-    float s = sin(theta);
-    return float2x2(c, -s ,s, c);
-}
+#define PI2 6.28318530718
+
+#include "DistanceFunction.cginc"
 
 #endif

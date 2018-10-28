@@ -109,8 +109,7 @@ float lavaFlow(in vec2 p)
 		vec2 gr = gradn(i*p*.34 + _TimelineTime * 1.);
 
 		//rotation of the displacement field
-		// gr *= rotateMat(_TimelineTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.);
-		gr = mul(rotateMat(_TimelineTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.), gr);
+		gr = mul(rotate(_TimelineTime * 6.-(0.05 * p.x + 0.03 * p.y) * 40.), gr);
 
 		//displace the system
 		p += gr*.5;

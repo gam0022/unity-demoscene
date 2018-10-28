@@ -34,8 +34,22 @@ float dPlane(vec3 p, float y) {
     return length(vec3(p.x, y, p.z) - p);
 }
 
+mat2 rotate(in float a) {
+    float s = sin(a), c = cos(a);
+    return mat2(c, s, -s, c);
+}
+
+// https://www.shadertoy.com/view/Mlf3Wj
+vec2 foldRotate(in vec2 p, in float s) {
+    float a = PI / s - atan2(p.x, p.y);
+    float n = PI2 / s;
+    a = floor(a / n) * n;
+    p = mul(rotate(a), p);
+    return p;
+}
+
 // folding hex from nimitz: https://www.shadertoy.com/view/XtdGDB
-vec2 fold(vec2 p) {
+vec2 foldHex(vec2 p) {
     p.xy = abs(p.xy);
     const vec2 pl1 = vec2(-0.5, 0.8657);
     const vec2 pl2 = vec2(-0.8657, 0.4);

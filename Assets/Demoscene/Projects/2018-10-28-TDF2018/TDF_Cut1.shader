@@ -77,7 +77,8 @@ float menger_spone(in vec3 z0) {
 
 inline float DistanceFunction(float3 pos)
 {
-    pos.yx = fold(pos.yx);
+    pos.yx = foldHex(pos.yx);
+    // pos.yx = foldRotate(pos.yx, 8.0);
     pos = Mod(pos, 3.0);
     return menger_spone(pos);
 }
