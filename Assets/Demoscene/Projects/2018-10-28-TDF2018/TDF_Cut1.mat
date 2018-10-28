@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Loop: 100
+    - _Loop: 50
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.01
     - _ShadowLoop: 10
