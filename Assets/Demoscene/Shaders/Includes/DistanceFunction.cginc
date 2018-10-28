@@ -4,6 +4,24 @@
 // KIFS
 // https://www.shadertoy.com/view/MdlSRM
 
+//
+// primitives
+//
+
+float dPlane(vec3 p, float y) {
+    return length(vec3(p.x, y, p.z) - p);
+}
+
+inline float sdBox(float3 p, float3 b)
+{
+  float3 d = abs(p) - b;
+  return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));
+}
+
+//
+// ops
+//
+
 void ry(inout vec3 p, float a) {
     float c, s;
     vec3 q = p;
@@ -30,10 +48,6 @@ void rz(inout vec3 p, float a) {
     p.y = s * q.x + c * q.y;
 }
 
-float dPlane(vec3 p, float y) {
-    return length(vec3(p.x, y, p.z) - p);
-}
-
 mat2 rotate(in float a) {
     float s = sin(a), c = cos(a);
     return mat2(c, s, -s, c);
@@ -56,6 +70,23 @@ vec2 foldHex(vec2 p) {
     p -= pl1 * 2. * min(0., dot(p, pl1));
     p -= pl2 * 2. * min(0., dot(p, pl2));
     return p;
+}
+
+
+// unused
+inline float RepeatLimit(float pos, float span, float limit)
+{
+    return Mod(clamp(pos, -limit, limit), span) - span * 0.5;
+}
+
+inline float2 RepeatLimit(float2 pos, float2 span, float2 limit)
+{
+    return Mod(clamp(pos, -limit, limit), span) - span * 0.5;
+}
+
+inline float3 RepeatLimit(float3 pos, float3 span, float3 limit)
+{
+    return Mod(clamp(pos, -limit, limit), span) - span * 0.5;
 }
 
 #endif

@@ -24,7 +24,7 @@
 			#include "UnityCG.cginc"
 
 			#include "Assets/uRaymarching/Shaders/Include/Common.cginc"
-            #include "Assets/uRaymarchingCustom/Common.cginc"
+            #include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 
 			struct appdata
 			{
