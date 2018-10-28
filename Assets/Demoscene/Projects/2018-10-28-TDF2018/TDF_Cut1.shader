@@ -42,10 +42,72 @@ CGINCLUDE
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
 #include "Assets/uRaymarchingCustom/Common.cginc"
 
+#include "Assets/Demoscene/Shaders/Includes/PortingFromGLSL.cginc"
+
 // @block DistanceFunction
+
+// KIFS
+// https://www.shadertoy.com/view/MdlSRM
+
+ void ry(inout vec3 p, float a){
+ 	float c,s;vec3 q=p;
+  	c = cos(a); s = sin(a);
+  	p.x = c * q.x + s * q.z;
+  	p.z = -s * q.x + c * q.z;
+ }
+ void rx(inout vec3 p, float a){
+ 	float c,s;vec3 q=p;
+  	c = cos(a); s = sin(a);
+  	p.y = c * q.y - s * q.z;
+  	p.z = s * q.y + c * q.z;
+ }
+
+ void rz(inout vec3 p, float a){
+ 	float c,s;vec3 q=p;
+  	c = cos(a); s = sin(a);
+  	p.x = c * q.x - s * q.y;
+  	p.y = s * q.x + c * q.y;
+ }
+float plane(vec3 p, float y) {
+    return length(vec3(p.x, y, p.z) - p);
+}
+
+// folding hex from nimitz: https://www.shadertoy.com/view/XtdGDB
+vec2 fold(vec2 p)
+{
+    p.xy = abs(p.xy);
+    const vec2 pl1 = vec2(-0.5, 0.8657);
+    const vec2 pl2 = vec2(-0.8657, 0.4);
+    p -= pl1*2.*min(0., dot(p, pl1));
+    p -= pl2*2.*min(0., dot(p, pl2));
+    return p;
+}
+
+vec3 mat=vec3(0.0);
+bool bcolor = false;
+
+float menger_spone(in vec3 z0){
+	vec4 z=vec4(z0,1.0);
+    vec3 offset = vec3(0.785,1.1,0.46);
+    float scale = 2.46;
+	for (int n = 0; n < 4; n++) {
+		z = abs(z);
+		if (z.x<z.y)z.xy = z.yx;
+		if (z.x<z.z)z.xz = z.zx;
+		if (z.y<z.z)z.yz = z.zy;
+		z = z*scale;
+		z.xyz -= offset*(scale-1.0);
+       	if(bcolor && n==2)
+            mat+=vec3(0.5)+sin(z.xyz)*vec3(1.0, 0.24, 0.245);
+		if(z.z<-0.5*offset.z*(scale-1.0))
+            z.z+=offset.z*(scale-1.0);
+	}
+	return (length(max(abs(z.xyz)-vec3(1.0),0.0))-0.05)/z.w;
+}
+
 inline float DistanceFunction(float3 pos)
 {
-    return Sphere(pos, 0.5);
+    return menger_spone(pos);
 }
 // @endblock
 
