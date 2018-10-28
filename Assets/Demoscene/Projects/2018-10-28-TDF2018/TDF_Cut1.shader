@@ -83,7 +83,7 @@ vec2 fold(vec2 p)
     return p;
 }
 
-vec3 mat=vec3(0.0);
+vec3 mat=vec3(0.0, 0.0, 0.0);
 bool bcolor = false;
 
 float menger_spone(in vec3 z0){
@@ -98,11 +98,11 @@ float menger_spone(in vec3 z0){
 		z = z*scale;
 		z.xyz -= offset*(scale-1.0);
        	if(bcolor && n==2)
-            mat+=vec3(0.5)+sin(z.xyz)*vec3(1.0, 0.24, 0.245);
+            mat+=vec3(0.5, 0.5, 0.5)+sin(z.xyz)*vec3(1.0, 0.24, 0.245);
 		if(z.z<-0.5*offset.z*(scale-1.0))
             z.z+=offset.z*(scale-1.0);
 	}
-	return (length(max(abs(z.xyz)-vec3(1.0),0.0))-0.05)/z.w;
+	return (length(max(abs(z.xyz)-vec3(1.0, 1.0, 1.0),0.0))-0.05)/z.w;
 }
 
 inline float DistanceFunction(float3 pos)
