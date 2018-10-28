@@ -15,6 +15,9 @@ Properties
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
+    [Header(IFS)]
+    _Offset("Offset", Vector) = (0.785,1.1,0.46)
+
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
 // @endblock
@@ -85,10 +88,11 @@ vec2 fold(vec2 p)
 
 vec3 mat=vec3(0.0, 0.0, 0.0);
 bool bcolor = false;
+vec3 _Offset;
 
 float menger_spone(in vec3 z0){
 	vec4 z=vec4(z0,1.0);
-    vec3 offset = vec3(0.785,1.1,0.46);
+    vec3 offset = _Offset;
     float scale = 2.46;
 	for (int n = 0; n < 4; n++) {
 		z = abs(z);
@@ -107,6 +111,8 @@ float menger_spone(in vec3 z0){
 
 inline float DistanceFunction(float3 pos)
 {
+    pos.yx = fold(pos.yx);
+    pos = Mod(pos, 3.0);
     return menger_spone(pos);
 }
 // @endblock

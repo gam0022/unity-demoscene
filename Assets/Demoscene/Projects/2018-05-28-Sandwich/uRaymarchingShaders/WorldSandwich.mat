@@ -20,7 +20,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Glossiness: 0.5
-    - _LocalTime: 0
+    - _LocalTime: 6.057443
     - _Loop: 100
     - _Metallic: 0.5
     - _MinDistance: 0.01
