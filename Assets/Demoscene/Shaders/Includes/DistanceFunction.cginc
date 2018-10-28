@@ -22,32 +22,6 @@ inline float sdBox(float3 p, float3 b)
 // ops
 //
 
-void ry(inout vec3 p, float a) {
-    float c, s;
-    vec3 q = p;
-    c = cos(a);
-    s = sin(a);
-    p.x = c * q.x + s * q.z;
-    p.z = -s * q.x + c * q.z;
-}
-void rx(inout vec3 p, float a) {
-    float c, s;
-    vec3 q = p;
-    c = cos(a);
-    s = sin(a);
-    p.y = c * q.y - s * q.z;
-    p.z = s * q.y + c * q.z;
-}
-
-void rz(inout vec3 p, float a) {
-    float c, s;
-    vec3 q = p;
-    c = cos(a);
-    s = sin(a);
-    p.x = c * q.x - s * q.y;
-    p.y = s * q.x + c * q.y;
-}
-
 mat2 rotate(in float a) {
     float s = sin(a), c = cos(a);
     return mat2(c, s, -s, c);
@@ -74,17 +48,17 @@ vec2 foldHex(vec2 p) {
 
 
 // unused
-inline float RepeatLimit(float pos, float span, float limit)
+inline float opRepLimit(float pos, float span, float limit)
 {
     return Mod(clamp(pos, -limit, limit), span) - span * 0.5;
 }
 
-inline float2 RepeatLimit(float2 pos, float2 span, float2 limit)
+inline float2 opRepLimit(float2 pos, float2 span, float2 limit)
 {
     return Mod(clamp(pos, -limit, limit), span) - span * 0.5;
 }
 
-inline float3 RepeatLimit(float3 pos, float3 span, float3 limit)
+inline float3 opRepLimit(float3 pos, float3 span, float3 limit)
 {
     return Mod(clamp(pos, -limit, limit), span) - span * 0.5;
 }
