@@ -2,6 +2,7 @@
 #define __COMMON__
 
 #include "PortingFromGLSL.cginc"
+#include "DistanceFunction.cginc"
 
 float remap(float s, float a1, float a2, float b1, float b2)
 {
