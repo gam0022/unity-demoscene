@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaderName: Sandwich
   shaderReference: {fileID: 4800000, guid: cb3594e638cfb1940815ad9e2ebc20c4, type: 3}
-  shaderTemplate: uRaymarching/Direct GBuffer Custom
+  shaderTemplate: uRaymarching/Direct GBuffer
   variables:
   - key: Name
     value: Sandwich

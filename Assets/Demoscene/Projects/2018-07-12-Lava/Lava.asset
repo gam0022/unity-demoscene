@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaderName: Lava
   shaderReference: {fileID: 4800000, guid: 5c314efc8c9d8449ab45d6dd0183c06e, type: 3}
-  shaderTemplate: uRaymarching/Direct GBuffer Custom
+  shaderTemplate: uRaymarching/Direct GBuffer
   variables:
   - key: Name
     value: Lava

@@ -3,17 +3,17 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160e2c6c162f4a5489a4784f095d4158, type: 3}
+  m_Script: {fileID: 11500000, guid: 3acd6fe57257048db802c1c4c2b75248, type: 3}
   m_Name: TheGlowWorld
   m_EditorClassIdentifier: 
   shaderName: TheGlowWorld
   shaderReference: {fileID: 4800000, guid: 87a584a97f34fd4438ddd726e04938ed, type: 3}
-  shaderTemplate: 2. Direct GBuffer
+  shaderTemplate: uRaymarching/Direct GBuffer
   variables:
   - key: Name
     value: TheGlowWorld
@@ -79,9 +79,9 @@ MonoBehaviour:
       \   {\n        o.diffuse = _FloorDiffuse;\n        o.specular =_FloorSpecular;\n
       \   }\n}"
     folded: 0
-  basicFolded: 0
+  constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
+  basicFolded: 1
   conditionsFolded: 0
   variablesFolded: 0
   materialsFolded: 0
-  distanceFunction: 
-  postEffect: 
+  constantsFolded: 0
