@@ -45,7 +45,7 @@ CGINCLUDE
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
 #include "Assets/uRaymarchingCustom/Common.cginc"
 
-#include "Assets/Demoscene/Shaders/Includes/PortingFromGLSL.cginc"
+#include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 
 // @block DistanceFunction
 
