@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaderName: TDF_Cut1
   shaderReference: {fileID: 4800000, guid: 0a9f6b49dd72f964cb6ad9cf08fb34d0, type: 3}
-  shaderTemplate: uRaymarching/Direct GBuffer Custom
+  shaderTemplate: uRaymarching/Direct GBuffer
   variables:
   - key: Name
     value: TDF_Cut1

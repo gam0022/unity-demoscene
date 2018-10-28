@@ -146,7 +146,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: addd4bc63d24dcd46905c371bdb1ae36, type: 2}
+  - {fileID: 2100000, guid: 9c30edcb08d850c4396770329784677e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -353,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &406756601
 Light:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.44
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -397,13 +397,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406756600}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.3164762, y: -0.16140017, z: 0.21188694, w: 0.9104377}
+  m_LocalPosition: {x: 0.07, y: 3.12, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 40.140003, y: -12.064, z: 21.781}
 --- !u!1 &725105320
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.504717, g: 0.70961624, b: 1, a: 1}
-  m_Intensity: 2.5
+  m_Intensity: 0.88
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10

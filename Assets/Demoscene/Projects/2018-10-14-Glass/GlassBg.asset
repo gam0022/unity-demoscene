@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shaderName: GlassBg
   shaderReference: {fileID: 4800000, guid: b97a3ff568625114d8a78b03fc05404f, type: 3}
-  shaderTemplate: uRaymarching/Direct GBuffer Custom
+  shaderTemplate: uRaymarching/Direct GBuffer
   variables:
   - key: Name
     value: GlassBg
