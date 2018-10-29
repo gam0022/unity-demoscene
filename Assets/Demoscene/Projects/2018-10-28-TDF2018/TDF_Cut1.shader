@@ -45,6 +45,8 @@ CGINCLUDE
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
 #include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 
+float _TimelineTime;
+
 // @block DistanceFunction
 
 vec3 mat = vec3(0.0, 0.0, 0.0);
@@ -75,9 +77,11 @@ float menger_spone(in vec3 z0) {
 
 inline float DistanceFunction(float3 pos)
 {
+    pos = Repeat(pos, 4.0);
+
     pos.yx = foldHex(pos.yx);
     // pos.yx = foldRotate(pos.yx, 8.0);
-    pos = Mod(pos, 3.0);
+
     return menger_spone(pos);
 }
 // @endblock
@@ -85,6 +89,7 @@ inline float DistanceFunction(float3 pos)
 // @block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
+    o.emission = 0.5 + 0.5 * sin(_TimelineTime);
 }
 // @endblock
 

@@ -39,34 +39,21 @@ MonoBehaviour:
     value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
     folded: 0
   - key: DistanceFunction
-    value: "// KIFS\n// https://www.shadertoy.com/view/MdlSRM\n\n void ry(inout vec3
-      p, float a){\n \tfloat c,s;vec3 q=p;\n  \tc = cos(a); s = sin(a);\n  \tp.x =
-      c * q.x + s * q.z;\n  \tp.z = -s * q.x + c * q.z;\n }\n void rx(inout vec3 p,
-      float a){\n \tfloat c,s;vec3 q=p;\n  \tc = cos(a); s = sin(a);\n  \tp.y = c
-      * q.y - s * q.z;\n  \tp.z = s * q.y + c * q.z;\n }\n\n void rz(inout vec3 p,
-      float a){\n \tfloat c,s;vec3 q=p;\n  \tc = cos(a); s = sin(a);\n  \tp.x = c
-      * q.x - s * q.y;\n  \tp.y = s * q.x + c * q.y;\n }\nfloat plane(vec3 p, float
-      y) {\n    return length(vec3(p.x, y, p.z) - p);\n}\n\n// folding hex from nimitz:
-      https://www.shadertoy.com/view/XtdGDB\nvec2 fold(vec2 p)\n{\n    p.xy = abs(p.xy);\n
-      \   const vec2 pl1 = vec2(-0.5, 0.8657);\n    const vec2 pl2 = vec2(-0.8657,
-      0.4);\n    p -= pl1*2.*min(0., dot(p, pl1));\n    p -= pl2*2.*min(0., dot(p,
-      pl2));\n    return p;\n}\n\nvec3 mat=vec3(0.0, 0.0, 0.0);\nbool bcolor = false;\nvec3
-      _Offset;\n\nfloat menger_spone(in vec3 z0){\n\tvec4 z=vec4(z0,1.0);\n    vec3
-      offset = _Offset;\n    float scale = 2.46;\n\tfor (int n = 0; n < 4; n++) {\n\t\tz
-      = abs(z);\n\t\tif (z.x<z.y)z.xy = z.yx;\n\t\tif (z.x<z.z)z.xz = z.zx;\n\t\tif
-      (z.y<z.z)z.yz = z.zy;\n\t\tz = z*scale;\n\t\tz.xyz -= offset*(scale-1.0);\n
-      \      \tif(bcolor && n==2)\n            mat+=vec3(0.5, 0.5, 0.5)+sin(z.xyz)*vec3(1.0,
-      0.24, 0.245);\n\t\tif(z.z<-0.5*offset.z*(scale-1.0))\n            z.z+=offset.z*(scale-1.0);\n\t}\n\treturn
-      (length(max(abs(z.xyz)-vec3(1.0, 1.0, 1.0),0.0))-0.05)/z.w;\n}\n\ninline float
-      DistanceFunction(float3 pos)\n{\n    pos.yx = fold(pos.yx);\n    pos = Mod(pos,
-      3.0);\n    return menger_spone(pos);\n}"
+    value: "vec3 mat = vec3(0.0, 0.0, 0.0);\nbool bcolor = false;\nvec3 _Offset;\n\nfloat
+      menger_spone(in vec3 z0) {\n    vec4 z = vec4(z0, 1.0);\n    vec3 offset = _Offset;\n
+      \   float scale = 2.46;\n    for (int n = 0; n < 4; n++) {\n    z = abs(z);\n
+      \   if (z.x < z.y)\n        z.xy = z.yx;\n    if (z.x < z.z)\n        z.xz =
+      z.zx;\n    if (z.y < z.z)\n        z.yz = z.zy;\n    z = z * scale;\n    z.xyz
+      -= offset * (scale - 1.0);\n    if (bcolor && n == 2)\n        mat += vec3(0.5,
+      0.5, 0.5) + sin(z.xyz) * vec3(1.0, 0.24, 0.245);\n    if (z.z < -0.5 * offset.z
+      * (scale - 1.0))\n        z.z += offset.z * (scale - 1.0);\n    }\n    return
+      (length(max(abs(z.xyz) - vec3(1.0, 1.0, 1.0), 0.0)) - 0.05) / z.w;\n}\n\ninline
+      float DistanceFunction(float3 pos)\n{\n    pos.yx = foldHex(pos.yx);\n    //
+      pos.yx = foldRotate(pos.yx, 8.0);\n    pos = Repeat(pos, 6.0);\n    return menger_spone(pos);\n}"
     folded: 0
   - key: PostEffect
-    value: 'inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
-
-      {
-
-      }'
+    value: "inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n
+      \   o.emission = 0.5 + 0.5 * sin(_TimelineTime);\n}"
     folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
   basicFolded: 1
