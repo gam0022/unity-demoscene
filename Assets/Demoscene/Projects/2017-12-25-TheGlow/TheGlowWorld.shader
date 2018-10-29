@@ -46,8 +46,6 @@ CGINCLUDE
 #include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 
 // @block DistanceFunction
-#define PI2 (2.0 * PI)
-
 float2x2 opRotate(in float a)
 {
     float s = sin(a), c = cos(a);
