@@ -95,7 +95,7 @@ inline float DistanceFunction(float3 pos)
 // @block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    o.emission = 0.5 + 0.5 * sin(_TimelineTime);
+    //o.emission = 0.5 + 0.5 * sin(_TimelineTime);
 }
 // @endblock
 
