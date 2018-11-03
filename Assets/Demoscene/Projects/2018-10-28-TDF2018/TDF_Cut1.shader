@@ -6,7 +6,7 @@ Properties
     [Header(GBuffer)]
     _Diffuse("Diffuse", Color) = (1.0, 1.0, 1.0, 1.0)
     _Specular("Specular", Color) = (0.0, 0.0, 0.0, 0.0)
-    _Emission("Emission", Color) = (0.0, 0.0, 0.0, 0.0)
+    [HDR] _Emission("Emission", Color) = (0.0, 0.0, 0.0, 0.0)
 
     [Header(Raymarching Settings)]
     _Loop("Loop", Range(1, 100)) = 30
@@ -92,10 +92,67 @@ inline float DistanceFunction(float3 pos)
 }
 // @endblock
 
+inline float3 calcNormal(float3 pos)
+{
+    const float d = 0.0001;
+    return (normalize(float3(
+        DistanceFunction(pos + float3(  d, 0.0, 0.0)) - DistanceFunction(pos),
+        DistanceFunction(pos + float3(0.0,   d, 0.0)) - DistanceFunction(pos),
+        DistanceFunction(pos + float3(0.0, 0.0,   d)) - DistanceFunction(pos))));
+}
+
+//float edge(vec3 p, vec3 n) {
+//    vec3 offset = vec3(0.001, 0., 0.);
+//    float d = dot(n, calcNormal(p + offset.xyy));
+//    d = min(d, dot(n, calcNormal(p - offset.xyy)));
+//    d = min(d, dot(n, calcNormal(p + offset.yxy)));
+//    d = min(d, dot(n, calcNormal(p - offset.yxy)));
+//    d = min(d, dot(n, calcNormal(p + offset.yyx)));
+//    d = min(d, dot(n, calcNormal(p - offset.yyx)));
+//
+//    return step(d, 0.99999);
+//}
+
+#define map DistanceFunction
+
+// https://www.shadertoy.com/view/lttGDn
+float calcEdge(vec3 p) {
+    float edge = 0.0;
+    vec2 e = vec2(.001, 0);
+
+    // Take some distance function measurements from either side of the hit point on all three axes.
+	float d1 = map(p + e.xyy), d2 = map(p - e.xyy);
+	float d3 = map(p + e.yxy), d4 = map(p - e.yxy);
+	float d5 = map(p + e.yyx), d6 = map(p - e.yyx);
+	float d = map(p)*2.;	// The hit point itself - Doubled to cut down on calculations. See below.
+
+    // Edges - Take a geometry measurement from either side of the hit point. Average them, then see how
+    // much the value differs from the hit point itself. Do this for X, Y and Z directions. Here, the sum
+    // is used for the overall difference, but there are other ways. Note that it's mainly sharp surface
+    // curves that register a discernible difference.
+    edge = abs(d1 + d2 - d) + abs(d3 + d4 - d) + abs(d5 + d6 - d);
+    //edge = max(max(abs(d1 + d2 - d), abs(d3 + d4 - d)), abs(d5 + d6 - d)); // Etc.
+
+    // Once you have an edge value, it needs to normalized, and smoothed if possible. How you
+    // do that is up to you. This is what I came up with for now, but I might tweak it later.
+    edge = smoothstep(0., 1., sqrt(edge/e.x*2.));
+
+    // Return the normal.
+    // Standard, normalized gradient mearsurement.
+    return edge;
+}
+
 // @block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
     //o.emission = 0.5 + 0.5 * sin(_TimelineTime);
+
+    float edgeWidth = .0015;
+    float normal = calcNormal(ray.endPos);
+    //float edge = dot(normal, calcNormal(ray.endPos + normal * edgeWidth));
+    //o.diffuse = half4(ray.normal, 1.0);//vec4(1.0, 0.0, 0.0, 1.0) * edge;
+    //o.specular = o.diffuse = half4(ray.normal, 1.0);
+    o.emission *= calcEdge(ray.endPos);
 }
 // @endblock
 
