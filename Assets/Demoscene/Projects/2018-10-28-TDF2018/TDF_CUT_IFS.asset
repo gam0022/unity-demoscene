@@ -58,8 +58,8 @@ MonoBehaviour:
       calcNormal(ray.endPos + normal * edgeWidth));\n    //o.diffuse = half4(ray.normal,
       1.0);//vec4(1.0, 0.0, 0.0, 1.0) * edge;\n    //o.specular = o.diffuse = half4(ray.normal,
       1.0);\n\n    // FMS_Cat edge\n    // https://github.com/FMS-Cat/shift/blob/gh-pages/src/script/shader/shader.glsl#L472\n
-      \   float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3) -
-      calcNormal(ray.endPos, 1e-4)));\n\n    //float edge = calcEdge(ray.endPos);\n\n
+      \   //float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3)
+      - calcNormal(ray.endPos, 1e-4)));\n\n    float edge = calcEdge(ray.endPos);\n\n
       \   o.emission *= edge;\n}"
     folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}

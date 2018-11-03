@@ -142,9 +142,9 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 
     // FMS_Cat edge
     // https://github.com/FMS-Cat/shift/blob/gh-pages/src/script/shader/shader.glsl#L472
-    float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3) - calcNormal(ray.endPos, 1e-4)));
+    //float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3) - calcNormal(ray.endPos, 1e-4)));
 
-    //float edge = calcEdge(ray.endPos);
+    float edge = calcEdge(ray.endPos);
 
     o.emission *= edge;
 }
