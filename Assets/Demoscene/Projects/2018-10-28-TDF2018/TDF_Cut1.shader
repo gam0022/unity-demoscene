@@ -92,26 +92,13 @@ inline float DistanceFunction(float3 pos)
 }
 // @endblock
 
-inline float3 calcNormal(float3 pos)
+inline float3 calcNormal(float3 pos, float d)
 {
-    const float d = 0.0001;
-    return (normalize(float3(
+    return normalize(float3(
         DistanceFunction(pos + float3(  d, 0.0, 0.0)) - DistanceFunction(pos),
         DistanceFunction(pos + float3(0.0,   d, 0.0)) - DistanceFunction(pos),
-        DistanceFunction(pos + float3(0.0, 0.0,   d)) - DistanceFunction(pos))));
+        DistanceFunction(pos + float3(0.0, 0.0,   d)) - DistanceFunction(pos)));
 }
-
-//float edge(vec3 p, vec3 n) {
-//    vec3 offset = vec3(0.001, 0., 0.);
-//    float d = dot(n, calcNormal(p + offset.xyy));
-//    d = min(d, dot(n, calcNormal(p - offset.xyy)));
-//    d = min(d, dot(n, calcNormal(p + offset.yxy)));
-//    d = min(d, dot(n, calcNormal(p - offset.yxy)));
-//    d = min(d, dot(n, calcNormal(p + offset.yyx)));
-//    d = min(d, dot(n, calcNormal(p - offset.yyx)));
-//
-//    return step(d, 0.99999);
-//}
 
 #define map DistanceFunction
 
@@ -148,11 +135,18 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
     //o.emission = 0.5 + 0.5 * sin(_TimelineTime);
 
     float edgeWidth = .0015;
-    float normal = calcNormal(ray.endPos);
+    //float normal = calcNormal(ray.endPos);
     //float edge = dot(normal, calcNormal(ray.endPos + normal * edgeWidth));
     //o.diffuse = half4(ray.normal, 1.0);//vec4(1.0, 0.0, 0.0, 1.0) * edge;
     //o.specular = o.diffuse = half4(ray.normal, 1.0);
-    o.emission *= calcEdge(ray.endPos);
+
+    // FMS_Cat edge
+    // https://github.com/FMS-Cat/shift/blob/gh-pages/src/script/shader/shader.glsl#L472
+    float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3) - calcNormal(ray.endPos, 1e-4)));
+
+    //float edge = calcEdge(ray.endPos);
+
+    o.emission *= edge;
 }
 // @endblock
 

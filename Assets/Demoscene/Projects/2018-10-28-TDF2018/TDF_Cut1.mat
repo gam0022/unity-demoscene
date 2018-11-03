@@ -27,6 +27,6 @@ Material:
     - _ShadowMinDistance: 0.01
     m_Colors:
     - _Diffuse: {r: 1, g: 1, b: 1, a: 0.09019608}
-    - _Emission: {r: 0, g: 1.5864241, b: 5.3403134, a: 0}
+    - _Emission: {r: 0, g: 1.4281734, b: 3.9533494, a: 0}
     - _MengerOffset: {r: 1.54, g: 1.89, b: 0.77, a: 1}
     - _Specular: {r: 0.4009434, g: 0.71874374, b: 1, a: 0.8862745}
