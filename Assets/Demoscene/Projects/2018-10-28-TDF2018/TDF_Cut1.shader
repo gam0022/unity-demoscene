@@ -15,8 +15,10 @@ Properties
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
-    [Header(IFS)]
-    _Offset("Offset", Vector) = (0.785,1.1,0.46)
+    [Header(Menger)]
+    _MengerScale("Scale", Range(0, 10)) = 2.46
+    _MengerOffset("Offset", Vector) = (0.785,1.1,0.46)
+    //[MaterialToggle] _Bcolor("Bcolor", Float) = 0.0
 
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
@@ -49,31 +51,35 @@ float _TimelineTime;
 
 // @block DistanceFunction
 
-vec3 mat = vec3(0.0, 0.0, 0.0);
-bool bcolor = false;
-vec3 _Offset;
-
-float menger_spone(in vec3 z0) {
+float dMenger(vec3 z0, vec3 offset, float scale) {
     vec4 z = vec4(z0, 1.0);
-    vec3 offset = _Offset;
-    float scale = 2.46;
     for (int n = 0; n < 4; n++) {
-    z = abs(z);
-    if (z.x < z.y)
-        z.xy = z.yx;
-    if (z.x < z.z)
-        z.xz = z.zx;
-    if (z.y < z.z)
-        z.yz = z.zy;
-    z = z * scale;
-    z.xyz -= offset * (scale - 1.0);
-    if (bcolor && n == 2)
-        mat += vec3(0.5, 0.5, 0.5) + sin(z.xyz) * vec3(1.0, 0.24, 0.245);
-    if (z.z < -0.5 * offset.z * (scale - 1.0))
-        z.z += offset.z * (scale - 1.0);
+        z = abs(z);
+
+        if (z.x < z.y) {
+            z.xy = z.yx;
+        }
+
+        if (z.x < z.z) {
+            z.xz = z.zx;
+        }
+
+        if (z.y < z.z) {
+            z.yz = z.zy;
+        }
+
+        z = z * scale;
+        z.xyz -= offset * (scale - 1.0);
+
+        if (z.z < -0.5 * offset.z * (scale - 1.0)) {
+            z.z += offset.z * (scale - 1.0);
+        }
     }
     return (length(max(abs(z.xyz) - vec3(1.0, 1.0, 1.0), 0.0)) - 0.05) / z.w;
 }
+
+vec3 _MengerOffset;
+float _MengerScale;
 
 inline float DistanceFunction(float3 pos)
 {
@@ -82,7 +88,7 @@ inline float DistanceFunction(float3 pos)
     pos.yx = foldHex(pos.yx);
     // pos.yx = foldRotate(pos.yx, 8.0);
 
-    return menger_spone(pos);
+    return dMenger(pos, _MengerOffset, _MengerScale);
 }
 // @endblock
 

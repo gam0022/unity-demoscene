@@ -39,17 +39,19 @@ MonoBehaviour:
     value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
     folded: 0
   - key: DistanceFunction
-    value: "vec3 mat = vec3(0.0, 0.0, 0.0);\nbool bcolor = false;\nvec3 _Offset;\n\nfloat
-      menger_spone(in vec3 z0) {\n    vec4 z = vec4(z0, 1.0);\n    vec3 offset = _Offset;\n
-      \   float scale = 2.46;\n    for (int n = 0; n < 4; n++) {\n    z = abs(z);\n
-      \   if (z.x < z.y)\n        z.xy = z.yx;\n    if (z.x < z.z)\n        z.xz =
-      z.zx;\n    if (z.y < z.z)\n        z.yz = z.zy;\n    z = z * scale;\n    z.xyz
-      -= offset * (scale - 1.0);\n    if (bcolor && n == 2)\n        mat += vec3(0.5,
-      0.5, 0.5) + sin(z.xyz) * vec3(1.0, 0.24, 0.245);\n    if (z.z < -0.5 * offset.z
-      * (scale - 1.0))\n        z.z += offset.z * (scale - 1.0);\n    }\n    return
-      (length(max(abs(z.xyz) - vec3(1.0, 1.0, 1.0), 0.0)) - 0.05) / z.w;\n}\n\ninline
-      float DistanceFunction(float3 pos)\n{\n    pos.yx = foldHex(pos.yx);\n    //
-      pos.yx = foldRotate(pos.yx, 8.0);\n    pos = Repeat(pos, 6.0);\n    return menger_spone(pos);\n}"
+    value: "vec3 mat = vec3(0.0, 0.0, 0.0);\n//float _Bcolor;\nvec3 _MengerOffset;\nfloat
+      _MengerScale;\n\nfloat menger_spone(in vec3 z0) {\n    vec4 z = vec4(z0, 1.0);\n
+      \   vec3 offset = _MengerOffset;\n    float scale = _MengerScale;\n    for (int
+      n = 0; n < 4; n++) {\n        z = abs(z);\n\n        if (z.x < z.y)\n            z.xy
+      = z.yx;\n        if (z.x < z.z)\n            z.xz = z.zx;\n        if (z.y <
+      z.z)\n            z.yz = z.zy;\n\n        z = z * scale;\n        z.xyz -= offset
+      * (scale - 1.0);\n\n//        if (_Bcolor == 1 && n == 2)\n//            mat
+      += vec3(0.5, 0.5, 0.5) + sin(z.xyz) * vec3(1.0, 0.24, 0.245);\n\n        if
+      (z.z < -0.5 * offset.z * (scale - 1.0))\n            z.z += offset.z * (scale
+      - 1.0);\n    }\n    return (length(max(abs(z.xyz) - vec3(1.0, 1.0, 1.0), 0.0))
+      - 0.05) / z.w;\n}\n\ninline float DistanceFunction(float3 pos)\n{\n    pos =
+      Repeat(pos, 4.0);\n\n    pos.yx = foldHex(pos.yx);\n    // pos.yx = foldRotate(pos.yx,
+      8.0);\n\n    return menger_spone(pos);\n}"
     folded: 0
   - key: PostEffect
     value: "inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n
