@@ -567,8 +567,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598585126}
-  m_LocalRotation: {x: 0.30516466, y: 0.14801739, z: -0.04807856, w: 0.93949664}
-  m_LocalPosition: {x: -1.16, y: 2.74, z: -3.59}
+  m_LocalRotation: {x: 0.30516464, y: 0.14801736, z: -0.048078544, w: 0.93949664}
+  m_LocalPosition: {x: 0.7948874, y: 4.694887, z: -3.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491925409}
@@ -633,8 +633,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686972371}
-  m_LocalRotation: {x: -0.06742576, y: 0.2750035, z: 0.019337462, w: 0.95888114}
-  m_LocalPosition: {x: -0.3, y: -0.08, z: -0.48}
+  m_LocalRotation: {x: -0.06742578, y: 0.27500346, z: 0.019337444, w: 0.95888114}
+  m_LocalPosition: {x: 1.6548874, y: 1.8748873, z: -0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1123089543}
@@ -861,7 +861,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262182776}
-  m_LocalRotation: {x: -0.06742576, y: 0.2750035, z: 0.019337462, w: 0.95888114}
+  m_LocalRotation: {x: -0.06742575, y: 0.2750035, z: 0.019337432, w: 0.95888114}
   m_LocalPosition: {x: -0.3, y: -0.08, z: -0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1108,7 +1108,7 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 114774715815564044, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1492531023}
   - key: {fileID: 114343346436512350, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
     value: {fileID: 0}
@@ -1119,6 +1119,7 @@ PlayableDirector:
   m_ExposedReferences:
     m_References:
     - 474ea23b066ed5d41b90ef3869dc0cd2: {fileID: 598585127}
+    - c82470356fea07e419557626880ce675: {fileID: 1492531021}
     - eaf417541b90f8142978053331c731ee: {fileID: 686972372}
     - b5d50cd6b1aff194a8dd123ebc4b344b: {fileID: 598585127}
 --- !u!4 &1492531025
