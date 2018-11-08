@@ -144,7 +144,7 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
     //float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3) - calcNormal(ray.endPos, 1e-4)));
 
     float beat = _Beat * PI2;
-    float edge = calcEdge(ray.endPos) * saturate(sin(-0.5 * ray.endPos.z + beat));
+    float edge = calcEdge(ray.endPos) * saturate(cos(beat -0.5 * ray.endPos.z));
 
     o.emission *= edge;
 }
