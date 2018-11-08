@@ -47,7 +47,7 @@ CGINCLUDE
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
 #include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 
-float _TimelineTime;
+float _Beat;
 
 // @block DistanceFunction
 
@@ -132,9 +132,8 @@ float calcEdge(vec3 p) {
 // @block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    //o.emission = 0.5 + 0.5 * sin(_TimelineTime);
-
     float edgeWidth = .0015;
+
     //float normal = calcNormal(ray.endPos);
     //float edge = dot(normal, calcNormal(ray.endPos + normal * edgeWidth));
     //o.diffuse = half4(ray.normal, 1.0);//vec4(1.0, 0.0, 0.0, 1.0) * edge;
@@ -144,7 +143,8 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
     // https://github.com/FMS-Cat/shift/blob/gh-pages/src/script/shader/shader.glsl#L472
     //float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3) - calcNormal(ray.endPos, 1e-4)));
 
-    float edge = calcEdge(ray.endPos) * saturate(sin(-0.5 * ray.endPos.z + 6.0 * _TimelineTime));
+    float beat = _Beat * PI2;
+    float edge = calcEdge(ray.endPos) * saturate(sin(-0.5 * ray.endPos.z + beat));
 
     o.emission *= edge;
 }
