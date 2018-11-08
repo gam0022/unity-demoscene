@@ -47,15 +47,15 @@ float4 Frag(VertShadowOutput i) : SV_Target
 
     if (!_Raymarch(ray)) discard;
 
-    i.vec = ray.endPos - _LightPositionRange.xyz;
+    // i.vec = ray.endPos - _LightPositionRange.xyz;
     SHADOW_CASTER_FRAGMENT(i);
 }
 
 #else
 
 void Frag(
-    VertShadowOutput i, 
-    out float4 outColor : SV_Target, 
+    VertShadowOutput i,
+    out float4 outColor : SV_Target,
     out float  outDepth : SV_Depth)
 {
     RaymarchInfo ray;
@@ -66,12 +66,12 @@ void Frag(
     ray.maxLoop = _ShadowLoop;
 
     // light direction of spot light
-    if ((UNITY_MATRIX_P[3].x != 0.0) || 
-        (UNITY_MATRIX_P[3].y != 0.0) || 
+    if ((UNITY_MATRIX_P[3].x != 0.0) ||
+        (UNITY_MATRIX_P[3].y != 0.0) ||
         (UNITY_MATRIX_P[3].z != 0.0)) {
         ray.rayDir = GetCameraDirectionForShadow(i.screenPos);
     }
-    // light direction of directional light 
+    // light direction of directional light
     else {
         ray.rayDir = -UNITY_MATRIX_V[2].xyz;
     }
