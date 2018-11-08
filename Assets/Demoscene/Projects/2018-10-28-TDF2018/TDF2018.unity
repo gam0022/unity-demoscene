@@ -567,8 +567,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598585126}
-  m_LocalRotation: {x: 0.30516464, y: 0.14801738, z: -0.048078585, w: 0.93949664}
-  m_LocalPosition: {x: 0.79139256, y: 4.694887, z: -3.4994698}
+  m_LocalRotation: {x: 0.30516464, y: 0.14801738, z: -0.04807859, w: 0.93949664}
+  m_LocalPosition: {x: 0.7948874, y: 4.694887, z: -3.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491925409}
@@ -633,8 +633,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686972371}
-  m_LocalRotation: {x: -0.067425765, y: 0.2750035, z: 0.019337447, w: 0.9588811}
-  m_LocalPosition: {x: 1.6513925, y: 1.8748873, z: -0.38946974}
+  m_LocalRotation: {x: -0.009480881, y: 0.978608, z: 0.046338644, w: 0.20022307}
+  m_LocalPosition: {x: 1.6319456, y: 1.8748873, z: 1.0569713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1123089543}
@@ -861,7 +861,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262182776}
-  m_LocalRotation: {x: -0.06742575, y: 0.2750035, z: 0.019337436, w: 0.9588811}
+  m_LocalRotation: {x: -0.067425765, y: 0.2750035, z: 0.019337453, w: 0.20022307}
   m_LocalPosition: {x: -0.3, y: -0.08, z: -0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1056,7 +1056,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1492531025}
   - component: {fileID: 1492531024}
-  - component: {fileID: 1492531023}
   - component: {fileID: 1492531022}
   m_Layer: 0
   m_Name: Director
@@ -1076,24 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b869d8ec361c10e41b4bbf135c235d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1492531023
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1492531021}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  bpm: 120
 --- !u!320 &1492531024
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -1109,7 +1091,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 0}
-    value: {fileID: 1492531023}
+    value: {fileID: 0}
   - key: {fileID: 114343346436512350, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
     value: {fileID: 0}
   - key: {fileID: 114133618668833446, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
