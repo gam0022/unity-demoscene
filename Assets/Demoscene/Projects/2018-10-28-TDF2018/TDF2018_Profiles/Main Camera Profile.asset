@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Main Camera Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114869707710714718}
-  - {fileID: 114383915847927742}
---- !u!114 &114383915847927742
+  - {fileID: 114395680472160622}
+  - {fileID: 114800300164943306}
+--- !u!114 &114395680472160622
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,10 +31,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.83
+    value: 2.46
   threshold:
     overrideState: 1
-    value: 1
+    value: 0.84
   softKnee:
     overrideState: 0
     value: 0.5
@@ -60,7 +60,7 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &114869707710714718
+--- !u!114 &114800300164943306
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,12 +80,12 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 3.17
+    value: 0
   color:
-    overrideState: 1
+    overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
-    overrideState: 1
+    overrideState: 0
     value: 1
   noiseFilterTolerance:
     overrideState: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
     overrideState: 0
     value: -12
   thicknessModifier:
-    overrideState: 1
+    overrideState: 0
     value: 1
   directLightingStrength:
     overrideState: 0

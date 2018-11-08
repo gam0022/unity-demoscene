@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Demoscene/Projects/2018-10-21-TextMeshProShader/TextMeshProShader.unity
-    guid: ea0cc9f3a376ef3408c950f9b825d7a8
+    path: Assets/Demoscene/Projects/2018-10-28-TDF2018/TDF2018.unity
+    guid: 091b42d5993f1ac4091dad405d3331e8
   m_configObjects: {}
