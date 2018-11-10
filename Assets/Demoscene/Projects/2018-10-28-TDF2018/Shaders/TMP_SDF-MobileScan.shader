@@ -115,6 +115,7 @@ SubShader {
 		};
 
 		float _LocalTime;
+		float _LocalDuration;
 
 		pixel_t VertShader(vertex_t input)
 		{
@@ -194,7 +195,8 @@ SubShader {
 		fixed4 PixShader(pixel_t input) : SV_Target
 		{
 		    half2 uv = input.texcoord0.xy;
-		    uv.y = clamp(uv.y, 0.0, _LocalTime);
+		    float rate = _LocalTime / _LocalDuration;
+		    uv.y = clamp(uv.y, 0.0 + max(0.0, rate - 0.7) * 2.0, rate * 2.0);
 		    //input.spos.y;
 			half d = tex2D(_MainTex, uv).a * input.param.x;
 			half4 c = input.faceColor * saturate(d - input.param.w);

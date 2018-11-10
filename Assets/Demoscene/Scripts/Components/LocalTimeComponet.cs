@@ -4,17 +4,15 @@ namespace Demoscene
 {
     public class LocalTimeComponet : MonoBehaviour
     {
-        readonly int timePropertyId = Shader.PropertyToID("_LocalTime");
+        readonly int timeId = Shader.PropertyToID("_LocalTime");
+        readonly int durationId = Shader.PropertyToID("_LocalDuration");
 
         [SerializeField] Material material;
 
-        /// <summary>
-        /// 再生時間を適用します
-        /// </summary>
-        /// <param name="time">時間</param>
-        public void ApplyTime(float time)
+        public void ApplyTime(float time, float duration)
         {
-            material.SetFloat(timePropertyId, time);
+            material.SetFloat(timeId, time);
+            material.SetFloat(durationId, duration);
         }
     }
 }

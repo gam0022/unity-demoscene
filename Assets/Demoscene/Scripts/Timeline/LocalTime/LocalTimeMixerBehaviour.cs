@@ -20,6 +20,7 @@ namespace Demoscene
 
             var maxWeight = 0f;
             var time = 0f;
+            var duration = 0f;
 
             for (int i = 0; i < inputCount; i++)
             {
@@ -38,11 +39,12 @@ namespace Demoscene
                 if (weight > maxWeight)
                 {
                     time = (float) inputPlayable.GetTime();
+                    duration = (float) inputPlayable.GetDuration();
                     maxWeight = weight;
                 }
             }
 
-            trackBinding.ApplyTime(time);
+            trackBinding.ApplyTime(time, duration);
         }
     }
 }
