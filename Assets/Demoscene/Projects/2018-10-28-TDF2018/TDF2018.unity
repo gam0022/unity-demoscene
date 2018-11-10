@@ -567,8 +567,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598585126}
-  m_LocalRotation: {x: 0.3051646, y: 0.14801738, z: -0.04807859, w: 0.93949664}
-  m_LocalPosition: {x: 0.7948874, y: 4.694887, z: -3.59}
+  m_LocalRotation: {x: 0.3051646, y: 0.14801738, z: -0.04807858, w: 0.93949664}
+  m_LocalPosition: {x: 0.7948874, y: 4.694887, z: 2.5002244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491925409}
@@ -633,7 +633,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 686972371}
-  m_LocalRotation: {x: -0.06742581, y: 0.27500346, z: 0.019337444, w: 0.95888114}
+  m_LocalRotation: {x: -0.067425795, y: 0.27500346, z: 0.01933745, w: 0.95888114}
   m_LocalPosition: {x: 1.6548874, y: 1.8748873, z: -0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -923,7 +923,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262182776}
-  m_LocalRotation: {x: -0.06742575, y: 0.2750035, z: 0.01933743, w: 0.95888114}
+  m_LocalRotation: {x: -0.06742576, y: 0.2750035, z: 0.019337427, w: 0.95888114}
   m_LocalPosition: {x: -0.3, y: -0.08, z: -0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1164,6 +1164,16 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 114875720332945308, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114636592826154782, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
+    value: {fileID: 1596536778}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114923666207704744, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
+    value: {fileID: 1596536778}
   m_ExposedReferences:
     m_References:
     - 474ea23b066ed5d41b90ef3869dc0cd2: {fileID: 598585127}
@@ -1266,8 +1276,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 55.7
-  m_fontSizeBase: 55.7
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1320,7 +1330,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}

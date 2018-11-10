@@ -1,17 +1,15 @@
 using System;
-using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.Timeline;
-using TMPro;
 
-[Serializable]
-public class TextMehProSwitcherBehaviour : PlayableBehaviour
+namespace Demoscene
 {
-    public GUIText newExposedReference;
-    public string text;
-
-    public override void OnPlayableCreate (Playable playable)
+    public class TextMehProSwitcherBehaviour : DemoBehaviourBase<TextMehProSwitcherClip>
     {
-        
+        public TextMehProSwitcherBehaviour()
+        {
+        }
+
+        public TextMehProSwitcherBehaviour(TextMehProSwitcherClip clip) : base(clip)
+        {
+        }
     }
 }
