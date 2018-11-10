@@ -1,0 +1,11 @@
+Font: Azonix  Pt. Size: 48
+Characters packed: 93/99
+
+Missing Characters
+----------------------------------------
+ID: 94	Hex: 5E	Char [^]
+ID: 96	Hex: 60	Char [`]
+ID: 124	Hex: 7C	Char [|]
+ID: 8203	Hex: 200B	Char [​]
+ID: 8230	Hex: 2026	Char […]
+ID: 9633	Hex: 25A1	Char [□]
