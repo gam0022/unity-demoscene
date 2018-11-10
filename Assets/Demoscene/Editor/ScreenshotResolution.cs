@@ -14,7 +14,7 @@ namespace Demoscene.Tool
 
         static GameObject disableTarget;
 
-        const string menuPath = "Tool/スクリーンショット/";
+        const string menuPath = "Tools/スクリーンショット/";
 
         [MenuItem(menuPath + "等倍 #%F12")]
         static void DoScreenshotx1()
