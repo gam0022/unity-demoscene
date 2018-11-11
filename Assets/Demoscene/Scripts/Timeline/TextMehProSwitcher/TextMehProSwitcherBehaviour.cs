@@ -1,5 +1,3 @@
-using System;
-
 namespace Demoscene
 {
     public class TextMehProSwitcherBehaviour : DemoBehaviourBase<TextMehProSwitcherClip>
