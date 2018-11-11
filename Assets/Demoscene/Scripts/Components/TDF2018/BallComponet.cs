@@ -9,10 +9,6 @@ namespace Demoscene.TDF2018
 
         [SerializeField] Material material;
 
-        public void ApplyTime(float time, float duration)
-        {
-        }
-
         public void ApplyPosition(Vector3 position)
         {
             transform.position = position;
