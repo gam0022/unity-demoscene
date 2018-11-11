@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Name: MovieRecorderSettings
   m_EditorClassIdentifier: 
   enabled: 1
-  take: 11
+  take: 12
   captureEveryNthFrame: 1
   fileNameGenerator:
     m_Path:
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_Name: Recorder Track
   m_EditorClassIdentifier: 
   m_Locked: 0
-  m_Muted: 0
+  m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
