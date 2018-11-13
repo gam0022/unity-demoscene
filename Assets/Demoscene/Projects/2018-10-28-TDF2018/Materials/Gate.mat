@@ -22,12 +22,12 @@ Material:
     - _Glossiness: 0.558
     - _Loop: 100
     - _Metallic: 0.246
-    - _MinDistance: 0.01
-    - _ShadowExtraBias: 0.01
-    - _ShadowLoop: 10
-    - _ShadowMinDistance: 0.01
+    - _MinDistance: 0.0032
+    - _ShadowExtraBias: 0.033
+    - _ShadowLoop: 9.3
+    - _ShadowMinDistance: 0.0152
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse: {r: 0, g: 1, b: 0.45551896, a: 1}
-    - _Emission: {r: 0, g: 0.3018868, b: 0.082702994, a: 0}
-    - _Specular: {r: 0.064695, g: 1, b: 0, a: 0}
+    - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Specular: {r: 0.44375992, g: 0, b: 1, a: 0}

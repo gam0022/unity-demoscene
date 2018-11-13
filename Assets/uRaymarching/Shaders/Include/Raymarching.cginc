@@ -65,7 +65,8 @@ inline bool _Raymarch(inout RaymarchInfo ray)
 
 void Raymarch(inout RaymarchInfo ray)
 {
-    if (!_Raymarch(ray)) discard;
+    // TODO: 設定で変えられるようにする
+    if (!_Raymarch(ray) && false) discard;
 
 #ifdef WORLD_SPACE
     ray.normal = GetDistanceFunctiontionNormal(ray.endPos);

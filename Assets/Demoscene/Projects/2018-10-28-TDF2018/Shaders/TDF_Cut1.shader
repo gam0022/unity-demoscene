@@ -146,8 +146,13 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 
     float beat = _Beat * PI2;
     float edge = calcEdge(ray.endPos) * saturate(cos(beat - Mod(0.5 * ray.endPos.z, PI2)));
-
     o.emission *= edge;
+
+    half4 fogColor = half4(0.0, 0.0, 0.0, 0.0);
+    float fog = saturate(0.02 * ray.totalLength * ray.totalLength);
+    o.diffuse = lerp(o.diffuse, fogColor, fog);
+    o.specular = lerp(o.specular, fogColor, fog);
+    o.emission = lerp(o.emission, fogColor, fog);
 }
 // @endblock
 

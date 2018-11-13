@@ -15,6 +15,8 @@ float remap(float s, float a1, float a2)
 
 #define PI2 6.28318530718
 
+#define EPS 0.0001
+
 #include "DistanceFunction.cginc"
 
 #endif

@@ -40,18 +40,31 @@ CGINCLUDE
 #define PostEffectOutput GBufferOut
 
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
+#include "Assets/Demoscene/Shaders/Includes/Common.cginc"
+
+float dScene(float3 p) {
+    p = Repeat(p, 0.5);
+    return Sphere(p, 0.1);
+}
+
+float dSkybox(float3 p) {
+    return max(0.0, -Sphere(p - vec3(0.0, 0.0, 50.0), 100.0));
+}
 
 // @block DistanceFunction
 inline float DistanceFunction(float3 pos)
 {
-    pos = Repeat(pos, 0.5);
-    return Sphere(pos, 0.1);
+    float d = dScene(pos);
+    d = min(d, dSkybox(pos));
+    return d;
 }
 // @endblock
 
 // @block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
+    float fog = saturate(ray.totalLength * 0.05);
+    o.emission = lerp(o.emission, half4(1.0, 1.0, 1.0, 1.0), fog);
 }
 // @endblock
 

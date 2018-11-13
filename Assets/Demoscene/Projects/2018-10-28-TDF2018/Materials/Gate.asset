@@ -43,15 +43,12 @@ MonoBehaviour:
     value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
     folded: 0
   - key: DistanceFunction
-    value: "inline float DistanceFunction(float3 pos)\n{\n    pos = Repeat(pos, 0.5);\n
-      \   return Sphere(pos, 0.1);\n}"
+    value: "inline float DistanceFunction(float3 pos)\n{\n    float d = dScene(pos);\n
+      \   d = min(d, dSkybox(pos));\n    return d;\n}"
     folded: 0
   - key: PostEffect
-    value: 'inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
-
-      {
-
-      }'
+    value: "inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n
+      \   o.emission = ray.totalLength * 0.05 * half4(1.0, 1.0, 1.0, 1.0);\n}"
     folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
   basicFolded: 1
