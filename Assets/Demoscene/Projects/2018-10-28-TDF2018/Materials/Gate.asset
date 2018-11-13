@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acd6fe57257048db802c1c4c2b75248, type: 3}
+  m_Name: Gate
+  m_EditorClassIdentifier: 
+  shaderName: TDF2018_Gate
+  shaderReference: {fileID: 4800000, guid: 4b57777d59068454a8c2b166bd2b3652, type: 3}
+  shaderTemplate: uRaymarching/Direct GBuffer
+  variables:
+  - key: Name
+    value: TDF2018_Gate
+  - key: Culling
+    value: Off
+  - key: RaymarchingShaderDirectory
+    value: Assets/uRaymarching/Shaders/Include
+  conditions:
+  - key: ShadowCaster
+    value: 1
+  - key: WorldSpace
+    value: 0
+  - key: FollowObjectScale
+    value: 1
+  - key: DoNotOutputDepth
+    value: 0
+  - key: CameraInsideObject
+    value: 0
+  - key: FallbackToDiffuse
+    value: 1
+  - key: SphericalHarmonicsPerPixel
+    value: 1
+  - key: FallbackToStandardShader
+    value: 1
+  blocks:
+  - key: Properties
+    value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    folded: 0
+  - key: DistanceFunction
+    value: "inline float DistanceFunction(float3 pos)\n{\n    pos = Repeat(pos, 0.5);\n
+      \   return Sphere(pos, 0.1);\n}"
+    folded: 0
+  - key: PostEffect
+    value: 'inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
+
+      {
+
+      }'
+    folded: 0
+  constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
+  basicFolded: 1
+  conditionsFolded: 1
+  variablesFolded: 0
+  materialsFolded: 0
+  constantsFolded: 0

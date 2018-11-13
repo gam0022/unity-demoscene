@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3acd6fe57257048db802c1c4c2b75248, type: 3}
-  m_Name: TDF_CUT_IFS
+  m_Name: Tunel
   m_EditorClassIdentifier: 
   shaderName: TDF_Cut1
   shaderReference: {fileID: 4800000, guid: 0a9f6b49dd72f964cb6ad9cf08fb34d0, type: 3}
