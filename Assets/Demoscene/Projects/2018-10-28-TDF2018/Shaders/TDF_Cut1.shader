@@ -86,8 +86,8 @@ inline float DistanceFunction(float3 pos)
     pos.z = min(pos.z, 50.0);
     pos = Repeat(pos, 4.0);
 
-    pos.yx = foldHex(pos.yx);
-    // pos.yx = foldRotate(pos.yx, 8.0);
+    pos.yx = foldOctagon(pos.yx);
+    //pos.yx = foldRotate(pos.yx, 8.0);
 
     return dMenger(pos, _MengerOffset, _MengerScale);
 }

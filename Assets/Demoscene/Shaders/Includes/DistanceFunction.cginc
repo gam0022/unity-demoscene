@@ -36,8 +36,8 @@ vec2 foldRotate(in vec2 p, in float s) {
     return p;
 }
 
-// folding hex from nimitz: https://www.shadertoy.com/view/XtdGDB
-vec2 foldHex(vec2 p) {
+// folding Octagon from nimitz: https://www.shadertoy.com/view/XtdGDB
+vec2 foldOctagon(vec2 p) {
     p.xy = abs(p.xy);
     const vec2 pl1 = vec2(-0.5, 0.8657);
     const vec2 pl2 = vec2(-0.8657, 0.4);
