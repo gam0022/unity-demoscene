@@ -27,7 +27,7 @@ MonoBehaviour:
   - key: WorldSpace
     value: 0
   - key: FollowObjectScale
-    value: 1
+    value: 0
   - key: DoNotOutputDepth
     value: 0
   - key: CameraInsideObject
