@@ -1,4 +1,4 @@
-Shader "Raymarching/TDF_Cut1"
+Shader "Raymarching/TDF2018_Tunel"
 {
 
 Properties

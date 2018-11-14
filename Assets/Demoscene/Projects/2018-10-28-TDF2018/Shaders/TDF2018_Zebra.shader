@@ -1,4 +1,4 @@
-Shader "Raymarching/TDF2018_Gate"
+Shader "Raymarching/TDF2018_Zebra"
 {
 
 Properties

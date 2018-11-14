@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3acd6fe57257048db802c1c4c2b75248, type: 3}
-  m_Name: Tunel
+  m_Name: TDF2018_Tunel
   m_EditorClassIdentifier: 
-  shaderName: TDF_Cut1
+  shaderName: TDF2018_Zebra
   shaderReference: {fileID: 4800000, guid: 0a9f6b49dd72f964cb6ad9cf08fb34d0, type: 3}
   shaderTemplate: uRaymarching/Direct GBuffer
   variables:
@@ -50,7 +50,7 @@ MonoBehaviour:
       _MengerScale;\n\ninline float DistanceFunction(float3 pos)\n{\n    pos = Repeat(pos,
       4.0);\n\n    pos.yx = foldHex(pos.yx);\n    // pos.yx = foldRotate(pos.yx, 8.0);\n\n
       \   return dMenger(pos, _MengerOffset, _MengerScale);\n}"
-    folded: 0
+    folded: 1
   - key: PostEffect
     value: "inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n
       \   //o.emission = 0.5 + 0.5 * sin(_TimelineTime);\n\n    float edgeWidth =
@@ -61,10 +61,10 @@ MonoBehaviour:
       \   //float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3)
       - calcNormal(ray.endPos, 1e-4)));\n\n    float edge = calcEdge(ray.endPos);\n\n
       \   o.emission *= edge;\n}"
-    folded: 0
+    folded: 1
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
   basicFolded: 1
   conditionsFolded: 1
-  variablesFolded: 1
-  materialsFolded: 0
-  constantsFolded: 0
+  variablesFolded: 0
+  materialsFolded: 1
+  constantsFolded: 1
