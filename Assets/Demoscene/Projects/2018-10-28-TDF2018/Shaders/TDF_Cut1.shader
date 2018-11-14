@@ -39,6 +39,7 @@ Cull Off
 CGINCLUDE
 
 #define WORLD_SPACE
+#define DISABLE_DISCARD
 
 #define DISTANCE_FUNCTION DistanceFunction
 #define POST_EFFECT PostEffect

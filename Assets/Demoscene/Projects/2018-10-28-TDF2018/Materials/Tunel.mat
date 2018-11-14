@@ -20,7 +20,7 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _Loop: 100
-    - _MengerScale: 2.23
+    - _MengerScale: 3.21
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.01
     - _ShadowLoop: 10
@@ -28,5 +28,5 @@ Material:
     m_Colors:
     - _Diffuse: {r: 1, g: 1, b: 1, a: 0.09019608}
     - _Emission: {r: 0, g: 1.4281734, b: 3.9533494, a: 0}
-    - _MengerOffset: {r: 1.54, g: 2.46, b: 2.32, a: 0}
+    - _MengerOffset: {r: 2.24, g: 2.33, b: 1.6, a: 0}
     - _Specular: {r: 0.4009434, g: 0.71874374, b: 1, a: 0.8862745}

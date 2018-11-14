@@ -48,7 +48,8 @@ MonoBehaviour:
     folded: 0
   - key: PostEffect
     value: "inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n
-      \   o.emission = ray.totalLength * 0.05 * half4(1.0, 1.0, 1.0, 1.0);\n}"
+      \   float fog = saturate(ray.totalLength * 0.05);\n    o.emission = lerp(o.emission,
+      half4(1.0, 1.0, 1.0, 1.0), fog);\n}"
     folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
   basicFolded: 1
