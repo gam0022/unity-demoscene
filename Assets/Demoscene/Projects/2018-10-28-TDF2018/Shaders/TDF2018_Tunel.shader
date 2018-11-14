@@ -84,7 +84,7 @@ float _MengerScale;
 
 inline float DistanceFunction(float3 pos)
 {
-    pos.z = min(pos.z, 50.0);
+        pos.z = min(pos.z, 50.0);
     pos = Repeat(pos, 4.0);
 
     pos.yx = foldOctagon(pos.yx);
