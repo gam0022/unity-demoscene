@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Zebra
-  m_Shader: {fileID: 4800000, guid: 4b57777d59068454a8c2b166bd2b3652, type: 3}
+  m_Name: WorldTunel
+  m_Shader: {fileID: 4800000, guid: 0a9f6b49dd72f964cb6ad9cf08fb34d0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,15 +19,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Glossiness: 0.558
     - _Loop: 100
-    - _Metallic: 0.246
-    - _MinDistance: 0.0032
-    - _ShadowExtraBias: 0.033
-    - _ShadowLoop: 9.3
-    - _ShadowMinDistance: 0.0152
+    - _MengerScale: 3.21
+    - _MinDistance: 0.01
+    - _ShadowExtraBias: 0.01
+    - _ShadowLoop: 10
+    - _ShadowMinDistance: 0.01
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _Specular: {r: 0.44375992, g: 0, b: 1, a: 0}
+    - _Diffuse: {r: 1, g: 1, b: 1, a: 0.09019608}
+    - _Emission: {r: 0, g: 1.4281734, b: 3.9533494, a: 0}
+    - _MengerOffset: {r: 2.24, g: 2.33, b: 1.6, a: 0}
+    - _Specular: {r: 0.4009434, g: 0.71874374, b: 1, a: 0.8862745}

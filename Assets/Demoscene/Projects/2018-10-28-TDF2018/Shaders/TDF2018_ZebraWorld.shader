@@ -1,4 +1,4 @@
-Shader "Raymarching/TDF2018_Zebra"
+Shader "Raymarching/TDF2018_ZebraWorld"
 {
 
 Properties
@@ -85,7 +85,7 @@ Pass
     }
 
     CGPROGRAM
-    #include "Assets/uRaymarching/Shaders/Include/VertFragDirectObject.cginc"
+    #include "Assets/uRaymarching/Shaders/Include/VertFragDirectScreen.cginc"
     #pragma target 3.0
     #pragma vertex Vert
     #pragma fragment Frag

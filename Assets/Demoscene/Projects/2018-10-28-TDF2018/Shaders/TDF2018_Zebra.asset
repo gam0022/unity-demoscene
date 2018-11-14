@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acd6fe57257048db802c1c4c2b75248, type: 3}
   m_Name: TDF2018_Zebra
   m_EditorClassIdentifier: 
-  shaderName: TDF2018_Zebra
-  shaderReference: {fileID: 4800000, guid: 4b57777d59068454a8c2b166bd2b3652, type: 3}
+  shaderName: TDF2018_ZebraGate
+  shaderReference: {fileID: 4800000, guid: f4dad41c3c7a1ed42ad7a081030afa7b, type: 3}
   shaderTemplate: uRaymarching/Direct GBuffer
   variables:
   - key: Name
