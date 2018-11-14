@@ -331,7 +331,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118348730}
-  m_LocalRotation: {x: -0.15118001, y: -0.10298826, z: -0.015839037, w: 0.9829991}
+  m_LocalRotation: {x: -0.15118004, y: -0.10298822, z: -0.015839033, w: 0.9829991}
   m_LocalPosition: {x: 0.25, y: -0.38, z: -1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -867,7 +867,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598585126}
-  m_LocalRotation: {x: 0.18657573, y: 0.32359388, z: -0.06524736, w: 0.9253212}
+  m_LocalRotation: {x: 0.1865757, y: 0.32359385, z: -0.06524734, w: 0.9253212}
   m_LocalPosition: {x: -2.55, y: 1.72, z: -3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1216,7 +1216,6 @@ GameObject:
   - component: {fileID: 1262182782}
   - component: {fileID: 1262182781}
   - component: {fileID: 1262182780}
-  - component: {fileID: 1262182783}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1277,7 +1276,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262182776}
-  m_LocalRotation: {x: 0.020600298, y: -0.10417674, z: 0.0021582772, w: 0.9943431}
+  m_LocalRotation: {x: 0.02060028, y: -0.104176775, z: 0.002158276, w: 0.9943431}
   m_LocalPosition: {x: 0.25, y: 0.05, z: -1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1397,97 +1396,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1262182783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1262182776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 199311a1781af854fb1334c3c195468a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_outputDir:
-    m_root: 1
-    m_leaf: Capture
-    m_readOnly: 0
-  m_resolution: 0
-  m_resolutionPercent: 100
-  m_resolutionWidth: 1920
-  m_framerateMode: 1
-  m_targetFramerate: 30
-  m_fixDeltaTime: 1
-  m_waitDeltaTime: 1
-  m_captureEveryNthFrame: 1
-  m_captureControl: 0
-  m_startFrame: 0
-  m_endFrame: 100
-  m_startTime: 0
-  m_endTime: 300
-  m_recordOnStart: 0
-  m_encoderConfigs:
-    format: 3
-    pngEncoderSettings:
-      pixelFormat: 0
-      maxTasks: 2
-      width: 0
-      height: 0
-      channels: 0
-    exrEncoderSettings:
-      pixelFormat: 0
-      compression: 3
-      maxTasks: 2
-      width: 0
-      height: 0
-      channels: 0
-    gifEncoderSettings:
-      width: 0
-      height: 0
-      numColors: 256
-      keyframeInterval: 30
-      maxTasks: 8
-    webmEncoderSettings:
-      video:
-        v: 1
-      videoEncoder: 0
-      videoWidth: 0
-      videoHeight: 0
-      videoTargetFramerate: 60
-      videoBitrateMode: 1
-      videoTargetBitrate: 1024000
-      videoMaxTasks: 4
-      audio:
-        v: 1
-      audioEncoder: 0
-      audioSampleRate: 48000
-      audioNumChannels: 2
-      audioBitrateMode: 1
-      audioTargetBitrate: 128000
-      audioMaxTasks: 4
-    mp4EncoderSettings:
-      video:
-        v: 1
-      videoWidth: 0
-      videoHeight: 0
-      videoTargetFramerate: 30
-      videoBitrateMode: 1
-      videoTargetBitrate: 1024000
-      videoFlags: 62
-      videoMaxTasks: 4
-      audio:
-        v: 1
-      audioSampleRate: 48000
-      audioNumChannels: 2
-      audioBitrateMode: 1
-      audioTargetBitrate: 128000
-      audioFlags: 6
-      audioMaxTasks: 4
-  m_captureTarget: 0
-  m_targetRT: {fileID: 0}
-  m_captureVideo: 1
-  m_captureAudio: 1
-  m_shCopy: {fileID: 4800000, guid: 2283fb92223c7914c9096670e29202c8, type: 3}
 --- !u!1 &1473178966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,8 +1514,8 @@ PlayableDirector:
   - key: {fileID: 114070397429917760, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
     value: {fileID: 1262182782}
   - key: {fileID: 114413807804085936, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
-    value: {fileID: 1627737332}
-  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 114875720332945308, guid: 6d8a3eb876af19d48ae702a09c011e11, type: 2}
     value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
@@ -1874,7 +1782,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 0
+  m_inputSource: 3
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -1906,130 +1814,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 21182025572987376, guid: 297486c97edc8b240bfc29db7b329750, type: 2}
---- !u!1 &1627737331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1627737333}
-  - component: {fileID: 1627737332}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1627737332
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627737331}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1627737333
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627737331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4770358, y: 1.9691803, z: 50.697475}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1663316847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,7 +2028,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1745426942}
-  m_LocalRotation: {x: 0.02060028, y: -0.104176775, z: 0.002158276, w: 0.9943431}
+  m_LocalRotation: {x: 0.020600298, y: -0.10417674, z: 0.0021582772, w: 0.9943431}
   m_LocalPosition: {x: 0.25, y: 0.05, z: -1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
