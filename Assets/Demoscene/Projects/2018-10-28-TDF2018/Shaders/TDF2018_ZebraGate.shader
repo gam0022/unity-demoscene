@@ -84,6 +84,8 @@ Pass
         Ref 128
     }
 
+    ZTest Always
+
     CGPROGRAM
     #include "Assets/uRaymarching/Shaders/Include/VertFragDirectObject.cginc"
     #pragma target 3.0

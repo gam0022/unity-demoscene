@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_Name: Recorder Track
   m_EditorClassIdentifier: 
   m_Locked: 0
-  m_Muted: 0
+  m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -2158,7 +2158,7 @@ MonoBehaviour:
   - m_Start: 33.833333333333336
     m_ClipIn: 0
     m_Asset: {fileID: 114434958834126128}
-    m_Duration: 36.166666666666664
+    m_Duration: 14.583333333333329
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114930390484582888}
     m_EaseInDuration: 0
