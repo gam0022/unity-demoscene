@@ -77,6 +77,23 @@ Pass
 {
     Tags { "LightMode" = "Deferred" }
 
+    CGPROGRAM
+    #include "Assets/uRaymarching/Shaders/Include/VertFragDirectObject.cginc"
+    #include "Assets/Demoscene/Projects/2018-10-28-TDF2018/Shaders/Includes/Outline.cginc"
+    #pragma target 3.0
+    #pragma vertex VertOutline
+    #pragma fragment FragOutline
+    #pragma exclude_renderers nomrt
+    #pragma multi_compile_prepassfinal
+    #pragma multi_compile ___ UNITY_HDR_ON
+    #pragma multi_compile OBJECT_SHAPE_CUBE OBJECT_SHAPE_SPHERE ___
+    ENDCG
+}
+
+Pass
+{
+    Tags { "LightMode" = "Deferred" }
+
     Stencil
     {
         Comp Always

@@ -52,8 +52,8 @@ MonoBehaviour:
       half4(1.0, 1.0, 1.0, 1.0), fog);\n}"
     folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
-  basicFolded: 1
-  conditionsFolded: 1
+  basicFolded: 0
+  conditionsFolded: 0
   variablesFolded: 0
   materialsFolded: 0
   constantsFolded: 0
