@@ -14,6 +14,50 @@ MonoBehaviour:
   settings:
   - {fileID: 114395680472160622}
   - {fileID: 114800300164943306}
+  - {fileID: 114317101880055128}
+--- !u!114 &114317101880055128
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
+  m_Name: Vignette
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 0
+  color:
+    overrideState: 1
+    value: {r: 0, g: 0, b: 0, a: 1}
+  center:
+    overrideState: 1
+    value: {x: 0.5, y: 0.5}
+  intensity:
+    overrideState: 1
+    value: 0.357
+  smoothness:
+    overrideState: 1
+    value: 1
+  roundness:
+    overrideState: 1
+    value: 0.882
+  rounded:
+    overrideState: 1
+    value: 0
+  mask:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  opacity:
+    overrideState: 0
+    value: 1
 --- !u!114 &114395680472160622
 MonoBehaviour:
   m_ObjectHideFlags: 3

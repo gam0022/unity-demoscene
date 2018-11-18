@@ -19,14 +19,24 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
+    - _EmissionHueShiftBeat: 0
+    - _EmissionHueShiftXY: 0
+    - _EmissionHueShiftZ: 0
+    - _FogIntensity: 0.012
+    - _FogPower: 2
     - _Loop: 100
-    - _MengerScale: 2.9515371
+    - _MengerFold: 8
+    - _MengerScale: 2.5372496
+    - _MengerTwistZ: 0
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.01
     - _ShadowLoop: 10
     - _ShadowMinDistance: 0.01
     m_Colors:
-    - _Diffuse: {r: 1, g: 1, b: 1, a: 0.09019608}
-    - _Emission: {r: 0, g: 1.4281734, b: 3.9533494, a: 0}
-    - _MengerOffset: {r: 2.052671, g: 2.2827804, b: 0.68704754, a: 0}
-    - _Specular: {r: 0.4009434, g: 0.71874374, b: 1, a: 0.8862745}
+    - _Diffuse: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 0.19607843}
+    - _Emission: {r: 0, g: 1.4281734, b: 3.9533494, a: 1}
+    - _EmissionHsv: {r: -0.38, g: 1, b: 1, a: 2}
+    - _Fog: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MengerOffset: {r: 1.54, g: 1.9866693, b: 1.0328727, a: 0}
+    - _Specular: {r: 1, g: 1, b: 1, a: 0.78431374}

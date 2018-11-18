@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acd6fe57257048db802c1c4c2b75248, type: 3}
   m_Name: TDF2018_Tunel
   m_EditorClassIdentifier: 
-  shaderName: TDF2018_Zebra
+  shaderName: TDF2018_Tunel
   shaderReference: {fileID: 4800000, guid: 0a9f6b49dd72f964cb6ad9cf08fb34d0, type: 3}
   shaderTemplate: uRaymarching/Direct GBuffer
   variables:
   - key: Name
-    value: TDF_Cut1
+    value: TDF2018_Tunel
   - key: Culling
     value: Off
   - key: RaymarchingShaderDirectory
@@ -36,32 +36,46 @@ MonoBehaviour:
     value: 1
   blocks:
   - key: Properties
-    value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    value: "    [Header(Fog)]\n    _FogColor(\"Color\", Color) = (0.0, 0.0, 0.0, 0.0)\n
+      \   _FogPower(\"Power\", Range(0.0, 5.0)) = 2.0\n    _FogIntensity(\"Intensity\",
+      Range(0.0, 1.0)) = 0.02\n\n    [Header(Menger)]\n    _MengerScale(\"Scale\",
+      Range(0, 10)) = 2.46\n    _MengerOffset(\"Offset\", Vector) = (0.785,1.1,0.46)\n
+      \   //[MaterialToggle] _Bcolor(\"Bcolor\", Float) = 0.0\n    _MengerFold(\"Fold\",
+      Range(0, 20)) = 8.0\n    _MengerTwistZ(\"Twist Z\", Range(-1.0, 1.0)) = 0.0\n\n
+      \   [Header(Emissive)]\n    _EmissionHsv(\"HSV\", Vector) = (0.0, 1.0, 1.0,
+      2.0)\n    _EmissionHueShiftZ(\"Hue Shift Z\", Range(0.0, 10.0)) = 0.0\n    _EmissionHueShiftXY(\"Hue
+      Shift XY\", Range(0.0, 10.0)) = 0.0\n    _EmissionHueShiftBeat(\"Hue Shift Beat\",
+      Range(0.0, 10.0)) = 0.0"
     folded: 0
   - key: DistanceFunction
     value: "float dMenger(vec3 z0, vec3 offset, float scale) {\n    vec4 z = vec4(z0,
       1.0);\n    for (int n = 0; n < 4; n++) {\n        z = abs(z);\n\n        if
       (z.x < z.y) {\n            z.xy = z.yx;\n        }\n\n        if (z.x < z.z)
       {\n            z.xz = z.zx;\n        }\n\n        if (z.y < z.z) {\n            z.yz
-      = z.zy;\n        }\n\n        z = z * scale;\n        z.xyz -= offset * (scale
+      = z.zy;\n        }\n\n        z *= scale;\n        z.xyz -= offset * (scale
       - 1.0);\n\n        if (z.z < -0.5 * offset.z * (scale - 1.0)) {\n            z.z
       += offset.z * (scale - 1.0);\n        }\n    }\n    return (length(max(abs(z.xyz)
-      - vec3(1.0, 1.0, 1.0), 0.0)) - 0.05) / z.w;\n}\n\nvec3 _MengerOffset;\nfloat
-      _MengerScale;\n\ninline float DistanceFunction(float3 pos)\n{\n    pos = Repeat(pos,
-      4.0);\n\n    pos.yx = foldHex(pos.yx);\n    // pos.yx = foldRotate(pos.yx, 8.0);\n\n
-      \   return dMenger(pos, _MengerOffset, _MengerScale);\n}"
-    folded: 1
+      - vec3(1.0, 1.0, 1.0), 0.0)) - 0.05) / z.w;\n}\n\nfloat3 _MengerOffset;\nfloat
+      _MengerScale;\nfloat _MengerFold;\nfloat _MengerTwistZ;\n\ninline float DistanceFunction(float3
+      pos)\n{\n    // pos.z = min(pos.z, 50.0);\n    pos = Repeat(pos, 4.0);\n    pos.xy
+      = mul(pos.xy, rotate(pos.z * _MengerTwistZ));\n\n    // pos.yx = foldOctagon(pos.yx);\n
+      \   pos.yx = foldRotate(pos.yx, _MengerFold);\n\n    return dMenger(pos, _MengerOffset,
+      _MengerScale);\n}"
+    folded: 0
   - key: PostEffect
     value: "inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n
-      \   //o.emission = 0.5 + 0.5 * sin(_TimelineTime);\n\n    float edgeWidth =
-      .0015;\n    //float normal = calcNormal(ray.endPos);\n    //float edge = dot(normal,
-      calcNormal(ray.endPos + normal * edgeWidth));\n    //o.diffuse = half4(ray.normal,
-      1.0);//vec4(1.0, 0.0, 0.0, 1.0) * edge;\n    //o.specular = o.diffuse = half4(ray.normal,
-      1.0);\n\n    // FMS_Cat edge\n    // https://github.com/FMS-Cat/shift/blob/gh-pages/src/script/shader/shader.glsl#L472\n
+      \   float hue = _EmissionHsv.r + _EmissionHueShiftZ * ray.endPos.z + _EmissionHueShiftXY
+      * length(ray.endPos.xy - float2(2.0, 2.0)) + _EmissionHueShiftBeat * _Beat;\n
+      \   o.emission.rgb = hsvToRgb(float3(hue, _EmissionHsv.gb)) * _EmissionHsv.a;\n\n
+      \   float edgeWidth = .0015;\n\n    // FMS_Cat edge\n    // https://github.com/FMS-Cat/shift/blob/gh-pages/src/script/shader/shader.glsl#L472\n
       \   //float edge = smoothstep(0.0, 0.1, length(calcNormal(ray.endPos, 1e-3)
-      - calcNormal(ray.endPos, 1e-4)));\n\n    float edge = calcEdge(ray.endPos);\n\n
-      \   o.emission *= edge;\n}"
-    folded: 1
+      - calcNormal(ray.endPos, 1e-4)));\n\n    float beat = _Beat * PI2;\n    float
+      edge = calcEdge(ray.endPos) * saturate(cos(beat - Mod(0.5 * ray.endPos.z, PI2)));\n\n
+      \   o.emission *= edge;\n\n    float fog = saturate(_FogIntensity * pow(ray.totalLength,
+      _FogPower));\n    o.diffuse = lerp(o.diffuse, _FogColor, fog);\n    o.specular
+      = lerp(o.specular, _FogColor, fog);\n    o.emission = lerp(o.emission, _FogColor,
+      fog);\n}"
+    folded: 0
   constants: {fileID: 11400000, guid: 4df15a420345e4af98645ddd9620aa5b, type: 2}
   basicFolded: 1
   conditionsFolded: 1
