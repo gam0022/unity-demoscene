@@ -15,13 +15,24 @@ Properties
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
+// @block Properties
+    [Header(Fog)]
+    _FogColor("Color", Color) = (0.0, 0.0, 0.0, 0.0)
+    _FogPower("Power", Range(0.0, 5.0)) = 2.0
+    _FogIntensity("Intensity", Range(0.0, 1.0)) = 0.02
+
     [Header(Menger)]
     _MengerScale("Scale", Range(0, 10)) = 2.46
     _MengerOffset("Offset", Vector) = (0.785,1.1,0.46)
     //[MaterialToggle] _Bcolor("Bcolor", Float) = 0.0
+    _MengerFold("Fold", Range(0, 20)) = 8.0
+    _MengerTwistZ("Twist Z", Range(-1.0, 1.0)) = 0.0
 
-// @block Properties
-// _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    [Header(Emissive)]
+    _EmissionHsv("HSV", Vector) = (0.0, 1.0, 1.0, 2.0)
+    _EmissionHueShiftZ("Hue Shift Z", Range(0.0, 10.0)) = 0.0
+    _EmissionHueShiftXY("Hue Shift XY", Range(0.0, 10.0)) = 0.0
+    _EmissionHueShiftBeat("Hue Shift Beat", Range(0.0, 10.0)) = 0.0
 // @endblock
 }
 
@@ -69,7 +80,7 @@ float dMenger(vec3 z0, vec3 offset, float scale) {
             z.yz = z.zy;
         }
 
-        z = z * scale;
+        z *= scale;
         z.xyz -= offset * (scale - 1.0);
 
         if (z.z < -0.5 * offset.z * (scale - 1.0)) {
@@ -79,16 +90,19 @@ float dMenger(vec3 z0, vec3 offset, float scale) {
     return (length(max(abs(z.xyz) - vec3(1.0, 1.0, 1.0), 0.0)) - 0.05) / z.w;
 }
 
-vec3 _MengerOffset;
+float3 _MengerOffset;
 float _MengerScale;
+float _MengerFold;
+float _MengerTwistZ;
 
 inline float DistanceFunction(float3 pos)
 {
-    //pos.z = min(pos.z, 50.0);
+    // pos.z = min(pos.z, 50.0);
     pos = Repeat(pos, 4.0);
+    pos.xy = mul(pos.xy, rotate(pos.z * _MengerTwistZ));
 
-    pos.yx = foldOctagon(pos.yx);
-    //pos.yx = foldRotate(pos.yx, 8.0);
+    // pos.yx = foldOctagon(pos.yx);
+    pos.yx = foldRotate(pos.yx, _MengerFold);
 
     return dMenger(pos, _MengerOffset, _MengerScale);
 }
@@ -131,15 +145,22 @@ float calcEdge(vec3 p) {
     return edge;
 }
 
+half4 _FogColor;
+float _FogIntensity;
+float _FogPower;
+
+half4 _EmissionHsv;
+float _EmissionHueShiftZ;
+float _EmissionHueShiftXY;
+float _EmissionHueShiftBeat;
+
 // @block PostEffect
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    float edgeWidth = .0015;
+    float hue = _EmissionHsv.r + _EmissionHueShiftZ * ray.endPos.z + _EmissionHueShiftXY * length(ray.endPos.xy - float2(2.0, 2.0)) + _EmissionHueShiftBeat * _Beat;
+    o.emission.rgb = hsvToRgb(float3(hue, _EmissionHsv.gb)) * _EmissionHsv.a;
 
-    //float normal = calcNormal(ray.endPos);
-    //float edge = dot(normal, calcNormal(ray.endPos + normal * edgeWidth));
-    //o.diffuse = half4(ray.normal, 1.0);//vec4(1.0, 0.0, 0.0, 1.0) * edge;
-    //o.specular = o.diffuse = half4(ray.normal, 1.0);
+    float edgeWidth = .0015;
 
     // FMS_Cat edge
     // https://github.com/FMS-Cat/shift/blob/gh-pages/src/script/shader/shader.glsl#L472
@@ -147,13 +168,13 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 
     float beat = _Beat * PI2;
     float edge = calcEdge(ray.endPos) * saturate(cos(beat - Mod(0.5 * ray.endPos.z, PI2)));
+
     o.emission *= edge;
 
-    half4 fogColor = half4(0.0, 0.0, 0.0, 0.0);
-    float fog = saturate(0.02 * ray.totalLength * ray.totalLength);
-    o.diffuse = lerp(o.diffuse, fogColor, fog);
-    o.specular = lerp(o.specular, fogColor, fog);
-    o.emission = lerp(o.emission, fogColor, fog);
+    float fog = saturate(_FogIntensity * pow(ray.totalLength, _FogPower));
+    o.diffuse = lerp(o.diffuse, _FogColor, fog);
+    o.specular = lerp(o.specular, _FogColor, fog);
+    o.emission = lerp(o.emission, _FogColor, fog);
 }
 // @endblock
 
