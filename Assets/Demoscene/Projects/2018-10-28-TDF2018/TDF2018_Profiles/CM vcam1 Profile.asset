@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: CM vcam1 Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114963609146581608}
---- !u!114 &114963609146581608
+  - {fileID: 114472948931641302}
+--- !u!114 &114472948931641302
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}

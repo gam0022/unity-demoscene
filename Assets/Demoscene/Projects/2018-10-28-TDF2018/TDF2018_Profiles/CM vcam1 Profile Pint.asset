@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: CM vcam1 Profile 1
+  m_Name: CM vcam1 Profile Pint
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114472948931641302}
---- !u!114 &114472948931641302
+  - {fileID: 114963609146581608}
+--- !u!114 &114963609146581608
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,13 +30,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 3.75
+    value: 23.81
   aperture:
     overrideState: 1
-    value: 0.05
+    value: 32
   focalLength:
     overrideState: 1
-    value: 129.5
+    value: 102
   kernelSize:
     overrideState: 1
     value: 3
