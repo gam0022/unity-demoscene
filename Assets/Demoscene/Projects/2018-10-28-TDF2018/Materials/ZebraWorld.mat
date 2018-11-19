@@ -19,6 +19,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
+    - _FogIntensity: 0.003
+    - _FogPower: 2
     - _Glossiness: 0.558
     - _Loop: 100
     - _Metallic: 0.246
@@ -26,8 +28,12 @@ Material:
     - _ShadowExtraBias: 0.033
     - _ShadowLoop: 9.3
     - _ShadowMinDistance: 0.0152
+    - _ZebraSminK: 0.516
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _Specular: {r: 0.44375992, g: 0, b: 1, a: 0}
+    - _FogColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Specular: {r: 0.44375992, g: 0, b: 1, a: 0.2509804}
+    - _TmpDiff: {r: -1.96, g: 0.09, b: -0.99, a: 0}
+    - _ZebraTranslate: {r: 0.04, g: 0.65, b: 0, a: 0}

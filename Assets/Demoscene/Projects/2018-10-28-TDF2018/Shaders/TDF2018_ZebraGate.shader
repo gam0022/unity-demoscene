@@ -16,7 +16,14 @@ Properties
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
 // @block Properties
-// _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    [Header(Fog)]
+    _FogColor("Color", Color) = (1.0, 1.0, 1.0, 0.0)
+    _FogPower("Power", Range(0.0, 5.0)) = 2.0
+    _FogIntensity("Intensity", Range(0.0, 1.0)) = 0.01
+
+    [Header(Zebra)]
+    _ZebraTranslate("_ZebraTranslate", Vector) = (0.0, 0.1, 0.0, 0.0)
+    _ZebraSminK("SminK", Range(0.0, 1.0)) = 0.1
 // @endblock
 }
 
@@ -48,24 +55,42 @@ float dScene(float3 p) {
     return Sphere(p, 0.1);
 }
 
-float dSkybox(float3 p) {
-    return max(0.0, -Sphere(p - vec3(0.0, 0.0, 50.0), 100.0));
+// @block DistanceFunction
+//inline float DistanceFunction(float3 pos)
+//{
+//    float d = dScene(pos);
+//    return d;
+//}
+
+float dTunnel(vec3 p)
+{
+	return cos(p.x) + cos(p.y) + cos(p.z) + cos(p.y*20.)*.01;
 }
+
+float3 _ZebraTranslate;
+float _ZebraSminK;
 
 // @block DistanceFunction
 inline float DistanceFunction(float3 pos)
 {
-    float d = dScene(pos);
-    d = min(d, dSkybox(pos));
+    float d = dTunnel(pos -2.0);
     return d;
 }
 // @endblock
 
 // @block PostEffect
+half4 _FogColor;
+float _FogIntensity;
+float _FogPower;
+
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    float fog = saturate(ray.totalLength * 0.05);
-    o.emission = lerp(o.emission, half4(1.0, 1.0, 1.0, 1.0), fog);
+    o.diffuse = sign(cos(ray.endPos.y * 20));
+
+    float fog = saturate(_FogIntensity * pow(ray.totalLength, _FogPower));
+    o.diffuse = lerp(o.diffuse, _FogColor, fog);
+    o.specular = lerp(o.specular, _FogColor, fog);
+    o.emission = lerp(o.emission, _FogColor, fog);
 }
 // @endblock
 

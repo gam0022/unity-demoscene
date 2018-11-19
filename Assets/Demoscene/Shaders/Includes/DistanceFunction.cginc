@@ -46,6 +46,14 @@ vec2 foldOctagon(vec2 p) {
     return p;
 }
 
+// https://www.iquilezles.org/www/articles/smin/smin.htm
+// polynomial smooth min (k = 0.1);
+float sminCubic( float a, float b, float k )
+{
+    float h = max( k-abs(a-b), 0.0 );
+    return min( a, b ) - h*h*h/(6.0*k*k);
+}
+
 
 // unused
 inline float opRepLimit(float pos, float span, float limit)
