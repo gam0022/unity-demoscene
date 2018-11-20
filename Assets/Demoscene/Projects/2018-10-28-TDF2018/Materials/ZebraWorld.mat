@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: ZebraWorld
   m_Shader: {fileID: 4800000, guid: f4dad41c3c7a1ed42ad7a081030afa7b, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _ZEBRABEATINVERT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,12 +28,16 @@ Material:
     - _ShadowExtraBias: 0.033
     - _ShadowLoop: 9.3
     - _ShadowMinDistance: 0.0152
+    - _ZebraBeatInvert: 1
+    - _ZebraBeatSpeed: 0
     - _ZebraSminK: 0.516
+    - _ZebraTimeSpeed: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _FogColor: {r: 1, g: 1, b: 1, a: 0}
-    - _Specular: {r: 0.44375992, g: 0, b: 1, a: 0.2509804}
+    - _Specular: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0.3764706}
     - _TmpDiff: {r: -1.96, g: 0.09, b: -0.99, a: 0}
     - _ZebraTranslate: {r: 0.04, g: 0.65, b: 0, a: 0}
+    - _ZebraXYZSpeed: {r: 6, g: -6, b: 1, a: 0}

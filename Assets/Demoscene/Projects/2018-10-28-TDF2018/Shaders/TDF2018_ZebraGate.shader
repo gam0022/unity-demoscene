@@ -22,8 +22,9 @@ Properties
     _FogIntensity("Intensity", Range(0.0, 1.0)) = 0.01
 
     [Header(Zebra)]
-    _ZebraTranslate("_ZebraTranslate", Vector) = (0.0, 0.1, 0.0, 0.0)
-    _ZebraSminK("SminK", Range(0.0, 1.0)) = 0.1
+    _ZebraBeatSpeed("Beat Speed", Range(-1.0, 1.0)) = 0.0
+    [Toggle]_ZebraBeatInvert("Beat Invert", Float) = 0.0
+    _ZebraXYZSpeed("XYZ Speed", Vector) = (0.0, 6.0, 0.0, 0.0)
 // @endblock
 }
 
