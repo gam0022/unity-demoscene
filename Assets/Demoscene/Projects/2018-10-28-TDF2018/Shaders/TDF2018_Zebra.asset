@@ -40,11 +40,14 @@ MonoBehaviour:
     value: 1
   blocks:
   - key: Properties
-    value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    value: "    [Header(Fog)]\n    _FogColor(\"Color\", Color) = (1.0, 1.0, 1.0, 0.0)\n
+      \   _FogPower(\"Power\", Range(0.0, 5.0)) = 2.0\n    _FogIntensity(\"Intensity\",
+      Range(0.0, 1.0)) = 0.01\n\n    [Header(Zebra)]\n    _ZebraBeatSpeed(\"Beat Speed\",
+      Range(-1.0, 1.0)) = 0.0\n    [Toggle]_ZebraBeatInvert(\"Beat Invert\", Float)
+      = 0.0\n    _ZebraXYZSpeed(\"XYZ Speed\", Vector) = (0.0, 6.0, 0.0, 0.0)"
     folded: 0
   - key: DistanceFunction
-    value: "inline float DistanceFunction(float3 pos)\n{\n    float d = dScene(pos);\n
-      \   d = min(d, dSkybox(pos));\n    return d;\n}"
+    value: '#include "Assets/Demoscene/Projects/2018-10-28-TDF2018/Shaders/Includes/Zebra.cginc"'
     folded: 0
   - key: PostEffect
     value: "inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)\n{\n
