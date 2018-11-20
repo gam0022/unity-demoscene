@@ -50,48 +50,11 @@ CGINCLUDE
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
 #include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 
-float dScene(float3 p) {
-    p = Repeat(p, 0.5);
-    return Sphere(p, 0.1);
-}
-
 // @block DistanceFunction
-//inline float DistanceFunction(float3 pos)
-//{
-//    float d = dScene(pos);
-//    return d;
-//}
-
-float dTunnel(vec3 p)
-{
-	return cos(p.x) + cos(p.y) + cos(p.z) + cos(p.y*20.)*.01;
-}
-
-float3 _ZebraTranslate;
-float _ZebraSminK;
-
-// @block DistanceFunction
-inline float DistanceFunction(float3 pos)
-{
-    float d = dTunnel(pos -2.0);
-    return d;
-}
+#include "Assets/Demoscene/Projects/2018-10-28-TDF2018/Shaders/Includes/Zebra.cginc"
 // @endblock
 
 // @block PostEffect
-half4 _FogColor;
-float _FogIntensity;
-float _FogPower;
-
-inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
-{
-    o.diffuse = sign(cos(ray.endPos.y * 20));
-
-    float fog = saturate(_FogIntensity * pow(ray.totalLength, _FogPower));
-    o.diffuse = lerp(o.diffuse, _FogColor, fog);
-    o.specular = lerp(o.specular, _FogColor, fog);
-    o.emission = lerp(o.emission, _FogColor, fog);
-}
 // @endblock
 
 #include "Assets/uRaymarching/Shaders/Include/Raymarching.cginc"

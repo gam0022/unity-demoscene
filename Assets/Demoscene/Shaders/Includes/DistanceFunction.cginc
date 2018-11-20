@@ -12,10 +12,13 @@ float dPlane(vec3 p, float y) {
     return length(vec3(p.x, y, p.z) - p);
 }
 
-inline float sdBox(float3 p, float3 b)
-{
+inline float sdBox(float3 p, float3 b) {
   float3 d = abs(p) - b;
   return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));
+}
+
+float dTube(float2 p, float width) {
+    return length(p) - width;
 }
 
 //
