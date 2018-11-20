@@ -97,6 +97,8 @@ float _MengerTwistZ;
 
 inline float DistanceFunction(float3 pos)
 {
+    pos -= float3(2.0, 2.0, 2.0);
+
     // pos.z = min(pos.z, 50.0);
     pos = Repeat(pos, 4.0);
     pos.xy = mul(pos.xy, rotate(pos.z * _MengerTwistZ));

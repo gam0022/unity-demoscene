@@ -11,7 +11,7 @@ float dBase(vec3 p)
 
 inline float DistanceFunction(float3 pos)
 {
-    float d = dBase(pos -2.0);
+    float d = dBase(pos);
     return d;
 }
 
