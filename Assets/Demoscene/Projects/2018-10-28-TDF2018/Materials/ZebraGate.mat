@@ -28,11 +28,14 @@ Material:
     - _ShadowExtraBias: 0.033
     - _ShadowLoop: 9.3
     - _ShadowMinDistance: 0.0152
+    - _ZebraBeatInvert: 0
+    - _ZebraBeatSpeed: 0
     - _ZebraSminK: 0.1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _FogColor: {r: 1, g: 1, b: 1, a: 0}
-    - _Specular: {r: 0.44375992, g: 0, b: 1, a: 0}
+    - _Specular: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0.3764706}
     - _ZebraTranslate: {r: 0, g: 0.1, b: 0, a: 0}
+    - _ZebraXYZSpeed: {r: 6, g: 6, b: 1, a: 0}

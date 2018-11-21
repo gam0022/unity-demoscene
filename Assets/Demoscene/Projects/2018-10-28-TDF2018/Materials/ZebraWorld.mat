@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _FogIntensity: 0.003
+    - _FogIntensity: 0.002
     - _FogPower: 2
     - _Glossiness: 0.558
     - _Loop: 100
@@ -37,7 +37,7 @@ Material:
     - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _FogColor: {r: 1, g: 1, b: 1, a: 0}
-    - _Specular: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0.3764706}
+    - _Specular: {r: 1, g: 0.9103774, b: 0.99486905, a: 0.24313726}
     - _TmpDiff: {r: -1.96, g: 0.09, b: -0.99, a: 0}
     - _ZebraTranslate: {r: 0.04, g: 0.65, b: 0, a: 0}
     - _ZebraXYZSpeed: {r: 6, g: -6, b: 1, a: 0}

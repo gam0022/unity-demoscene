@@ -15,6 +15,8 @@ MonoBehaviour:
   - {fileID: 114395680472160622}
   - {fileID: 114800300164943306}
   - {fileID: 114317101880055128}
+  - {fileID: 114589039515538326}
+  - {fileID: 114377255914169846}
 --- !u!114 &114317101880055128
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -58,6 +60,27 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
+--- !u!114 &114377255914169846
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  shutterAngle:
+    overrideState: 1
+    value: 103
+  sampleCount:
+    overrideState: 1
+    value: 10
 --- !u!114 &114395680472160622
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -75,22 +98,22 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2.46
+    value: 10.1
   threshold:
     overrideState: 1
-    value: 0.84
+    value: 1.04
   softKnee:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 1
   clamp:
-    overrideState: 0
+    overrideState: 1
     value: 65472
   diffusion:
-    overrideState: 0
-    value: 7
+    overrideState: 1
+    value: 10
   anamorphicRatio:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.431
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -99,9 +122,34 @@ MonoBehaviour:
     value: 0
   dirtTexture:
     overrideState: 0
-    value: {fileID: 0}
+    value: {fileID: 2800000, guid: 723753318dba7ab4eb68cfc0b10e71cd, type: 3}
     defaultState: 1
   dirtIntensity:
+    overrideState: 0
+    value: 11.6
+--- !u!114 &114589039515538326
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  spectralLut:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  intensity:
+    overrideState: 1
+    value: 0.2
+  fastMode:
     overrideState: 0
     value: 0
 --- !u!114 &114800300164943306
