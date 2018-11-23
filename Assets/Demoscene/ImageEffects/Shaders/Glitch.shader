@@ -3,9 +3,13 @@ Shader "Demoscene/ImageEffect/TDF2018/Glitch"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _DispTex ("Base (RGB)", 2D) = "bump" {}
-        _Intensity("Intensity", Range(0, 1)) = 1
-        _ColorIntensity("Color Bleed Intensity", Range(0.1, 1.0)) = 0.2
+        _Always("_Always", Range(0.0, 1.0)) = 1.0
+        _GlitchUvIntensity("Glitch Uv Intensity", Range(0.0, 1.0)) = 0.1
+        _DistortionIntensity("_DistortionIntensity", Range(0.0, 1.0)) = 0.1
+        _RgbShiftIntensity("Rgb Shift Intensity", Range(0.0, 1.0)) = 0.1
+        _NoiseIntensity("Noise Intensity", Range(0.0, 1.0)) = 0.1
+
+        _BlendColor("Blend Color", Color) = (0.0, 0.0, 0.0, 0.0)
     }
     SubShader
     {
@@ -44,27 +48,46 @@ Shader "Demoscene/ImageEffect/TDF2018/Glitch"
             float _Beat;
 
             uniform sampler2D _MainTex;
-            uniform sampler2D _DispTex;
-            float _Intensity;
-            float _ColorIntensity;
 
-            fixed4 direction;
+            float _Always;
+            float _GlitchUvIntensity;
+            float _DistortionIntensity;
+            float _RgbShiftIntensity;
+            float _NoiseIntensity;
+            fixed4 _BlendColor;
 
             fixed4 frag (v2f i) : SV_Target
             {
+                half3 col;
                 half2 uv = i.uv;
-                uv += _Intensity * sin(PI2 * _Beat) * (1.0 - 2.0 * hash23(vec3(floor(half2(uv.x * 32.0, uv.y * 32.0)), _Beat)));
-                uv.x += _Intensity * sin(uv.y * 4.0 + _Beat);
 
-                //fixed4 color = tex2D(_MainTex, uv);
+                float vibration = saturate(cos(0.0 * _Beat) * cos(_Beat * PI2));
+                vibration = mix(vibration, 1.0, _Always);
 
-                float angle = 0.5;
-                half2 offset = 0.01 * half2(cos(angle), sin(angle));
+                // grid hash
+                float2 hash = hash23(float3(floor(half2(uv.x * 32.0, uv.y * 32.0)), _Beat));
+
+                // uv shift
+                uv += _GlitchUvIntensity * vibration * (1.0 - 2.0 * hash);
+
+                // distortion
+                uv.x += _DistortionIntensity * vibration * sin(uv.y * 4.0 + _Beat);
+
+                // rgb shift
+                float angle = hash.x * PI2;
+                half2 offset = _RgbShiftIntensity * vibration * half2(cos(angle), sin(angle));
                 fixed4 cr = tex2D(_MainTex, uv - offset);
                 fixed4 cg = tex2D(_MainTex, uv);
                 fixed4 cb = tex2D(_MainTex, uv + offset);
+                col = half3(cr.r, cg.g, cb.b);
 
-                return fixed4(cr.r, cg.g, cb.b, 1.0);
+                // noise
+                col +=_NoiseIntensity * vibration * hash12(float2(i.uv.y * 20.0, _Beat));
+
+                // alpha blend
+                col = mix(col, _BlendColor.rgb, _BlendColor.a);
+
+                return fixed4(col, cg.a);
             }
             ENDCG
         }
