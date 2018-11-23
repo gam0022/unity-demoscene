@@ -17,6 +17,25 @@ MonoBehaviour:
   - {fileID: 114317101880055128}
   - {fileID: 114589039515538326}
   - {fileID: 114377255914169846}
+  - {fileID: 114057158105774010}
+--- !u!114 &114057158105774010
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590687cfa1187174483d037727252cc2, type: 3}
+  m_Name: Glitch
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 0
+    value: 0.5
 --- !u!114 &114317101880055128
 MonoBehaviour:
   m_ObjectHideFlags: 3
