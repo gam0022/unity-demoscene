@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 34080123}
   - component: {fileID: 34080122}
   m_Layer: 0
-  m_Name: GateZebra
+  m_Name: ZebraGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,7 +397,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118348730}
-  m_LocalRotation: {x: 0.15118003, y: 0.10298825, z: 0.015839044, w: -0.9829991}
+  m_LocalRotation: {x: 0.15118004, y: 0.10298822, z: 0.015839022, w: -0.9829991}
   m_LocalPosition: {x: 0.25, y: -0.38, z: -1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -543,7 +543,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 342782830}
-  m_LocalRotation: {x: 0.052994277, y: -0.1036105, z: 0.0055284267, w: 0.9931898}
+  m_LocalRotation: {x: 0.052994277, y: -0.1036105, z: 0.005528427, w: 0.9931898}
   m_LocalPosition: {x: 0.54, y: 0.28, z: -2.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -933,7 +933,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 598585126}
-  m_LocalRotation: {x: 0.18657571, y: 0.32359385, z: -0.06524733, w: 0.9253212}
+  m_LocalRotation: {x: 0.1865757, y: 0.32359385, z: -0.06524735, w: 0.9253212}
   m_LocalPosition: {x: -2.55, y: 1.72, z: -3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1491,7 +1491,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 36
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1515,8 +1515,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1262182776}
-  m_LocalRotation: {x: 0.052994326, y: -0.1036106, z: 0.005528426, w: 1}
-  m_LocalPosition: {x: 0.54, y: 0.28, z: 84.01085}
+  m_LocalRotation: {x: 0.020600297, y: -0.104176775, z: 0.002158281, w: 1}
+  m_LocalPosition: {x: 0.25, y: 0.05, z: -1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1473178967}
@@ -1650,9 +1650,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: ce0b48d5c53dd594681ce26f76b04d5d, type: 2}
   always: 0
-  glitchUvIntensity: 0.0048
-  distortionIntensity: 0.0083
-  rgbShiftIntensity: 0.0126
+  glitchUvIntensity: 0
+  distortionIntensity: 0
+  rgbShiftIntensity: 0
   noiseIntensity: 0
   blendColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &1334764422
@@ -1713,7 +1713,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334764422}
-  m_LocalRotation: {x: -0.0049720737, y: 0.99075997, z: 0.03785158, w: 0.13014331}
+  m_LocalRotation: {x: -0.004972078, y: 0.99075997, z: 0.03785157, w: 0.1301433}
   m_LocalPosition: {x: -0.27, y: -0.08, z: 1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2245,7 +2245,7 @@ GameObject:
   - component: {fileID: 1663316848}
   - component: {fileID: 1663316851}
   m_Layer: 0
-  m_Name: WorldTunel
+  m_Name: TunelWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2447,7 +2447,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1745426942}
-  m_LocalRotation: {x: 0.020600302, y: -0.104176775, z: 0.0021582816, w: 0.9943431}
+  m_LocalRotation: {x: 0.020600278, y: -0.10417677, z: 0.0021582774, w: 0.99434316}
   m_LocalPosition: {x: 0.25, y: 0.05, z: -1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2481,7 +2481,7 @@ GameObject:
   - component: {fileID: 1963860289}
   - component: {fileID: 1963860292}
   m_Layer: 0
-  m_Name: WorldZebra
+  m_Name: ZebraWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
