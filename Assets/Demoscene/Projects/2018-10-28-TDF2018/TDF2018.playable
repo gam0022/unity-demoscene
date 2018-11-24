@@ -3605,25 +3605,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -4353,7 +4335,7 @@ MonoBehaviour:
   m_Name: MovieRecorderSettings
   m_EditorClassIdentifier: 
   enabled: 1
-  take: 8
+  take: 11
   captureEveryNthFrame: 1
   fileNameGenerator:
     m_Path:
@@ -5037,7 +5019,7 @@ MonoBehaviour:
   m_Script: {fileID: -1977359656, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
   m_Name: AudioPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: 1cf1be6dc09d90148abb16f5b250d20b, type: 3}
+  m_Clip: {fileID: 8300000, guid: 6b18f0537cdb0f4479247165267060e3, type: 3}
   m_Loop: 1
   m_bufferingTime: 0.1
 --- !u!114 &114594052497813210
@@ -5412,7 +5394,7 @@ MonoBehaviour:
   m_Name: Recorder Track
   m_EditorClassIdentifier: 
   m_Locked: 0
-  m_Muted: 0
+  m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 114788357105335290}
@@ -5421,7 +5403,7 @@ MonoBehaviour:
   - m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 114901591803278926}
-    m_Duration: 82.75
+    m_Duration: 130
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114875720332945308}
     m_EaseInDuration: 0
