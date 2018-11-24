@@ -26,7 +26,7 @@ Material:
     - _FogPower: 2
     - _Loop: 100
     - _MengerFold: 8
-    - _MengerScale: 9.43
+    - _MengerScale: 2.23
     - _MengerTwistZ: 0
     - _MinDistance: 0.01
     - _ShadowExtraBias: 0.01
@@ -35,8 +35,8 @@ Material:
     m_Colors:
     - _Diffuse: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.19607843}
     - _Emission: {r: 0, g: 1.4281734, b: 3.9533494, a: 1}
-    - _EmissionHsv: {r: 0.6, g: 1, b: 1, a: 2}
+    - _EmissionHsv: {r: 0.6, g: 0.5, b: 1, a: 1.56}
     - _Fog: {r: 0, g: 0, b: 0, a: 0}
     - _FogColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MengerOffset: {r: 1.54, g: 1.89, b: 0.77, a: 0}
+    - _MengerOffset: {r: 1.54, g: 2.46, b: 2.32, a: 0}
     - _Specular: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0.8235294}
