@@ -11,6 +11,8 @@ namespace Demoscene.ImageEffect
         readonly int distortionIntensityId = Shader.PropertyToID("_DistortionIntensity");
         readonly int rgbShiftIntensityId = Shader.PropertyToID("_RgbShiftIntensity");
         readonly int noiseIntensityId = Shader.PropertyToID("_NoiseIntensity");
+        readonly int flashSpeedId = Shader.PropertyToID("_FlashSpeed");
+        readonly int flashColorID = Shader.PropertyToID("_FlashColor");
         readonly int blendColorId = Shader.PropertyToID("_BlendColor");
 
         [SerializeField] Material material;
@@ -19,6 +21,8 @@ namespace Demoscene.ImageEffect
         [SerializeField, Range(0, 0.2f)] float distortionIntensity;
         [SerializeField, Range(0, 0.2f)] float rgbShiftIntensity;
         [SerializeField, Range(0, 0.2f)] float noiseIntensity;
+        [SerializeField, Range(0, 100f)] float flashSpeed;
+        [SerializeField] Color flashColor = Color.clear;
         [SerializeField] Color blendColor = Color.clear;
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
@@ -28,6 +32,8 @@ namespace Demoscene.ImageEffect
             material.SetFloat(distortionIntensityId, distortionIntensity);
             material.SetFloat(rgbShiftIntensityId, rgbShiftIntensity);
             material.SetFloat(noiseIntensityId, noiseIntensity);
+            material.SetFloat(flashSpeedId, flashSpeed);
+            material.SetColor(flashColorID, flashColor);
             material.SetColor(blendColorId, blendColor);
 
             Graphics.Blit(source, destination, material);

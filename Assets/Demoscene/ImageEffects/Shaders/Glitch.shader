@@ -8,7 +8,8 @@ Shader "Demoscene/ImageEffect/TDF2018/Glitch"
         _DistortionIntensity("_DistortionIntensity", Range(0.0, 1.0)) = 0.1
         _RgbShiftIntensity("Rgb Shift Intensity", Range(0.0, 1.0)) = 0.1
         _NoiseIntensity("Noise Intensity", Range(0.0, 1.0)) = 0.1
-
+        _FlashSpeed("Flash Speed", Range(0.0, 100.0)) = 0.0
+        _FlashColor("Flash Color", Color) = (0.0, 0.0, 0.0, 0.0)
         _BlendColor("Blend Color", Color) = (0.0, 0.0, 0.0, 0.0)
     }
     SubShader
@@ -54,6 +55,8 @@ Shader "Demoscene/ImageEffect/TDF2018/Glitch"
             float _DistortionIntensity;
             float _RgbShiftIntensity;
             float _NoiseIntensity;
+            float _FlashSpeed;
+            fixed4 _FlashColor;
             fixed4 _BlendColor;
 
             fixed4 frag (v2f i) : SV_Target
@@ -83,6 +86,9 @@ Shader "Demoscene/ImageEffect/TDF2018/Glitch"
 
                 // noise
                 col +=_NoiseIntensity * vibration * hash12(float2(i.uv.y * 20.0, _Beat));
+
+                // flash
+                col = mix(col, _FlashColor.rgb, _FlashColor.a * saturate(sin(PI2 * _Beat * _FlashSpeed)));
 
                 // alpha blend
                 col = mix(col, _BlendColor.rgb, _BlendColor.a);
