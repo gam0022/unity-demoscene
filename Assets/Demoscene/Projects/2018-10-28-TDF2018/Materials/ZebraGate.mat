@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _FogIntensity: 0.003
+    - _FogIntensity: 0
     - _FogPower: 2
     - _Glossiness: 0.558
     - _Loop: 100

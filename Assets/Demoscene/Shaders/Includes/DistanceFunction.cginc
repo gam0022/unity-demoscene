@@ -8,6 +8,10 @@
 // primitives
 //
 
+inline float dSphere(float3 pos, float radius) {
+    return length(pos) - radius;
+}
+
 float dPlane(vec3 p, float y) {
     return length(vec3(p.x, y, p.z) - p);
 }
