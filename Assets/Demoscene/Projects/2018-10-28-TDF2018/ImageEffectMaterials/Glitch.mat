@@ -77,7 +77,7 @@ Material:
     - _NoiseIntensity: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RgbShiftIntensity: 0.0069
+    - _RgbShiftIntensity: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
