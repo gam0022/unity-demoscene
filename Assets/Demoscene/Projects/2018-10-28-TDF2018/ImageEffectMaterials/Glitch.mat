@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Always: 1
+    - _Always: 0
     - _BlendIntensity: 0
     - _BumpScale: 1
     - _ColorIntensity: 0.899
