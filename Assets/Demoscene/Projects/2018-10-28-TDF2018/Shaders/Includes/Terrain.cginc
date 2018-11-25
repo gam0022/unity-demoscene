@@ -22,9 +22,7 @@ sampler2D _Noise256Tex;
 
 // 2d noise function
 float texNoise(vec2 p) {
-  return tex2Dlod(_Noise256Tex,
-                  float4(p * vec2(1. / 256., 1. / 256.), 0.0, 0.0))
-      .x;
+  return tex2Dlod(_Noise256Tex, float4(p * vec2(1. / 256., 1. / 256.), 0.0, 0.0)).x;
 }
 
 // 3d noise function
