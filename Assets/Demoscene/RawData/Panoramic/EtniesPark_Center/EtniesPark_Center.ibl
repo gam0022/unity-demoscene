@@ -1,0 +1,46 @@
+[Header]
+ICOfile = "Etnies_Park_Center_thumb.jpg"
+PREVIEWfile = "Etnies_Park_Center_preview.jpg"
+Name = "EtniesPark Center"
+Author = "Blochi"
+Location = "Los Angeles"
+Comment = "Outdoor skatepark, all concrete, bright daylight"
+GEOlat = 33.67089436047317
+GEOlong = -117.66007125377655
+Link = "http://www.hdrlabs.com/sibl/archive.html"
+Date = "2007:10:12"
+Time = "15:06:00"
+Height = 1.5
+North = 0.85
+
+[Background]
+BGfile = "Etnies_Park_Center_8k.jpg"
+BGmap = 1
+BGu = 0.000000
+BGv = 0.000000
+BGheight = 4000
+
+[Enviroment]
+EVfile = "Etnies_Park_Center_Env.hdr"
+EVmap = 1
+EVu = 0.000000
+EVv = 0.000000
+EVheight = 180
+EVmulti = 1.000000
+EVgamma = 1.600000
+
+[Reflection]
+REFfile = "Etnies_Park_Center_3k.hdr"
+REFmap = 1
+REFu = 0.000000
+REFv = 0.000000
+REFheight = 1600
+REFmulti = 1.000000
+REFgamma = 1.800000
+
+[Sun]
+SUNcolor = 255,254,252
+SUNmulti = 1.200000
+SUNu = 0.407813
+SUNv = 0.234375
+
