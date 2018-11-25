@@ -1,0 +1,51 @@
++------------------------------------------------------+
+   _____                      _     _____ ____  _      
+  / ____|                    | |   |_   _|  _ \| |     
+ | (___  _ __ ___   __ _ _ __| |_    | | | |_) | |     
+  \___ \| '_ ` _ \ / _` | '__| __|   | | |  _ <| |     
+  ____) | | | | | | (_| | |  | |_   _| |_| |_) | |____ 
+ |_____/|_| |_| |_|\__,_|_|   \__| |_____|____/|______|
+                         
+         _____ _______ _______ __   _ _______ _______
+  |        |   |       |______ | \  | |______ |______
+  |_____ __|__ |_____  |______ |  \_| ______| |______
+                                                    
++------------------------------------------------------+
+
+ These sIBL-sets and all images therein are licensed 
+ under the Creative Commons Attribution 3.0 License.
+
+ You are free:
+  - to Share: to copy, distribute and transmit the work
+  - to Remix: to adapt the work
+
+ Under the following condition:
+  - Attribution: You must attribute the work as 
+    "Lit using Smart IBL from HDRLabs.com/sibl".
+
+ Further license details here: 
+     http://creativecommons.org/licenses/by/3.0/
+
++------------------------------------------------------+
+
+ We are actively looking for volunteer developers, who
+ have the time and abilitiess to adapt the Smart IBL 
+ plugins to Cinema 4D, Blender, Houdini. Join the club!
+
++------------------------------------------------------+
+
+          Get more sIBL sets like these at:
+          www.hdrlabs.com/sibl/archive.html
+
++------------------------------------------------------+
+
+ If you want to learn how to shoot your own HDRI panos
+               you should get my book:
+
+                www.hdri-handbook.com
+
+
+
+					Christian Bloch
+					www.HDRLabs.com
+
