@@ -4492,15 +4492,15 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: CM vcam11
     m_Version: 1
-  - m_Start: 66
+  - m_Start: 62
     m_ClipIn: 0
     m_Asset: {fileID: 114933153903845946}
-    m_Duration: 11.099999999999994
+    m_Duration: 15.099999999999994
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114070397429917760}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 4
+    m_BlendInDuration: 8
     m_BlendOutDuration: 3.0999999999999943
     m_MixInCurve:
       serializedVersion: 2
@@ -4570,7 +4570,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 4
+    m_BlendOutDuration: 8
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -5207,7 +5207,7 @@ MonoBehaviour:
   m_Name: MovieRecorderSettings
   m_EditorClassIdentifier: 
   enabled: 1
-  take: 12
+  take: 13
   captureEveryNthFrame: 1
   fileNameGenerator:
     m_Path:
@@ -5574,10 +5574,10 @@ MonoBehaviour:
   m_Parent: {fileID: 11400000}
   m_Children: []
   m_Clips:
-  - m_Start: 0.11666666666666667
+  - m_Start: 2
     m_ClipIn: 1.7227891156462558
     m_Asset: {fileID: 114336611148056646}
-    m_Duration: 132.93333333333334
+    m_Duration: 128
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114343346436512350}
     m_EaseInDuration: 0
