@@ -5,12 +5,6 @@
 
 float _Beat;
 
-// https://www.shadertoy.com/view/MsfGzr
-float dBase(vec3 p)
-{
-	return cos(p.x) + cos(p.y) + cos(p.z) + cos(p.y * 20.0) * 0.0;
-}
-
 half4 _FogColor;
 float _FogIntensity;
 float _FogPower;
@@ -19,9 +13,8 @@ float _TERRAINBeatSpeed = 1.0;
 float _TERRAINBeatInvert = 0.0;
 float4 _TERRAINXYZSpeed = float4(0.0, 6.0, 0.0, 0.0);
 
-sampler2D _Terrain1Tex;
-sampler2D _Terrain2Tex;
-
+/*
+//
 float hash(vec2 p) { return fract(1e4 * sin(17.0 * p.x + p.y * 0.1) * (0.1 + abs(sin(p.y * 13.0 + p.x)))); }
 float noise(vec2 x) {
 	vec2 i = floor(x), f = fract(x);
@@ -43,7 +36,11 @@ float fbm(vec2 p) {
 	f += 0.0625 * noise(p);
 	return f / 0.9375;
 }
+*/
 
+/*
+sampler2D _Terrain1Tex;
+sampler2D _Terrain2Tex;
 
 // https://www.shadertoy.com/view/MdBGzG
 float terrain( in vec2 q ) {
@@ -67,10 +64,11 @@ vec4 map( in vec3 p )
 	dis *= 3.0;
 	return vec4((dis + p.y - h) * 0.25, p.x, h, 0.0);
 }
+*/
 
 float DistanceFunction(float3 pos)
 {
-    return map(pos).x;
+    return dPlane(pos, -3.0);
 }
 
 inline float3 calcNormal(float3 pos, float d)
@@ -83,8 +81,8 @@ inline float3 calcNormal(float3 pos, float d)
 
 inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
 {
-    float snow = saturate(dot(vec3(0.0, 1.0, 0.0), calcNormal(ray.endPos, 0.01)));
-    o.diffuse.rgb = lerp(o.diffuse.rgb, vec3(1.0, 0.0, 0.0), snow);
+    //float snow = saturate(dot(vec3(0.0, 1.0, 0.0), calcNormal(ray.endPos, 0.01)));
+    //o.diffuse.rgb = lerp(o.diffuse.rgb, vec3(1.0, 0.0, 0.0), snow);
 
     //float fog = saturate(_FogIntensity * pow(ray.totalLength, _FogPower));
     //bcol = 0.7*mix( vec3(0.2,0.5,1.0)*0.82, bcol, 0.15+0.8*sun );
@@ -93,29 +91,6 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
     o.diffuse = lerp(o.diffuse, _FogColor, fog);
     o.specular = lerp(o.specular, _FogColor, fog);
     o.emission = lerp(o.emission, _FogColor, fog);
-
-    return;
-
-    if (abs(DistanceFunction(ray.endPos)) > 10.0) {
-        vec3 sunnySky = vec3(0.4, 0.55, 0.8);
-        vec3 cloud = vec3(1.0, 0.95, 1.0);
-        vec3 base = sunnySky * (1.0 - 0.8 * ray.rayDir.y) * 0.9;
-
-        // Sun
-        //vec3 lightDir = vec3( -0.48666426339228763, 0.8111071056538127, -0.3244428422615251 );
-        //float sundot = saturate(dot(ray.rayDir, lightDir));
-        //base += 0.25 * vec3(1.0, 0.7, 0.4) * pow(sundot, 8.0);
-        //base += 0.75 * vec3(1.0, 0.8, 0.5) * pow(sundot, 64.0);
-
-        // Clouds
-        float rd = ray.rayDir.y + 0.3;
-        o.emission.rgb = mix(base, cloud, 0.5 * smoothstep(0.5, 0.8, fbm((ray.startPos.xz + ray.rayDir.xz * (250000.0 - ray.startPos.y) / rd) * 0.000008)));
-        o.emission.rgb = mix((1.0).xxx, vec3(0.7, 0.75, 0.8), pow(1.0 - max(rd, 0.0), 4.0));
-        o.emission.rgb *= 0.2;
-        o.emission.a = 0.0;
-
-        //o.emission.rgb = vec3(1.0, 0.0, 0.0);
-    }
 }
 
 #endif
