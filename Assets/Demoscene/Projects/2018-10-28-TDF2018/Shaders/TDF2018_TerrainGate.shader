@@ -26,8 +26,7 @@ Properties
     [Toggle]_TerrainBeatInvert("Beat Invert", Float) = 0.0
     _TerrainXYZSpeed("XYZ Speed", Vector) = (0.0, 6.0, 0.0, 0.0)
 
-    _Terrain1Tex ("Texture", 2D) = "white" {}
-    _Terrain2Tex ("Texture", 2D) = "white" {}
+    _Noise256Tex ("Noise 256", 2D) = "white" {}
 // @endblock
 }
 
