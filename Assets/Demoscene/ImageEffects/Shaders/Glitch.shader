@@ -48,7 +48,7 @@ Shader "Demoscene/ImageEffect/TDF2018/Glitch"
 
             float _Beat;
 
-            uniform sampler2D _MainTex;
+            sampler2D _MainTex;
 
             float _Always;
             float _GlitchUvIntensity;

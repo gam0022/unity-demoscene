@@ -47,13 +47,15 @@ inline bool _ShouldRaymarchFinish(RaymarchInfo ray)
     return false;
 }
 
-inline bool _Raymarch(inout RaymarchInfo ray)
+bool _Raymarch(inout RaymarchInfo ray)
 {
     ray.endPos = ray.startPos;
     ray.lastDistance = 0.0;
     ray.totalLength = 0.0;
 
-    for (ray.loop = 0; ray.loop < ray.maxLoop; ++ray.loop) {
+    [unroll(100)]
+    //for (ray.loop = 0; ray.loop < ray.maxLoop; ++ray.loop) {
+    for (ray.loop = 0; ray.loop < 256; ++ray.loop) {
         ray.lastDistance = _DistanceFunction(ray.endPos);
         ray.totalLength += ray.lastDistance;
         ray.endPos += ray.rayDir * ray.lastDistance;

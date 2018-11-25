@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Skybox
-  m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _SUNDISK_HIGH_QUALITY
+  m_Shader: {fileID: 4800000, guid: de045ebab700c1245995ce2155902d1e, type: 3}
+  m_ShaderKeywords: _MAPPING_LATITUDE_LONGITUDE_LAYOUT _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -17,19 +17,33 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AtmosphereThickness: 1.06
-    - _Exponent1: 1
-    - _Exponent2: 1
+    - _AtmosphereThickness: 1.61
+    - _Exponent1: 7.45
+    - _Exponent2: 4.14
     - _Exposure: 1
+    - _ImageType: 0
     - _Intensity: 1
+    - _Layout: 0
+    - _Mapping: 1
+    - _MirrorOnBack: 0
+    - _Rotation: 0
     - _SunDisk: 2
     - _SunSize: 0.06
-    - _SunSizeConvergence: 4.04
+    - _SunSizeConvergence: 5.06
     m_Colors:
-    - _Color1: {r: 0, g: 0, b: 0, a: 0}
-    - _Color2: {r: 0, g: 0, b: 0, a: 0}
+    - _Color1: {r: 0, g: 0.6505251, b: 1, a: 0}
+    - _Color2: {r: 0.5235849, g: 0.84087, b: 1, a: 0}
     - _Color3: {r: 0, g: 0, b: 0, a: 0}
     - _GroundColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
     - _SkyTint: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

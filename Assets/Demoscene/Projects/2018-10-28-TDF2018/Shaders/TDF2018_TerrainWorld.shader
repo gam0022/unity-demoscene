@@ -9,7 +9,7 @@ Properties
     _Emission("Emission", Color) = (0.0, 0.0, 0.0, 0.0)
 
     [Header(Raymarching Settings)]
-    _Loop("Loop", Range(1, 100)) = 30
+    _Loop("Loop", Range(1, 256)) = 30
     _MinDistance("Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowLoop("Shadow Loop", Range(1, 100)) = 10
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
@@ -25,6 +25,9 @@ Properties
     _TerrainBeatSpeed("Beat Speed", Range(-1.0, 1.0)) = 0.0
     [Toggle]_TerrainBeatInvert("Beat Invert", Float) = 0.0
     _TerrainXYZSpeed("XYZ Speed", Vector) = (0.0, 6.0, 0.0, 0.0)
+
+    _Terrain1Tex ("Texture", 2D) = "white" {}
+    _Terrain2Tex ("Texture", 2D) = "white" {}
 // @endblock
 }
 
@@ -82,6 +85,8 @@ Pass
     #pragma multi_compile_prepassfinal
     #pragma multi_compile ___ UNITY_HDR_ON
     #pragma multi_compile OBJECT_SHAPE_CUBE OBJECT_SHAPE_SPHERE ___
+    #pragma exclude_renderers d3d11_9x
+    #pragma exclude_renderers d3d9
     ENDCG
 }
 
@@ -97,6 +102,8 @@ Pass
     #pragma fragmentoption ARB_precision_hint_fastest
     #pragma multi_compile_shadowcaster
     #pragma multi_compile OBJECT_SHAPE_CUBE OBJECT_SHAPE_SPHERE ___
+    #pragma exclude_renderers d3d11_9x
+    #pragma exclude_renderers d3d9
     ENDCG
 }
 
