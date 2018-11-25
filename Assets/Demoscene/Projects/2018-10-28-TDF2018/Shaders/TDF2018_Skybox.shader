@@ -14,6 +14,7 @@
     CGINCLUDE
 
     #include "UnityCG.cginc"
+    #include "Lighting.cginc"
     #include "Assets/Demoscene/Shaders/Includes/Common.cginc"
 
     struct appdata
@@ -46,7 +47,9 @@
         return o;
     }
 
-    float hash(vec2 p) { return fract(1e4 * sin(17.0 * p.x + p.y * 0.1) * (0.1 + abs(sin(p.y * 13.0 + p.x)))); }
+    float hash(vec2 p) {
+        return fract(1e4 * sin(17.0 * p.x + p.y * 0.1) * (0.1 + abs(sin(p.y * 13.0 + p.x))));
+    }
 
     float noise(vec2 x) {
         vec2 i = floor(x), f = fract(x);
@@ -71,7 +74,6 @@
 
     half4 frag (v2f i) : COLOR
     {
-        vec3 lightDir = vec3( -0.48666426339228763, 0.8111071056538127, -0.3244428422615251 );
         vec3 rd = normalize(i.texcoord);
         half4 color = (1.0).xxxx;
 
@@ -83,9 +85,9 @@
         vec3 base = (_Color1 * p1 + _Color2 * p2 + _Color3 * p3);
 
 		// Sun
-		float sundot = saturate(dot(rd, lightDir));
-		base += 0.25 * vec3(1.0, 0.7, 0.4) * pow(sundot, 8.0);
-		base += 0.75 * vec3(1.0, 0.8, 0.5) * pow(sundot, 64.0);
+		float sundot = saturate(dot(rd, _WorldSpaceLightPos0.xyz));
+		base += 0.25 * vec3(1.0, 0.7, 0.4) * pow(sundot, 16.0);
+		base += 0.75 * vec3(1.0, 0.8, 0.5) * pow(sundot, 128.0);
 
 		// Clouds
 		vec3 rdo = rd.y + 0.3;
