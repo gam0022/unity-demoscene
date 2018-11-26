@@ -4,9 +4,9 @@ using TMPro;
 namespace Demoscene
 {
     [TrackColor(0.855f, 0.8623f, 0.87f)]
-    [TrackClipType(typeof(TextMehProSwitcherClip))]
+    [TrackClipType(typeof(TextMeshProSwitcherClip))]
     [TrackBindingType(typeof(TextMeshProUGUI))]
-    public class TextMehProSwitcherTrack : DemoTrackBase<TextMehProSwitcherMixer>
+    public class TextMeshProSwitcherTrack : DemoTrackBase<TextMeshProSwitcherMixer>
     {
     }
 }

@@ -4,7 +4,7 @@ using TMPro;
 
 namespace Demoscene
 {
-    public class TextMehProSwitcherMixer : DemoMixerBase<TextMehProSwitcherBehaviour, TextMeshProUGUI>
+    public class TextMeshProSwitcherMixer : DemoMixerBase<TextMeshProSwitcherBehaviour, TextMeshProUGUI>
     {
         float maxWeight;
         Color color;
@@ -20,7 +20,7 @@ namespace Demoscene
         }
 
         protected override void Process(Playable playable, FrameData info, TextMeshProUGUI component,
-            ScriptPlayable<TextMehProSwitcherBehaviour> input, float weight, int inputPort)
+            ScriptPlayable<TextMeshProSwitcherBehaviour> input, float weight, int inputPort)
         {
             var clip = input.GetBehaviour().Clip;
 
