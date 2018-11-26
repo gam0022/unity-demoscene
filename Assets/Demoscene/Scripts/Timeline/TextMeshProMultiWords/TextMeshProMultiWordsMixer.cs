@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEngine;
 using UnityEngine.Playables;
 
 namespace Demoscene
@@ -7,6 +8,7 @@ namespace Demoscene
     {
         float maxWeight;
         float time;
+        int bpm;
         string[] words;
 
         protected override void PreProcess(Playable playable, FrameData info, TextMeshPro component)
@@ -25,6 +27,7 @@ namespace Demoscene
             {
                 maxWeight = weight;
                 time = (float) input.GetTime();
+                bpm = clip.bpm;
                 words = clip.words;
             }
         }
@@ -33,7 +36,15 @@ namespace Demoscene
         {
             if (words.Length > 0)
             {
-                component.text = words[0];
+                component.transform.gameObject.SetActive(true);
+
+                var beat = time * bpm / 60;
+                var index = Mathf.Clamp((int) beat, 0, words.Length - 1);
+                component.text = words[index];
+            }
+            else
+            {
+                component.transform.gameObject.SetActive(false);
             }
         }
     }

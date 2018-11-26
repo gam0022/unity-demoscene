@@ -65,7 +65,7 @@ Material:
     - _ColorIntensity: 0.899
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistortionIntensity: 0.0062016076
+    - _DistortionIntensity: 0
     - _DstBlend: 0
     - _FlashSpeed: 0
     - _GlitchUvIntensity: 0
