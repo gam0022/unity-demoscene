@@ -4,8 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Demoscene/Projects/2018-10-28-TDF2018/TDF2018.unity
-    guid: 091b42d5993f1ac4091dad405d3331e8
-  m_configObjects: {}
+  m_Scenes: []
