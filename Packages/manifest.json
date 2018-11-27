@@ -1,7 +1,8 @@
 {
   "dependencies": {
+    "com.unity.cinemachine": "2.2.7",
     "com.unity.package-manager-ui": "1.9.11",
-    "com.unity.postprocessing": "2.0.10-preview",
+    "com.unity.postprocessing": "2.1.0",
     "com.unity.progrids": "3.0.3-preview.0",
     "com.unity.textmeshpro": "1.2.4",
     "com.unity.modules.ai": "1.0.0",

@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 00000000000000000000000000000000
+  productGUID: 5f833150c70c591468e11a34abdf8110
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -728,7 +728,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: 81edf92f-e30c-4264-afb3-34a49ead59ed
-  projectName: EffectsExamples
+  projectName: unity-demoscene
   organizationId: sho-hosoda
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
