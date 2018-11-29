@@ -53,9 +53,8 @@ bool _Raymarch(inout RaymarchInfo ray)
     ray.lastDistance = 0.0;
     ray.totalLength = 0.0;
 
-    [unroll(100)]
+    [loop]
     for (ray.loop = 0; ray.loop < ray.maxLoop; ++ray.loop) {
-    //for (ray.loop = 0; ray.loop < 256; ++ray.loop) {
         ray.lastDistance = _DistanceFunction(ray.endPos);
         ray.totalLength += ray.lastDistance;
         ray.endPos += ray.rayDir * ray.lastDistance;
