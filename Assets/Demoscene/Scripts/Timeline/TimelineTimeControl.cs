@@ -20,5 +20,9 @@ public class TimelineTimeControl : MonoBehaviour, ITimeControl
 
     public void OnControlTimeStop()
     {
+#if !UNITY_EDITOR
+        Application.Quit();
+#endif
     }
+
 }
