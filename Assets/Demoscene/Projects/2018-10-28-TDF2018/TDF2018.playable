@@ -6888,7 +6888,7 @@ MonoBehaviour:
   m_Name: MovieRecorderSettings
   m_EditorClassIdentifier: 
   enabled: 1
-  take: 20
+  take: 21
   captureEveryNthFrame: 1
   fileNameGenerator:
     m_Path:
@@ -7637,7 +7637,7 @@ MonoBehaviour:
   - Ctrl-Alt-Test
   - system_k
   - edo_m18
-  - iq
+  - RGBA & TBC
   - gyabo
   - gaz
   - soma_arc
@@ -7647,14 +7647,14 @@ MonoBehaviour:
   - nyamadandan
   - mtm
   - Pheema
-  - c5h12
+  - CNCD & Fairlight
   - tomohiro
   - Ohoooo
   - TYA-PA-
   - shuto_fms
   - setchi
   - kaneta
-  - zoc
+  - 0x4015 & YET1
 --- !u!114 &114413807804085936
 MonoBehaviour:
   m_ObjectHideFlags: 1
