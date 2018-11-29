@@ -20,11 +20,6 @@ sampler2D _Noise256Tex;
 //  return fract(cos(n)*41415.92653);
 //}
 
-// 2d noise function
-float texNoise(vec2 p) {
-  return tex2Dlod(_Noise256Tex, float4(p * vec2(1. / 256., 1. / 256.), 0.0, 0.0)).x;
-}
-
 // 3d noise function
 // float noise( in vec3 x )
 //{
@@ -62,6 +57,11 @@ float texNoise(vec2 p) {
 #define wavegain 1.0
 #define large_waveheight 1.0
 #define small_waveheight 1.0
+
+// 2d noise function
+float texNoise(vec2 p) {
+  return tex2Dlod(_Noise256Tex, float4(p * vec2(1. / 256., 1. / 256.), 0.0, 0.0)).x;
+}
 
 //// Fractional Brownian motion
 float fbm(vec2 p) {
@@ -200,15 +200,15 @@ inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o) {
                      water(wpos.xz - ydiff) - water(wpos.xz + ydiff))));
 
   o.normal.rgb = normal;
-  // o.diffuse.rgb = normal;
-  // o.specular.rgb = normal;
 
-  // o.specular.r = abs(water(ray.endPos.xz)) < 0.0000001 ? 1.0 : 0.0;
-
-  // float fog = 1.0 - exp(-0.02 * ray.lastDistance);
-  // o.diffuse = lerp(o.diffuse, _FogColor, fog);
-  // o.specular = lerp(o.specular, _FogColor, fog);
-  // o.emission = lerp(o.emission, _FogColor, fog);
+  //float fog = pow(1.0 + _FogIntensity * ray.rayDir.y, _FogPower);
+  //float fog = saturate(1.0 - exp(-_FogIntensity * ray.totalLength));
+  //float fog = saturate(_FogIntensity * pow(dot(o.normal.rgb, vec3(0, 1, 0)), _FogPower));
+  //float fog = saturate(_FogIntensity * pow(ray.totalLength, _FogPower));
+  float fog = 1.0 - exp( -_FogIntensity * pow(ray.totalLength, _FogPower));
+  //o.diffuse.rgb = lerp(o.diffuse.rgb, _FogColor.rgb, fog);
+  //o.specular.rgb = lerp(o.specular.rgb, _FogColor.rgb, fog);
+  o.emission = lerp(o.emission, _FogColor, fog);
 }
 
 #endif

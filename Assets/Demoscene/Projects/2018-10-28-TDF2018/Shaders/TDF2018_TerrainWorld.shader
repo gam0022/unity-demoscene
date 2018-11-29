@@ -19,7 +19,7 @@ Properties
     [Header(Fog)]
     _FogColor("Color", Color) = (1.0, 1.0, 1.0, 0.0)
     _FogPower("Power", Range(0.0, 5.0)) = 2.0
-    _FogIntensity("Intensity", Range(0.0, 1.0)) = 0.01
+    _FogIntensity("Intensity", Range(0.0, 0.01)) = 0.01
 
     [Header(Terrain)]
     _TerrainBeatSpeed("Beat Speed", Range(-1.0, 1.0)) = 0.0
