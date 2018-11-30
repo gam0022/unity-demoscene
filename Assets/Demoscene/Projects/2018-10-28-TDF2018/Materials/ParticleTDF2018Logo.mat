@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ParticleTDF
+  m_Name: ParticleTDF2018Logo
   m_Shader: {fileID: 4800000, guid: 5b7f84d66151c7846b6ab624fe286dde, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -74,5 +74,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0, g: 0, b: 0, a: 1}
+    - _Color2: {r: 16, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _TarCol: {r: 1, g: 0, b: 0, a: 1}

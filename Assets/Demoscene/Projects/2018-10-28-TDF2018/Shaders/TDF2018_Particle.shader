@@ -3,8 +3,8 @@
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
-        _Color1("Target Color", Color) = (1,1,1,1)
-        _Color2("Target Color", Color) = (1,0,0,1)
+        [HDR]_Color1("Target Color", Color) = (1,1,1,1)
+        [HDR]_Color2("Target Color", Color) = (1,0,0,1)
     }
     SubShader
     {
