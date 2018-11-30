@@ -2,9 +2,9 @@
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
-        _MaxRotAng ("Max Rotation Angle Per Frame", Float) = 12
-        _TarCol ("Target Color", Color) = (1,0,0,1)
+        _MainTex("Texture", 2D) = "white" {}
+        _Color1("Target Color", Color) = (1,1,1,1)
+        _Color2("Target Color", Color) = (1,0,0,1)
     }
     SubShader
     {
@@ -31,10 +31,13 @@
                 float4 vertex : SV_POSITION;
                 fixed4 color : COLOR;
             };
+
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float _MaxRotAng;
-            fixed4 _TarCol;
+
+            float4 _Color1;
+            float4 _Color2;
+
             float _Beat;
 
             v2f vert (appdata v)
@@ -42,9 +45,10 @@
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                float rate = 0.5 + 0.5 * sin(PI2 * 4 * v.uv.w);
-                rate = v.uv.w > 0.666 ? 1.0 : 0.0;
-                o.color = lerp(fixed4(0.1,0.1,0.1,1), _TarCol, rate );
+
+                float rate = v.uv.w > 0.666 ? 1.0 : 0.0;
+                o.color = lerp(_Color1, _Color2, rate );
+
                 return o;
             }
 
@@ -64,7 +68,7 @@
                 float alpha = saturate(-100.0 * d);
                 if (alpha < 0.001) discard;
 
-                return fixed4(i.color.rgb, alpha * 0.8);
+                return fixed4(i.color.rgb, i.color.a * alpha * 0.8);
             }
             ENDCG
         }
