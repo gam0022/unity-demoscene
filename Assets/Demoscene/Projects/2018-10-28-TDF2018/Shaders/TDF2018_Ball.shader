@@ -15,6 +15,9 @@ Properties
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
+    [Header(Ball)]
+    _PlaneRate("Plane Rate",  Range(0.0, 1.0)) = 0.0
+
 // @block Properties
 // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
 // @endblock
@@ -45,12 +48,35 @@ CGINCLUDE
 // @block DistanceFunction
 float _Beat;
 
+float _PlaneRate;
+
 inline float DistanceFunction(float3 pos)
 {
     float r = 0.05;
     //r += 0.04 * exp(-8.0 * frac(_Beat + 0.01));
     //r += 0.05 * pow(1.0 + sin(_Beat * PI2), 4.0);
-    return Sphere(pos, r);
+    float sphere = Sphere(pos, r);
+
+    float3 plane_offset = float3(0, 0.0, 0.0);
+
+    float fbm = 0.2 * cos(PI2 * _Beat / 6) + 0.01 * cos(4.0 * _Beat) + 0.0025 * cos(16.0 * _Beat);
+    pos.xy = mul(pos.xy, rotate(fbm));
+
+    float nz = pos.z + 0.5;
+    float w = 0.03 * abs(sin(0.5 + 2.8 * nz));
+    float3 body_size = float3(w, w, 0.4);
+    float body = sdBox(pos - float3(0.0, -0.08 * nz, 0.0) - plane_offset, body_size);
+
+    float3 wing_size = float3(0.3, 0.01 * cos(abs(6.0 * pos.x)), 0.2 * cos(abs(5.0 * pos.x)));
+    float wing = sdBox(pos - float3(0.0, -0.06, -0.1 - 0.9 * abs(pos.x)) - plane_offset, wing_size);
+
+    float3 vwing_size = float3(0.005, 0.1 - 0.3 * nz, 0.1);
+    float vwing = sdBox(pos - float3(0.0, 0.06, -0.3) - plane_offset, vwing_size);
+
+    float plane = sminCubic(body, wing, 0.2);
+    plane = sminCubic(plane, vwing, 0.2);
+
+    return mix(sphere, plane, _PlaneRate);
 }
 // @endblock
 
