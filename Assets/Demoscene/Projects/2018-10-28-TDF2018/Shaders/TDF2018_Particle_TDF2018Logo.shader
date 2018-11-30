@@ -1,4 +1,4 @@
-﻿Shader "Particles/TDF2018"
+﻿Shader "Particles/TDF2018_TDF2018Logo"
 {
     Properties
     {
