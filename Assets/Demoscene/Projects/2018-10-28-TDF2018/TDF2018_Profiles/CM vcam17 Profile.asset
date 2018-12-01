@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: CM vcam16 Profile
+  m_Name: CM vcam17 Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 114922164916477094}
-  - {fileID: 114567406371795256}
---- !u!114 &114567406371795256
+  - {fileID: 114182107320401940}
+  - {fileID: 114055900075850148}
+--- !u!114 &114055900075850148
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
---- !u!114 &114922164916477094
+--- !u!114 &114182107320401940
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1
+    value: 2
   threshold:
     overrideState: 1
     value: 1

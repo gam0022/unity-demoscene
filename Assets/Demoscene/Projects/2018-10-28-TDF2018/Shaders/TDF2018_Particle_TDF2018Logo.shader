@@ -11,6 +11,9 @@
         Tags { "RenderType" = "Transparent" "Queue"="Transparent" }
         Blend SrcAlpha OneMinusSrcAlpha
 
+        // Reflection Probeがバグったのでコメントアウト
+        // Cull Off
+
         Pass
         {
             CGPROGRAM
