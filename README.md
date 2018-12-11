@@ -25,3 +25,8 @@ Unityを使ったデモ制作に挑戦したプロジェクトです。
 [![lava](screen_shots/lava.jpg)](screen_shots/lava.jpg)
 
 - [Twitter](https://twitter.com/gam0022/status/1017560330338107393)
+
+## WORMHOLE
+
+- 動画: [WORMHOLE by gam0022 & sadakkey | 1st Place at TokyoDemoFest 2018 (PC Demo) | YouTUbe](https://youtu.be/k5MotEfghjQ)
+- 解説記事: [TokyoDemoFest 2018のDemo Compo優勝作品の解説（グラフィック編） | gam0022.net](https://gam0022.net/blog/2018/12/12/tdf2018/)
