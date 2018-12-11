@@ -1,6 +1,6 @@
 # Unity Demoscene
 
-[デモシーン](https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%A2%E3%82%B7%E3%83%BC%E3%83%B3)界隈では、美しいCGアニメーションをリアルタイムに生成するプログラムを「デモ」と呼びます。
+[デモシーン](https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%A2%E3%82%B7%E3%83%BC%E3%83%B3)の世界では、美しいCGアニメーションをリアルタイムに生成するプログラムを「デモ」と呼びます。
 
 Unityを使ったデモ制作に挑戦したプロジェクトです。
 
@@ -27,6 +27,8 @@ Unityを使ったデモ制作に挑戦したプロジェクトです。
 - [Twitter](https://twitter.com/gam0022/status/1017560330338107393)
 
 ## WORMHOLE
+
+[![wormhole](screen_shots/wormhole.jpg)](screen_shots/wormhole.jpg)
 
 - 動画: [WORMHOLE by gam0022 & sadakkey | 1st Place at TokyoDemoFest 2018 (PC Demo) | YouTUbe](https://youtu.be/k5MotEfghjQ)
 - 解説記事: [TokyoDemoFest 2018のDemo Compo優勝作品の解説（グラフィック編） | gam0022.net](https://gam0022.net/blog/2018/12/12/tdf2018/)
