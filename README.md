@@ -4,6 +4,15 @@
 
 Unityを使ったデモ制作に挑戦したプロジェクトです。
 
+## Setup
+
+```
+git clone https://github.com/gam0022/unity-demoscene.git
+cd unity-demoscene
+git submodule init
+git submodule update
+```
+
 ## THE GLOW
 
 「レイマーチングで動的に生成したモデル」と「ポリゴンメッシュのモデル」を混在させた作品です。
