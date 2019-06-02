@@ -121,7 +121,7 @@ inline float DistanceFunction(float3 pos) {
     //pos.xy = mul(pos.xy, rotate(pos.z * _MengerTwistZ));
 
     // 回転foldの適用
-    //pos.yx = foldRotate(pos.yx, _MengerFold);
+    pos.yx = foldRotate(pos.yx, _MengerFold);
 
     return dMenger(pos, _MengerOffset, _MengerScale);
 }

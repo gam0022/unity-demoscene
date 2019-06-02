@@ -36,10 +36,39 @@ MonoBehaviour:
     value: 0
   blocks:
   - key: Properties
-    value: // _Color2("Color2", Color) = (1.0, 1.0, 1.0, 1.0)
+    value: "    [Header(Fog)]\n    _FogColor(\"Color\", Color) = (0.0, 0.0, 0.0, 0.0)\n
+      \   _FogPower(\"Power\", Range(0.0, 5.0)) = 2.0\n    _FogIntensity(\"Intensity\",
+      Range(0.0, 1.0)) = 0.02\n\n    [Header(Menger)]\n    _MengerScale(\"Scale\",
+      Range(0, 10)) = 2.46\n    _MengerOffset(\"Offset\", Vector) = (0.785,1.1,0.46)\n
+      \   //[MaterialToggle] _Bcolor(\"Bcolor\", Float) = 0.0\n    _MengerFold(\"Fold\",
+      Range(0, 20)) = 8.0\n    _MengerTwistZ(\"Twist Z\", Range(-1.0, 1.0)) = 0.0\n\n
+      \   [Header(Emissive)]\n    _EmissionHsv(\"HSV\", Vector) = (0.0, 1.0, 1.0,
+      2.0)\n    _EmissionHueShiftZ(\"Hue Shift Z\", Range(0.0, 10.0)) = 0.0\n    _EmissionHueShiftXY(\"Hue
+      Shift XY\", Range(0.0, 10.0)) = 0.0\n    _EmissionHueShiftBeat(\"Hue Shift Beat\",
+      Range(0.0, 10.0)) = 0.0"
     folded: 0
   - key: DistanceFunction
-    value: "inline float DistanceFunction(float3 pos)\n{\n    return Sphere(pos, 0.5);\n}"
+    value: "#define PI2 6.28318530718\n\nfloat _Beat;\n\nfloat3 _MengerOffset;\nfloat
+      _MengerScale;\nfloat _MengerFold;\nfloat _MengerTwistZ;\n\nhalf4 _FogColor;\nfloat
+      _FogIntensity;\nfloat _FogPower;\n\nhalf4 _EmissionHsv;\nfloat _EmissionHueShiftZ;\nfloat
+      _EmissionHueShiftXY;\nfloat _EmissionHueShiftBeat;\n\n// Menger sponge\u306E\u8DDD\u96E2\u95A2\u6570\u306E\u5B9A\u7FA9\nfloat
+      dMenger(float3 z0, float3 offset, float scale) {\n    float4 z = float4(z0,
+      1.0);\n    for (int n = 0; n < 4; n++) {\n        z = abs(z);\n\n        if
+      (z.x < z.y) z.xy = z.yx;\n        if (z.x < z.z) z.xz = z.zx;\n        if (z.y
+      < z.z) z.yz = z.zy;\n\n        z *= scale;\n        z.xyz -= offset * (scale
+      - 1.0);\n\n        if (z.z < -0.5 * offset.z * (scale - 1.0))\n            z.z
+      += offset.z * (scale - 1.0);\n    }\n    return (length(max(abs(z.xyz) - float3(1.0,
+      1.0, 1.0), 0.0)) - 0.05) / z.w;\n}\n\n// 2D\u306E\u56DE\u8EE2\u884C\u5217\u306E\u751F\u6210\nfloat2x2
+      rotate(in float a) {\n    float s = sin(a), c = cos(a);\n    return float2x2(c,
+      s, -s, c);\n}\n\n// \u56DE\u8EE2 fold\n// https://www.shadertoy.com/view/Mlf3Wj\nfloat2
+      foldRotate(in float2 p, in float s) {\n    float a = PI / s - atan2(p.x, p.y);\n
+      \   float n = PI2 / s;\n    a = floor(a / n) * n;\n    p = mul(rotate(a), p);\n
+      \   return p;\n}\n\ninline float DistanceFunction(float3 pos) {\n    //pos -=
+      float3(2.0, 2.0, 2.0);\n\n    // mod\u3092\u3064\u304B\u3063\u305F\u56F3\u5F62\u306E\u7E70\u308A\u8FD4\u3057\n
+      \   //pos = Repeat(pos, 4.0);\n\n    // Z\u5EA7\u6A19\u306B\u5FDC\u3058\u305F\u56DE\u8EE2\n
+      \   //pos.xy = mul(pos.xy, rotate(pos.z * _MengerTwistZ));\n\n    // \u56DE\u8EE2fold\u306E\u9069\u7528\n
+      \   pos.yx = foldRotate(pos.yx, _MengerFold);\n\n    return dMenger(pos, _MengerOffset,
+      _MengerScale);\n}"
     folded: 0
   - key: PostEffect
     value: 'inline void PostEffect(RaymarchInfo ray, inout PostEffectOutput o)
