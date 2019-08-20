@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Tunel
-  m_Shader: {fileID: 4800000, guid: ea06084bcf93a0f47823c715ea202b55, type: 3}
+  m_Name: MandelBox
+  m_Shader: {fileID: 4800000, guid: 01eb0bb7db6d246439e5791fc09c62a3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -24,17 +24,17 @@ Material:
     - _EmissionHueShiftZ: 0
     - _FogIntensity: 0.02
     - _FogPower: 2.28
-    - _Loop: 100
+    - _Loop: 81
     - _MengerFold: 4.91
-    - _MengerRepeat: 12.15
-    - _MengerScale: 2.36
+    - _MengerRepeat: 20
+    - _MengerScale: 2.71
     - _MengerTwistZ: 0
-    - _MinDistance: 0.001
+    - _MinDistance: 0.0034
     - _ShadowExtraBias: 0.01
-    - _ShadowLoop: 10
-    - _ShadowMinDistance: 0.01
+    - _ShadowLoop: 1.7
+    - _ShadowMinDistance: 0.001
     m_Colors:
-    - _Diffuse: {r: 1, g: 1, b: 1, a: 0}
+    - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionHsv: {r: 1, g: 1, b: 1, a: 2}
     - _FogColor: {r: 0, g: 0, b: 0, a: 0}

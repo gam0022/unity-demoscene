@@ -1,4 +1,4 @@
-Shader "Raymarching/Tunel"
+Shader "Raymarching/MandelBox"
 {
 
 Properties
@@ -9,30 +9,16 @@ Properties
     _Emission("Emission", Color) = (0.0, 0.0, 0.0, 0.0)
 
     [Header(Raymarching Settings)]
-    _Loop("Loop", Range(1, 100)) = 30
-    _MinDistance("Minimum Distance", Range(0.001, 0.1)) = 0.01
+    _Loop("Loop", Range(1, 500)) = 30
+    [PowerSlider(10.0)]_MinDistance("Minimum Distance", Range(0.0001, 0.1)) = 0.01
     _ShadowLoop("Shadow Loop", Range(1, 100)) = 10
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
 
 // @block Properties
-    [Header(Fog)]
-    _FogColor("Color", Color) = (0.0, 0.0, 0.0, 0.0)
-    _FogPower("Power", Range(0.0, 5.0)) = 2.0
-    _FogIntensity("Intensity", Range(0.0, 1.0)) = 0.02
-
     [Header(Menger)]
-    _MengerScale("Scale", Range(0, 10)) = 2.46
-    _MengerOffset("Offset", Vector) = (0.785,1.1,0.46)
-    //[MaterialToggle] _Bcolor("Bcolor", Float) = 0.0
-    _MengerFold("Fold", Range(0, 20)) = 8.0
-    _MengerTwistZ("Twist Z", Range(-1.0, 1.0)) = 0.0
-
-    [Header(Emissive)]
-    _EmissionHsv("HSV", Vector) = (0.0, 1.0, 1.0, 2.0)
-    _EmissionHueShiftZ("Hue Shift Z", Range(0.0, 10.0)) = 0.0
-    _EmissionHueShiftXY("Hue Shift XY", Range(0.0, 10.0)) = 0.0
-    _EmissionHueShiftBeat("Hue Shift Beat", Range(0.0, 10.0)) = 0.0
+    _MengerScale("Scale", Range(-4, 4)) = 2.7
+    _MengerRepeat("Repeat", Range(0, 20)) = 12
 // @endblock
 }
 
@@ -62,37 +48,20 @@ CGINCLUDE
 
 float _Beat;
 
-float3 _MengerOffset;
 float _MengerScale;
-float _MengerFold;
-float _MengerTwistZ;
-
-half4 _FogColor;
-float _FogIntensity;
-float _FogPower;
-
-half4 _EmissionHsv;
-float _EmissionHueShiftZ;
-float _EmissionHueShiftXY;
-float _EmissionHueShiftBeat;
+float _MengerRepeat;
 
 // Menger spongeの距離関数の定義
-float dMenger(float3 z0, float3 offset, float scale) {
-    float4 z = float4(z0, 1.0);
-    for (int n = 0; n < 4; n++) {
-        z = abs(z);
+float dMandel(float3 p, float scale, int n) {
+    float4 q0 = float4 (p, 1.);
+    float4 q = q0;
 
-        if (z.x < z.y) z.xy = z.yx;
-        if (z.x < z.z) z.xz = z.zx;
-        if (z.y < z.z) z.yz = z.zy;
-
-        z *= scale;
-        z.xyz -= offset * (scale - 1.0);
-
-        if (z.z < -0.5 * offset.z * (scale - 1.0))
-            z.z += offset.z * (scale - 1.0);
+    for ( int i = 0; i < n; i++ ) {
+        q.xyz = clamp( q.xyz, -1.0, 1.0 ) * 2.0 - q.xyz;
+        q = q * scale / clamp( dot( q.xyz, q.xyz ), 0.5, 1.0 ) + q0;
     }
-    return (length(max(abs(z.xyz) - float3(1.0, 1.0, 1.0), 0.0)) - 0.05) / z.w;
+
+    return length( q.xyz ) / abs( q.w );
 }
 
 // 2Dの回転行列の生成
@@ -123,7 +92,7 @@ inline float DistanceFunction(float3 pos) {
     // 回転foldの適用
     //pos.yx = foldRotate(pos.yx, _MengerFold);
 
-    return dMenger(pos, _MengerOffset, _MengerScale);
+    return dMandel(pos, _MengerScale, _MengerRepeat);
 }
 // @endblock
 
