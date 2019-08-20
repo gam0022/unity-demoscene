@@ -14,6 +14,7 @@ Properties
     _ShadowLoop("Shadow Loop", Range(1, 100)) = 10
     _ShadowMinDistance("Shadow Minimum Distance", Range(0.001, 0.1)) = 0.01
     _ShadowExtraBias("Shadow Extra Bias", Range(0.0, 1.0)) = 0.01
+    _HitScale("HIt Scale", Range(1, 10000)) = 10
 
 // @block Properties
     [Header(Menger)]
@@ -36,11 +37,13 @@ Cull Off
 CGINCLUDE
 
 #define WORLD_SPACE
+#define _HIT_SCALE_ON
 
 #define DISTANCE_FUNCTION DistanceFunction
 #define POST_EFFECT PostEffect
 #define PostEffectOutput GBufferOut
 
+float _HitScale;
 #include "Assets/uRaymarching/Shaders/Include/Common.cginc"
 
 // @block DistanceFunction

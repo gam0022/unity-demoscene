@@ -61,7 +61,11 @@ bool _Raymarch(inout RaymarchInfo ray)
         if (_ShouldRaymarchFinish(ray)) break;
     }
 
+#ifdef _HIT_SCALE_ON
+    return ray.lastDistance < ray.minDistance * _HitScale;
+#else
     return ray.lastDistance < ray.minDistance;
+#endif
 }
 
 void Raymarch(inout RaymarchInfo ray)
